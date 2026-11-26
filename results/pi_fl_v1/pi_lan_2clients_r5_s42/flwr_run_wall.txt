@@ -1,0 +1,1 @@
+flwr_run_rc=0 wall_s=60.589727324

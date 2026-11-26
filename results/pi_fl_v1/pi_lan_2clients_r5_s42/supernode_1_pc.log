@@ -1,0 +1,79 @@
+[92mINFO [0m:      Starting Flower SuperNode
+INFO:     Started server process [11121]
+INFO:     Waiting for application startup.
+[92mINFO [0m:      FastAPI lifespan: startup
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://127.0.0.1:9095 (Press CTRL+C to quit)
+[92mINFO [0m:      SuperNode ID: 5761526934956921810
+╭────────────────── Update available ───────────────────╮
+│ A newer Flower version is available: 1.40.0 -> 1.45.0 │
+│ Upgrade: python -m pip install -U flwr                │
+╰───────────────────────────────────────────────────────╯
+[92mINFO [0m:      Starting Flower SuperExec
+[92mINFO [0m:      
+[92mINFO [0m:      [RUN 12037541427688421101]
+[92mINFO [0m:      Receiving: query.identity message (ID: 256ffb382d3dacb5c57f0412d1299677f88ee6b21b3a38355c6d62431cffa9b9)
+[92mINFO [0m:      Received successfully
+[92mINFO [0m:      Start `flwr-clientapp` process
+Successfully installed seniorproject-pi-prepared to /home/mozen/.flwr/apps/seniorproject.seniorproject-pi-prepared.0.1.0.13fd3825.
+[92mINFO [0m:      
+[92mINFO [0m:      
+[92mINFO [0m:      [RUN 12037541427688421101]
+[92mINFO [0m:      Sending: query.identity message (ID: 52d37e1371836f9b85de60cdad778fb038139a0155009fe5e858d7443abc438b)
+[92mINFO [0m:      Sent successfully
+[92mINFO [0m:      
+[92mINFO [0m:      [RUN 12037541427688421101]
+[92mINFO [0m:      Receiving: train message (ID: 5b32eff012d6787c312ba2142bddd1acbea02d2527b3b663942982642419e9b9)
+[92mINFO [0m:      Received successfully
+[92mINFO [0m:      Start `flwr-clientapp` process
+[92mINFO [0m:      
+[92mINFO [0m:      
+[92mINFO [0m:      [RUN 12037541427688421101]
+[92mINFO [0m:      Sending: train message (ID: 235a240f4ae813401c188af7dbccbdaa9bcf04182443df83b43f326aa851563e)
+[92mINFO [0m:      Sent successfully
+[92mINFO [0m:      
+[92mINFO [0m:      [RUN 12037541427688421101]
+[92mINFO [0m:      Receiving: train message (ID: c04de5c238172413c83196385bf18f8b0eee6172c579a675f0c83f1c49024a42)
+[92mINFO [0m:      Received successfully
+[92mINFO [0m:      Start `flwr-clientapp` process
+[92mINFO [0m:      
+[92mINFO [0m:      [RUN 12037541427688421101]
+[92mINFO [0m:      Sending: train message (ID: 09b078419f4b3d7df241a598ee01158f656b7881e0d694a8ede47a40d803b070)
+[92mINFO [0m:      
+[92mINFO [0m:      Sent successfully
+[92mINFO [0m:      
+[92mINFO [0m:      [RUN 12037541427688421101]
+[92mINFO [0m:      Receiving: train message (ID: 4db64956f82df27ee117f705af0b97dbc129c9a2b7680d29fa1755a8a051f46c)
+[92mINFO [0m:      Received successfully
+[92mINFO [0m:      Start `flwr-clientapp` process
+[92mINFO [0m:      
+[92mINFO [0m:      
+[92mINFO [0m:      [RUN 12037541427688421101]
+[92mINFO [0m:      Sending: train message (ID: 9eb74435e4235f2099a3e6bbdfb1183ddefdf84166934663582e2c85f5367dfb)
+[92mINFO [0m:      Sent successfully
+[92mINFO [0m:      
+[92mINFO [0m:      [RUN 12037541427688421101]
+[92mINFO [0m:      Receiving: train message (ID: 1d38529fd8a6512c7619ad3e8d19d0de782e61727f330b204a0d33b25bb00648)
+[92mINFO [0m:      Received successfully
+[92mINFO [0m:      Start `flwr-clientapp` process
+[92mINFO [0m:      
+[92mINFO [0m:      
+[92mINFO [0m:      [RUN 12037541427688421101]
+[92mINFO [0m:      Sending: train message (ID: ceb58078638a406daeb13728fd17c40fbd9fd63c993a866680aba559b18f187e)
+[92mINFO [0m:      Sent successfully
+[92mINFO [0m:      
+[92mINFO [0m:      [RUN 12037541427688421101]
+[92mINFO [0m:      Receiving: train message (ID: 0a696d42f444fe03d23a7ae9b545e4ba64e38fb685c959b9173b40b33b6b438b)
+[92mINFO [0m:      Received successfully
+[92mINFO [0m:      Start `flwr-clientapp` process
+[92mINFO [0m:      
+[92mINFO [0m:      
+[92mINFO [0m:      [RUN 12037541427688421101]
+[92mINFO [0m:      Sending: train message (ID: e18e0f417a3d8fd2390cf163c96aa3e0ad7e0b863f7d837260ffdc3a803a0e93)
+[92mINFO [0m:      Sent successfully
+[92mINFO [0m:      SuperNode terminated gracefully.
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+[92mINFO [0m:      FastAPI lifespan: shutdown
+INFO:     Application shutdown complete.
+INFO:     Finished server process [11121]

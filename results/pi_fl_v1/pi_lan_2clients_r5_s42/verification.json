@@ -1,0 +1,31 @@
+{
+  "experiment_id": "pi_lan_2clients_r5_s42",
+  "checks": {
+    "rounds_completed": true,
+    "updates": true,
+    "aggregation_weights_sum_to_1_each_round": true,
+    "aggregation_max_abs_error_lt_1e-6": true,
+    "client_identities": true,
+    "model_outputs_84": true
+  },
+  "passed": true,
+  "rounds": 5,
+  "client_updates": 10,
+  "client_samples": {
+    "1": 4491,
+    "2": 4490
+  },
+  "uplink_bytes_total": 386740,
+  "downlink_bytes_total": 386740,
+  "client_training_seconds_median_by_client": {
+    "1": 0.7249638209998466,
+    "2": 1.5178629820002243
+  },
+  "client_rss_mb_median_by_client": {
+    "1": 427.15625,
+    "2": 444.125
+  },
+  "training_wall_seconds": 45.56189055899995,
+  "model_sha256": "495803cf4fcf9e0c5ec468802ee521b0d37d815e910953b1bc8b90351747a695",
+  "note": "Hardware identity is taken from each device's own log-dir JSON (platform string); a run is Pi-verified only if those logs show an aarch64 Raspberry Pi."
+}

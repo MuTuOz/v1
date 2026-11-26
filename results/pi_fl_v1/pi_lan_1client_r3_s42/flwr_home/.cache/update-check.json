@@ -1,0 +1,1 @@
+{"package_name": "flwr", "flwr_version": "1.40.0", "update_available": true, "last_checked_at": "2026-11-26T13:51:44.553608+00:00", "message": "A newer Flower version is available: 1.40.0 -> 1.45.0\nUpgrade: python -m pip install -U flwr", "latest_version": "1.45.0", "upgrade_hint": "python -m pip install -U flwr", "last_shown_at": "2026-11-26T13:51:46.031710+00:00"}

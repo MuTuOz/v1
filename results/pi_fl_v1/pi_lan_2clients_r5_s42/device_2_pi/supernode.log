@@ -1,0 +1,77 @@
+[92mINFO [0m:      Starting Flower SuperNode
+INFO:     Started server process [3247]
+INFO:     Waiting for application startup.
+[92mINFO [0m:      FastAPI lifespan: startup
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://127.0.0.1:9094 (Press CTRL+C to quit)
+[92mINFO [0m:      SuperNode ID: 1753094867055286900
+[92mINFO [0m:      Starting Flower SuperExec
+[92mINFO [0m:      
+[92mINFO [0m:      [RUN 12037541427688421101]
+[92mINFO [0m:      Receiving: query.identity message (ID: 05e7bd053532e40435dd81df986bd28a86e654b2afef110816ce74ff0caa0dcf)
+[92mINFO [0m:      Received successfully
+[92mINFO [0m:      Start `flwr-clientapp` process
+[92mINFO [0m:      
+[92mINFO [0m:      
+[92mINFO [0m:      [RUN 12037541427688421101]
+[92mINFO [0m:      Sending: query.identity message (ID: 72c91a3cc142f5c03cab9787f05b2a206ecfd18f6d6d6f2fafd76032c2df62da)
+[92mINFO [0m:      Sent successfully
+[92mINFO [0m:      
+[92mINFO [0m:      [RUN 12037541427688421101]
+[92mINFO [0m:      Receiving: train message (ID: 0bc8541c504324d4b4b45dec8d5c8fb8194d6469d3232d43e7bec475876fa2fe)
+[92mINFO [0m:      Received successfully
+[92mINFO [0m:      Start `flwr-clientapp` process
+[92mINFO [0m:      
+[92mINFO [0m:      
+[92mINFO [0m:      [RUN 12037541427688421101]
+[92mINFO [0m:      Sending: train message (ID: 17d7ea95e23e1b34abb76bf6b4969e041b37d5ae206dff88feb55ffccaebb2e4)
+[92mINFO [0m:      Sent successfully
+[92mINFO [0m:      
+[92mINFO [0m:      [RUN 12037541427688421101]
+[92mINFO [0m:      Receiving: train message (ID: 5aa15065cbed642034df2a4c61954af5fc5cca6fa97aab5139e50ba18aed8011)
+[92mINFO [0m:      Received successfully
+[92mINFO [0m:      Start `flwr-clientapp` process
+[92mINFO [0m:      
+[92mINFO [0m:      
+[92mINFO [0m:      [RUN 12037541427688421101]
+[92mINFO [0m:      Sending: train message (ID: bafee943b4ad2e10c2fa7cf138bb5a32f7b379b594c0cb56c6023488fa59abc0)
+[92mINFO [0m:      Sent successfully
+[92mINFO [0m:      
+[92mINFO [0m:      [RUN 12037541427688421101]
+[92mINFO [0m:      Receiving: train message (ID: 8a1058a87030c388485f4de217c9c0f8ef0c5db51a15502f717ff8ca0a551b27)
+[92mINFO [0m:      Received successfully
+[92mINFO [0m:      Start `flwr-clientapp` process
+[92mINFO [0m:      
+[92mINFO [0m:      
+[92mINFO [0m:      [RUN 12037541427688421101]
+[92mINFO [0m:      Sending: train message (ID: 1ce6a9d359143f5dd2d62b5ce46d939b9da62797fce3f81c6c6199ada113e435)
+[92mINFO [0m:      Sent successfully
+[92mINFO [0m:      
+[92mINFO [0m:      [RUN 12037541427688421101]
+[92mINFO [0m:      Receiving: train message (ID: f57d63948f6ecce30e0ba92bc4f6ee67be45c4d7ac86557e0c937d010a57f50b)
+[92mINFO [0m:      Received successfully
+[92mINFO [0m:      Start `flwr-clientapp` process
+[92mINFO [0m:      
+[92mINFO [0m:      
+[92mINFO [0m:      [RUN 12037541427688421101]
+[92mINFO [0m:      Sending: train message (ID: c9b00e94736767c8fc0a12050cebc64bafeb5b926688713fc03d5697135cc8cb)
+[92mINFO [0m:      Sent successfully
+[92mINFO [0m:      
+[92mINFO [0m:      [RUN 12037541427688421101]
+[92mINFO [0m:      Receiving: train message (ID: 71071c94ff48df4a698f5084adc672fdff89d43d94734208137f502cc8ea8ac7)
+[92mINFO [0m:      Received successfully
+[92mINFO [0m:      Start `flwr-clientapp` process
+[92mINFO [0m:      
+[92mINFO [0m:      
+[92mINFO [0m:      [RUN 12037541427688421101]
+[92mINFO [0m:      Sending: train message (ID: 2e7cc8d3308fbfe99ef2d7955ed3e731dd4f9f0f1f53068720d218d6a7142372)
+[92mINFO [0m:      Sent successfully
+[92mINFO [0m:      SuperNode terminated gracefully.
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+[92mINFO [0m:      FastAPI lifespan: shutdown
+INFO:     Application shutdown complete.
+INFO:     Finished server process [3247]
+[93mWARNING [0m:   Connection attempt failed, retrying in 0.29 seconds
+[93mWARNING [0m:   Connection attempt failed, retrying in 1.62 seconds
+[92mINFO [0m:      SuperExec terminated gracefully.
