@@ -1,0 +1,31 @@
+Flower App configuration warnings in '/home/user/v1/hardware_deployment/app/pyproject.toml':
+- Recommended property "description" missing in [project]
+- Recommended property "license" missing in [project]
+Using SuperLink: pilab (127.0.0.1:9092)
+Successfully started run 10075653900039619662
+[92mINFO [0m:      Starting logstream for run_id `10075653900039619662`
+[92mINFO [0m:      Start `flwr-serverapp` process
+Successfully installed seniorproject-pi-prepared to /home/user/v1/results/pi_fl_v1/lanip_check_2clients_r3_s42/flwr_home/apps/seniorproject.seniorproject-pi-prepared.0.1.0.13fd3825.
+[91mERROR [0m:     ServerApp raised an exception
+Traceback (most recent call last):
+  File "/tmp/claude-0/-home-user-v1/659ca8f4-af06-5924-90a1-67fc2d4e71c0/scratchpad/venv/lib/python3.13/site-packages/flwr/superlink/runtime/run_serverapp.py", line 221, in run_serverapp
+    context = run_(
+        grid=grid,
+    ...<2 lines>...
+        context=context,
+    )
+  File "/tmp/claude-0/-home-user-v1/659ca8f4-af06-5924-90a1-67fc2d4e71c0/scratchpad/venv/lib/python3.13/site-packages/flwr/server/run_serverapp.py", line 60, in run
+    server_app(grid=grid, context=context)
+    ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/tmp/claude-0/-home-user-v1/659ca8f4-af06-5924-90a1-67fc2d4e71c0/scratchpad/venv/lib/python3.13/site-packages/flwr/serverapp/server_app.py", line 176, in __call__
+    self._main(grid, context)
+    ~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "/home/user/v1/results/pi_fl_v1/lanip_check_2clients_r3_s42/flwr_home/apps/seniorproject.seniorproject-pi-prepared.0.1.0.13fd3825/pifl/server_app.py", line 72, in main
+    if time.monotonic()>deadline:raise TimeoutError('Clients unavailable')
+                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TimeoutError: Clients unavailable
+[91mERROR [0m:     Exit Code: 201
+
+An unhandled exception occurred in the ServerApp.
+
+For more information, visit: <https://flower.ai/docs/framework/1.40/en/ref-exit-codes/201.html>

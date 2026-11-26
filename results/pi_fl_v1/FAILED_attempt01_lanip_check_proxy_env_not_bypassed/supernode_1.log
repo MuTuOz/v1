@@ -1,0 +1,60 @@
+[92mINFO [0m:      Starting Flower SuperNode
+INFO:     Started server process [12227]
+INFO:     Waiting for application startup.
+[92mINFO [0m:      FastAPI lifespan: startup
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://127.0.0.1:9094 (Press CTRL+C to quit)
+[92mINFO [0m:      Starting Flower SuperExec
+[93mWARNING [0m:   Connection attempt failed, retrying in 0.25 seconds
+[93mWARNING [0m:   Connection attempt failed, retrying in 0.19 seconds
+[93mWARNING [0m:   Connection attempt failed, retrying in 1.37 seconds
+[93mWARNING [0m:   Connection attempt failed, retrying in 0.42 seconds
+[93mWARNING [0m:   Connection attempt failed, retrying in 3.31 seconds
+[93mWARNING [0m:   Connection attempt failed, retrying in 18.37 seconds
+[93mWARNING [0m:   Connection attempt failed, retrying in 11.20 seconds
+[93mWARNING [0m:   Connection attempt failed, retrying in 18.05 seconds
+[93mWARNING [0m:   Connection attempt failed, retrying in 5.40 seconds
+[93mWARNING [0m:   Connection attempt failed, retrying in 11.08 seconds
+[93mWARNING [0m:   Connection attempt failed, retrying in 7.33 seconds
+[93mWARNING [0m:   Connection attempt failed, retrying in 0.29 seconds
+[93mWARNING [0m:   Connection attempt failed, retrying in 16.58 seconds
+[93mWARNING [0m:   Connection attempt failed, retrying in 18.94 seconds
+[93mWARNING [0m:   Connection attempt failed, retrying in 4.66 seconds
+[93mWARNING [0m:   Connection attempt failed, retrying in 18.68 seconds
+[93mWARNING [0m:   Connection attempt failed, retrying in 15.75 seconds
+[93mWARNING [0m:   Connection attempt failed, retrying in 18.03 seconds
+[93mWARNING [0m:   Connection attempt failed, retrying in 19.48 seconds
+[93mWARNING [0m:   Connection attempt failed, retrying in 8.87 seconds
+[93mWARNING [0m:   Connection attempt failed, retrying in 2.40 seconds
+[93mWARNING [0m:   Connection attempt failed, retrying in 13.61 seconds
+[93mWARNING [0m:   Connection attempt failed, retrying in 1.28 seconds
+[93mWARNING [0m:   Connection attempt failed, retrying in 17.68 seconds
+[93mWARNING [0m:   Connection attempt failed, retrying in 19.46 seconds
+[93mWARNING [0m:   Connection attempt failed, retrying in 10.01 seconds
+[93mWARNING [0m:   Connection attempt failed, retrying in 1.97 seconds
+[93mWARNING [0m:   Connection attempt failed, retrying in 6.24 seconds
+[93mWARNING [0m:   Connection attempt failed, retrying in 10.96 seconds
+[93mWARNING [0m:   Connection attempt failed, retrying in 8.62 seconds
+[93mWARNING [0m:   Connection attempt failed, retrying in 7.11 seconds
+[93mWARNING [0m:   Connection attempt failed, retrying in 12.77 seconds
+[93mWARNING [0m:   Connection attempt failed, retrying in 12.84 seconds
+[93mWARNING [0m:   Connection attempt failed, retrying in 18.00 seconds
+[93mWARNING [0m:   Connection attempt failed, retrying in 11.16 seconds
+[93mWARNING [0m:   Connection attempt failed, retrying in 15.04 seconds
+[93mWARNING [0m:   Connection attempt failed, retrying in 16.97 seconds
+[93mWARNING [0m:   Connection attempt failed, retrying in 11.30 seconds
+[93mWARNING [0m:   Connection attempt failed, retrying in 10.38 seconds
+[93mWARNING [0m:   Connection attempt failed, retrying in 16.04 seconds
+[93mWARNING [0m:   Connection attempt failed, retrying in 8.59 seconds
+[93mWARNING [0m:   Connection attempt failed, retrying in 15.14 seconds
+[93mWARNING [0m:   Connection attempt failed, retrying in 17.49 seconds
+[93mWARNING [0m:   Connection attempt failed, retrying in 17.54 seconds
+[93mWARNING [0m:   Connection attempt failed, retrying in 15.00 seconds
+[93mWARNING [0m:   Connection attempt failed, retrying in 11.14 seconds
+[92mINFO [0m:      SuperNode terminated gracefully.
+[92mINFO [0m:      SuperExec terminated gracefully.
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+[92mINFO [0m:      FastAPI lifespan: shutdown
+INFO:     Application shutdown complete.
+INFO:     Finished server process [12227]

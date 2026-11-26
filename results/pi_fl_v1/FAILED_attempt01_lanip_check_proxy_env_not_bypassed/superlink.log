@@ -1,0 +1,29 @@
+[93mWARNING [0m:   SuperNode authentication is disabled. The SuperLink will accept connections from any SuperNode.
+[92mINFO [0m:      Starting Flower SuperLink
+[92mINFO [0m:      Starting the SuperLink Runtime HTTP API on 0.0.0.0:9092.
+[92mINFO [0m:      Starting the SuperLink Control HTTP API on 0.0.0.0:9092.
+[92mINFO [0m:      Starting the SuperLink Fleet HTTP API on 0.0.0.0:9092.
+2026-11-26T12:59:32.826Z INFO [uvicorn.error] Started server process [12211]
+2026-11-26T12:59:32.826Z INFO [uvicorn.error] Waiting for application startup.
+[92mINFO [0m:      FastAPI lifespan: startup
+[92mINFO [0m:      SuperLinkLifespan: start
+2026-11-26T12:59:32.827Z INFO [uvicorn.error] Application startup complete.
+2026-11-26T12:59:32.828Z INFO [uvicorn.error] Uvicorn running on https://0.0.0.0:9092 (Press CTRL+C to quit)
+[92mINFO [0m:      Starting Flower SuperExec
+[92mINFO [0m:      ControlServicer.StartRun
+[92mINFO [0m:      Created run 10075653900039619662 in federation @none/default
+2026-11-26T12:59:37.826Z INFO [uvicorn.access] 127.0.0.1:50260 - "POST /v1/control/start-run HTTP/1.1" 200
+[92mINFO [0m:      ControlServicer.StreamLogs
+2026-11-26T12:59:37.835Z INFO [uvicorn.access] 127.0.0.1:50260 - "POST /v1/control/stream-logs HTTP/1.1" 200
+[92mINFO [0m:      Started task 16666465620767747408 of run 10075653900039619662
+2026-11-26T12:59:39.165Z INFO [uvicorn.access] 127.0.0.1:50268 - "POST /v1/runtime/pull-task-input HTTP/1.1" 200
+[92mINFO [0m:      Finished task 16666465620767747408 of run 10075653900039619662
+2026-11-26T13:01:42.046Z INFO [uvicorn.access] 127.0.0.1:50276 - "POST /v1/runtime/push-task-output HTTP/1.1" 200
+[92mINFO [0m:      All logs for run ID `10075653900039619662` returned
+[92mINFO [0m:      SuperExec terminated gracefully.
+2026-11-26T13:09:40.805Z INFO [uvicorn.error] Shutting down
+2026-11-26T13:09:40.908Z INFO [uvicorn.error] Waiting for application shutdown.
+[92mINFO [0m:      SuperLinkLifespan: stop
+[92mINFO [0m:      FastAPI lifespan: shutdown
+2026-11-26T13:09:40.928Z INFO [uvicorn.error] Application shutdown complete.
+2026-11-26T13:09:40.928Z INFO [uvicorn.error] Finished server process [12211]

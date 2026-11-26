@@ -1,0 +1,5 @@
+[superlink]
+default = "pilab"
+[superlink.pilab]
+address = "127.0.0.1:9092"
+root-certificates = "/root/.seniorfl_pki/loopback_test/ca.pem"

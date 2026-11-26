@@ -1,0 +1,68 @@
+[92mINFO [0m:      Starting Flower SuperNode
+INFO:     Started server process [12228]
+INFO:     Waiting for application startup.
+[92mINFO [0m:      FastAPI lifespan: startup
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://127.0.0.1:9095 (Press CTRL+C to quit)
+[92mINFO [0m:      Starting Flower SuperExec
+[93mWARNING [0m:   Connection attempt failed, retrying in 0.62 seconds
+[93mWARNING [0m:   Connection attempt failed, retrying in 0.59 seconds
+[93mWARNING [0m:   Connection attempt failed, retrying in 2.57 seconds
+[93mWARNING [0m:   Connection attempt failed, retrying in 5.04 seconds
+[93mWARNING [0m:   Connection attempt failed, retrying in 1.26 seconds
+[93mWARNING [0m:   Connection attempt failed, retrying in 19.19 seconds
+[93mWARNING [0m:   Connection attempt failed, retrying in 4.40 seconds
+[93mWARNING [0m:   Connection attempt failed, retrying in 11.66 seconds
+[93mWARNING [0m:   Connection attempt failed, retrying in 8.10 seconds
+[93mWARNING [0m:   Connection attempt failed, retrying in 15.98 seconds
+[93mWARNING [0m:   Connection attempt failed, retrying in 2.88 seconds
+[93mWARNING [0m:   Connection attempt failed, retrying in 6.29 seconds
+[93mWARNING [0m:   Connection attempt failed, retrying in 10.57 seconds
+[93mWARNING [0m:   Connection attempt failed, retrying in 17.20 seconds
+[93mWARNING [0m:   Connection attempt failed, retrying in 6.62 seconds
+[93mWARNING [0m:   Connection attempt failed, retrying in 18.61 seconds
+[93mWARNING [0m:   Connection attempt failed, retrying in 6.85 seconds
+[93mWARNING [0m:   Connection attempt failed, retrying in 12.62 seconds
+[93mWARNING [0m:   Connection attempt failed, retrying in 11.93 seconds
+[93mWARNING [0m:   Connection attempt failed, retrying in 14.45 seconds
+[93mWARNING [0m:   Connection attempt failed, retrying in 14.66 seconds
+[93mWARNING [0m:   Connection attempt failed, retrying in 10.55 seconds
+[93mWARNING [0m:   Connection attempt failed, retrying in 12.05 seconds
+[93mWARNING [0m:   Connection attempt failed, retrying in 11.75 seconds
+[93mWARNING [0m:   Connection attempt failed, retrying in 4.65 seconds
+[93mWARNING [0m:   Connection attempt failed, retrying in 8.70 seconds
+[93mWARNING [0m:   Connection attempt failed, retrying in 1.75 seconds
+[93mWARNING [0m:   Connection attempt failed, retrying in 1.62 seconds
+[93mWARNING [0m:   Connection attempt failed, retrying in 9.56 seconds
+[93mWARNING [0m:   Connection attempt failed, retrying in 14.16 seconds
+[93mWARNING [0m:   Connection attempt failed, retrying in 8.52 seconds
+[93mWARNING [0m:   Connection attempt failed, retrying in 7.59 seconds
+[93mWARNING [0m:   Connection attempt failed, retrying in 5.14 seconds
+[93mWARNING [0m:   Connection attempt failed, retrying in 14.23 seconds
+[93mWARNING [0m:   Connection attempt failed, retrying in 2.10 seconds
+[93mWARNING [0m:   Connection attempt failed, retrying in 1.33 seconds
+[93mWARNING [0m:   Connection attempt failed, retrying in 9.19 seconds
+[93mWARNING [0m:   Connection attempt failed, retrying in 4.68 seconds
+[93mWARNING [0m:   Connection attempt failed, retrying in 9.28 seconds
+[93mWARNING [0m:   Connection attempt failed, retrying in 3.14 seconds
+[93mWARNING [0m:   Connection attempt failed, retrying in 8.73 seconds
+[93mWARNING [0m:   Connection attempt failed, retrying in 18.42 seconds
+[93mWARNING [0m:   Connection attempt failed, retrying in 17.14 seconds
+[93mWARNING [0m:   Connection attempt failed, retrying in 8.24 seconds
+[93mWARNING [0m:   Connection attempt failed, retrying in 14.11 seconds
+[93mWARNING [0m:   Connection attempt failed, retrying in 16.85 seconds
+[93mWARNING [0m:   Connection attempt failed, retrying in 0.39 seconds
+[93mWARNING [0m:   Connection attempt failed, retrying in 5.98 seconds
+[93mWARNING [0m:   Connection attempt failed, retrying in 18.51 seconds
+[93mWARNING [0m:   Connection attempt failed, retrying in 7.93 seconds
+[93mWARNING [0m:   Connection attempt failed, retrying in 0.10 seconds
+[93mWARNING [0m:   Connection attempt failed, retrying in 8.67 seconds
+[93mWARNING [0m:   Connection attempt failed, retrying in 18.25 seconds
+[93mWARNING [0m:   Connection attempt failed, retrying in 17.31 seconds
+[92mINFO [0m:      SuperExec terminated gracefully.
+[92mINFO [0m:      SuperNode terminated gracefully.
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+[92mINFO [0m:      FastAPI lifespan: shutdown
+INFO:     Application shutdown complete.
+INFO:     Finished server process [12228]
