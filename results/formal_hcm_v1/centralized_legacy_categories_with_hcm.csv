@@ -1,0 +1,6 @@
+category,sample_count,tp,tn,fp,fn
+attack_predicted_benign,622,0,0,622,1866
+benign_predicted_attack,18,0,0,54,18
+correct_family_wrong_subtype,1008,2016,14167,1008,1008
+exact_correct,4511,5893,17896,0,0
+wrong_attack_family,327,327,1962,654,654

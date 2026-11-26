@@ -1,0 +1,37 @@
+test_all_views_and_model_selection (test_dashboard.DashboardTests.test_all_views_and_model_selection) ... 2026-10-25 13:58:28.330 WARNING streamlit.runtime.scriptrunner_utils.script_run_context: Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+ok
+test_attack_predicted_benign (test_formal_hcm.TestRiehlHCM.test_attack_predicted_benign) ... ok
+test_benign_predicted_attack (test_formal_hcm.TestRiehlHCM.test_benign_predicted_attack) ... ok
+test_exact_attack (test_formal_hcm.TestRiehlHCM.test_exact_attack) ... ok
+test_exact_benign_is_short_leaf (test_formal_hcm.TestRiehlHCM.test_exact_benign_is_short_leaf) ... ok
+test_full_84_by_84_author_reference_agreement (test_formal_hcm.TestRiehlHCM.test_full_84_by_84_author_reference_agreement) ... ok
+test_invalid_tree (test_formal_hcm.TestRiehlHCM.test_invalid_tree) ... ok
+test_micro_formulas_and_undefined (test_formal_hcm.TestRiehlHCM.test_micro_formulas_and_undefined) ... ok
+test_published_figure_4a (test_formal_hcm.TestRiehlHCM.test_published_figure_4a) ... ok
+test_reject_unknown_and_internal_labels (test_formal_hcm.TestRiehlHCM.test_reject_unknown_and_internal_labels) ... ok
+test_tn_is_not_every_off_path_node (test_formal_hcm.TestRiehlHCM.test_tn_is_not_every_off_path_node) ... ok
+test_wrong_attack_family (test_formal_hcm.TestRiehlHCM.test_wrong_attack_family) ... ok
+test_wrong_subtype_within_family (test_formal_hcm.TestRiehlHCM.test_wrong_subtype_within_family) ... ok
+test_checkpoint_schema_includes_class_order (test_hardware_preparation.HardwarePreparationTests.test_checkpoint_schema_includes_class_order) ... ok
+test_node_local_path_and_holdout_guard (test_hardware_preparation.HardwarePreparationTests.test_node_local_path_and_holdout_guard) ... ok
+test_partial_new_training_support_unweighted (test_hardware_preparation.HardwarePreparationTests.test_partial_new_training_support_unweighted) ... ok
+test_schema_fingerprint_deterministic (test_hardware_preparation.HardwarePreparationTests.test_schema_fingerprint_deterministic) ... ok
+test_explicit_log_alignment (test_live_pipeline.OfflineFeatureTests.test_explicit_log_alignment) ... ok
+test_half_open_windows_and_direction (test_live_pipeline.OfflineFeatureTests.test_half_open_windows_and_direction) ... ok
+test_missing_logs_never_zero_filled (test_live_pipeline.OfflineFeatureTests.test_missing_logs_never_zero_filled) ... ok
+test_no_neighbor_resolution_or_packet_send (test_live_pipeline.OfflineFeatureTests.test_no_neighbor_resolution_or_packet_send) ... ok
+test_schema_complete (test_live_pipeline.OfflineFeatureTests.test_schema_complete) ... ok
+test_unrelated_traffic_excluded (test_live_pipeline.OfflineFeatureTests.test_unrelated_traffic_excluded) ... ok
+test_unspecified_mac_is_rejected (test_live_pipeline.OfflineFeatureTests.test_unspecified_mac_is_rejected) ... ok
+test_balanced_all_seen_and_empty_subset (test_pre_pi_research.ResearchProtocolTests.test_balanced_all_seen_and_empty_subset) ... ok
+test_compatible_preprocessing (test_pre_pi_research.ResearchProtocolTests.test_compatible_preprocessing) ... ok
+test_hcm_reuses_verified_implementation (test_pre_pi_research.ResearchProtocolTests.test_hcm_reuses_verified_implementation) ... ok
+test_training_only_paths (test_pre_pi_research.ResearchProtocolTests.test_training_only_paths) ... ok
+test_unseen_metrics_denominators (test_pre_pi_research.ResearchProtocolTests.test_unseen_metrics_denominators) ... ok
+test_unseen_split (test_pre_pi_research.ResearchProtocolTests.test_unseen_split) ... ok
+test_weights_training_counts (test_pre_pi_research.ResearchProtocolTests.test_weights_training_counts) ... ok
+
+----------------------------------------------------------------------
+Ran 31 tests in 7.253s
+
+OK

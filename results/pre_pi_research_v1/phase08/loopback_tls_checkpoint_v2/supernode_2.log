@@ -1,0 +1,47 @@
+[92mINFO [0m:      Starting Flower SuperNode
+INFO:     Started server process [49]
+INFO:     Waiting for application startup.
+[92mINFO [0m:      FastAPI lifespan: startup
+INFO:     Application startup complete.
+INFO:     Uvicorn running on https://127.0.0.1:39114 (Press CTRL+C to quit)
+[92mINFO [0m:      SuperNode ID: 5208658706803558799
+[92mINFO [0m:      Starting Flower SuperExec
+[92mINFO [0m:      
+[92mINFO [0m:      [RUN 13181202132440647981]
+[92mINFO [0m:      Receiving: query.identity message (ID: 93859ec25e225291109db2d283d7627647fd247f6bc3aad2c5651ab6a25b8c94)
+[92mINFO [0m:      Received successfully
+[92mINFO [0m:      Start `flwr-clientapp` process
+[92mINFO [0m:      
+[92mINFO [0m:      
+[92mINFO [0m:      [RUN 13181202132440647981]
+[92mINFO [0m:      Sending: query.identity message (ID: 132a8f3f31d3a37d2ceca3fb673c6b1e71299aac706f8de7b433c3fb41555b1d)
+[92mINFO [0m:      Sent successfully
+[92mINFO [0m:      
+[92mINFO [0m:      [RUN 13181202132440647981]
+[92mINFO [0m:      Receiving: train message (ID: 0bedd1b16da6d8c8605c84d5a1b9c6a277e2291de7cc45a11d6580d2a9c794c8)
+[92mINFO [0m:      Received successfully
+[92mINFO [0m:      Start `flwr-clientapp` process
+[92mINFO [0m:      
+[92mINFO [0m:      
+[92mINFO [0m:      [RUN 13181202132440647981]
+[92mINFO [0m:      Sending: train message (ID: 78c0778a48d57ea32e223a344d05b4bda164ccbd26560add8256d6870c90277c)
+[92mINFO [0m:      Sent successfully
+[92mINFO [0m:      
+[92mINFO [0m:      [RUN 13181202132440647981]
+[92mINFO [0m:      Receiving: train message (ID: bc64f53d49126491ccb4cdb850fd072c7d85ed4ea5f2cd1340ee99b5678918b6)
+[92mINFO [0m:      Received successfully
+[92mINFO [0m:      Start `flwr-clientapp` process
+[92mINFO [0m:      
+[92mINFO [0m:      
+[92mINFO [0m:      [RUN 13181202132440647981]
+[92mINFO [0m:      Sending: train message (ID: b4e0ba91992bf7c177c207b805fea8986734a90c6617ee50c369b68a25c21857)
+[92mINFO [0m:      Sent successfully
+[92mINFO [0m:      SuperNode terminated gracefully.
+INFO:     Shutting down
+INFO:     Waiting for connections to close. (CTRL+C to force quit)
+[93mWARNING [0m:   Connection attempt failed, retrying in 0.52 seconds
+INFO:     Waiting for application shutdown.
+[92mINFO [0m:      FastAPI lifespan: shutdown
+INFO:     Application shutdown complete.
+INFO:     Finished server process [49]
+[93mWARNING [0m:   Connection attempt failed, retrying in 0.59 seconds

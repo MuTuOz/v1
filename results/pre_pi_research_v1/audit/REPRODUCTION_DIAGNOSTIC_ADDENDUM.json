@@ -1,0 +1,7 @@
+{
+  "reason": "Historical centralized seed 42 used four PyTorch threads; new matched study fixes one thread and produced a slightly different score. Test a four-thread numeric reproduction only, without selecting/promoting a checkpoint.",
+  "seed": 42,
+  "train_threads": 4,
+  "exclude_from_three_seed_statistics": true,
+  "hyperparameters_unchanged": true
+}

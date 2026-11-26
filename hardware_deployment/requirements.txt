@@ -1,0 +1,7 @@
+# Tested x86 environment is archived in results/pre_pi_research_v1.
+# Verify ARM64 wheel availability on the purchased OS/Python before rollout.
+flwr==1.40.0
+torch>=2.5,<3
+numpy>=2,<3
+pandas>=2.2,<4
+psutil>=7,<8

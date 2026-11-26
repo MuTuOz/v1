@@ -1,0 +1,18 @@
+[
+  {
+    "stage": "data_audit",
+    "issue": "Strict raw floating-point row hashes differ for 2 values of network_time-delta_std_deviation after CSV parsing.",
+    "max_abs_difference": 4.1359030627651384e-25,
+    "resolution": "Align on all 8 unique metadata columns; verify exact model float32 tensors. No dataset changes."
+  },
+  {
+    "stage": "source_backup",
+    "issue": "shutil.copy2 copied file contents but copystat/utime raised PermissionError: Operation not permitted on mounted project filesystem.",
+    "resolution": "Do not retry metadata changes; keep content-only backup. No security override used."
+  },
+  {
+    "stage": "CLI_simulation_first_attempt",
+    "issue": "Flower runtime dependency installation failed because default uv cache /home/seniorfl/.cache/uv is read-only. CLI returned exit 0 despite failed run; wrapper correctly rejected missing model.",
+    "resolution": "Use dedicated SuperLink with official --disable-runtime-dependency-installation flag to reuse installed WSL dependencies. New Flower home is inside explicitly authorized /home/seniorfl/.flwr; original configuration unchanged. No permission/security settings changed."
+  }
+]

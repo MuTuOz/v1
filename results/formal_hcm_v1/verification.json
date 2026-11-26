@@ -1,0 +1,58 @@
+{
+  "status": "passed",
+  "historical_files_checked": 174,
+  "allowed_document_update": [
+    "PROJECT_STATUS.md"
+  ],
+  "historical_experiment_changes": [],
+  "test_log": "unit_tests.log",
+  "validation_checks": {
+    "models": {
+      "centralized": {
+        "aligned_validation_rows": 6486,
+        "flat_accuracy_reproduced": true,
+        "legacy_categories_reproduced": true,
+        "legacy_category_total": 6486,
+        "tp_plus_fn_equals_true_path_depth_sum": 11782,
+        "hcm_decision_total": 48145,
+        "family_matrix_recovers_from_subtype_matrix": true
+      },
+      "flower_fedavg": {
+        "aligned_validation_rows": 6486,
+        "flat_accuracy_reproduced": true,
+        "legacy_categories_reproduced": true,
+        "legacy_category_total": 6486,
+        "tp_plus_fn_equals_true_path_depth_sum": 11782,
+        "hcm_decision_total": 39872,
+        "family_matrix_recovers_from_subtype_matrix": true
+      }
+    },
+    "unit_tests_passed": true,
+    "exhaustive_author_reference_leaf_pairs": 7056,
+    "validation_data_read": "validation.csv metadata only",
+    "training_data_or_test_sets_read": false,
+    "model_inference_or_training_executed": false
+  },
+  "output_content_checks": {
+    "models": {
+      "centralized": {
+        "sample_rows": 6486,
+        "group_totals_and_path_identities": true,
+        "micro_metrics_reconstructed": true,
+        "count_and_normalized_matrices_valid": true
+      },
+      "flower_fedavg": {
+        "sample_rows": 6486,
+        "group_totals_and_path_identities": true,
+        "micro_metrics_reconstructed": true,
+        "count_and_normalized_matrices_valid": true
+      }
+    },
+    "all_leaf_pairs": 7056,
+    "png_files": 5,
+    "svg_files": 5,
+    "json_parsed": true,
+    "source_syntax_valid": true
+  },
+  "timestamp_utc": "2026-10-25T07:54:30.568548+00:00"
+}

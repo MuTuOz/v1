@@ -1,0 +1,26 @@
+{
+  "experiment": "subtype_centralized_val_v1",
+  "training_samples": 22450,
+  "validation_samples": 6486,
+  "num_classes": 84,
+  "num_observed_validation_classes": 28,
+  "exact_subtype_accuracy": 0.6954979956830095,
+  "subtype_macro_f1_observed": 0.3702992133538757,
+  "attack_only_subtype_accuracy": 0.2609516616314199,
+  "attack_only_subtype_macro_f1": 0.3501461814106698,
+  "family_accuracy": 0.8509096515572001,
+  "family_macro_f1_observed": 0.6248067195867406,
+  "attack_detection_recall": 0.7651057401812689,
+  "benign_false_positive_rate": 0.004689942678478374,
+  "hierarchical_error_breakdown": {
+    "exact_correct": 4511,
+    "correct_family_wrong_subtype": 1008,
+    "attack_predicted_benign": 622,
+    "benign_predicted_attack": 18,
+    "wrong_attack_family": 327
+  },
+  "epochs": 15,
+  "batch_size": 128,
+  "learning_rate": 0.001,
+  "seed": 42
+}

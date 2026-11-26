@@ -1,0 +1,56 @@
+[93mWARNING [0m:   SuperNode authentication is disabled. The SuperLink will accept connections from any SuperNode.
+[92mINFO [0m:      Starting Flower SuperLink
+[92mINFO [0m:      Starting the SuperLink Runtime HTTP API on 127.0.0.1:39112.
+[92mINFO [0m:      Starting the SuperLink Control HTTP API on 127.0.0.1:39112.
+[92mINFO [0m:      Starting the SuperLink Fleet HTTP API on 127.0.0.1:39112.
+2026-10-25T11:13:46.646Z INFO [uvicorn.error] Started server process [16]
+2026-10-25T11:13:46.647Z INFO [uvicorn.error] Waiting for application startup.
+[92mINFO [0m:      FastAPI lifespan: startup
+[92mINFO [0m:      SuperLinkLifespan: start
+2026-10-25T11:13:46.648Z INFO [uvicorn.error] Application startup complete.
+2026-10-25T11:13:46.650Z INFO [uvicorn.error] Uvicorn running on https://127.0.0.1:39112 (Press CTRL+C to quit)
+╭────────────────── Update available ───────────────────╮
+│ A newer Flower version is available: 1.40.0 -> 1.42.0 │
+│ Upgrade: python -m pip install -U flwr                │
+╰───────────────────────────────────────────────────────╯
+[92mINFO [0m:      Starting Flower SuperExec
+2026-10-25T11:13:48.220Z INFO [uvicorn.access] 127.0.0.1:46834 - "POST /v1/fleet/register-node HTTP/1.1" 200
+[92mINFO [0m:      [Fleet.ActivateNode] Activated node_id=17723370627421715
+2026-10-25T11:13:48.230Z INFO [uvicorn.access] 127.0.0.1:46834 - "POST /v1/fleet/activate-node HTTP/1.1" 200
+2026-10-25T11:13:48.259Z INFO [uvicorn.access] 127.0.0.1:46856 - "POST /v1/fleet/register-node HTTP/1.1" 200
+[92mINFO [0m:      [Fleet.ActivateNode] Activated node_id=5416285184673345641
+2026-10-25T11:13:48.268Z INFO [uvicorn.access] 127.0.0.1:46856 - "POST /v1/fleet/activate-node HTTP/1.1" 200
+[92mINFO [0m:      ControlServicer.StartRun
+[92mINFO [0m:      Created run 6853527189049590219 in federation @none/default
+2026-10-25T11:13:50.795Z INFO [uvicorn.access] 127.0.0.1:46872 - "POST /v1/control/start-run HTTP/1.1" 200
+[92mINFO [0m:      ControlServicer.StreamLogs
+2026-10-25T11:13:50.801Z INFO [uvicorn.access] 127.0.0.1:46872 - "POST /v1/control/stream-logs HTTP/1.1" 200
+[92mINFO [0m:      Started task 12073818806364389072 of run 6853527189049590219
+2026-10-25T11:13:52.139Z INFO [uvicorn.access] 127.0.0.1:46900 - "POST /v1/runtime/pull-task-input HTTP/1.1" 200
+[92mINFO [0m:      [Fleet.GetRun] Requesting `Run` for run_id=6853527189049590219
+2026-10-25T11:13:54.265Z INFO [uvicorn.access] 127.0.0.1:46834 - "POST /v1/fleet/get-run HTTP/1.1" 200
+[92mINFO [0m:      [Fleet.GetFab] Requesting FAB for fab_hash=13fd3825f3f442ff204daab981078abbde8fbc75507ca5bf4b4372c5075ef783
+2026-10-25T11:13:54.271Z INFO [uvicorn.access] 127.0.0.1:46834 - "POST /v1/fleet/get-fab HTTP/1.1" 200
+[92mINFO [0m:      [Fleet.GetRun] Requesting `Run` for run_id=6853527189049590219
+2026-10-25T11:13:54.302Z INFO [uvicorn.access] 127.0.0.1:46856 - "POST /v1/fleet/get-run HTTP/1.1" 200
+[92mINFO [0m:      [Fleet.GetFab] Requesting FAB for fab_hash=13fd3825f3f442ff204daab981078abbde8fbc75507ca5bf4b4372c5075ef783
+2026-10-25T11:13:54.308Z INFO [uvicorn.access] 127.0.0.1:46856 - "POST /v1/fleet/get-fab HTTP/1.1" 200
+[92mINFO [0m:      [Fleet.PushMessages] Push replies from node_id=17723370627421715
+[92mINFO [0m:      [Fleet.PushMessages] Push replies from node_id=5416285184673345641
+[92mINFO [0m:      [Fleet.PushMessages] Push replies from node_id=17723370627421715
+[92mINFO [0m:      [Fleet.PushMessages] Push replies from node_id=5416285184673345641
+[92mINFO [0m:      [Fleet.PushMessages] Push replies from node_id=17723370627421715
+[92mINFO [0m:      [Fleet.PushMessages] Push replies from node_id=5416285184673345641
+[92mINFO [0m:      Finished task 12073818806364389072 of run 6853527189049590219
+2026-10-25T11:14:17.915Z INFO [uvicorn.access] 127.0.0.1:46884 - "POST /v1/runtime/push-task-output HTTP/1.1" 200
+[92mINFO [0m:      All logs for run ID `6853527189049590219` returned
+2026-10-25T11:14:18.579Z INFO [uvicorn.error] Shutting down
+[93mWARNING [0m:   Connection attempt failed, retrying in 0.12 seconds
+2026-10-25T11:14:18.681Z INFO [uvicorn.error] Waiting for connections to close. (CTRL+C to force quit)
+[93mWARNING [0m:   Connection attempt failed, retrying in 1.45 seconds
+2026-10-25T11:14:19.081Z INFO [uvicorn.error] Waiting for application shutdown.
+[92mINFO [0m:      SuperLinkLifespan: stop
+[92mINFO [0m:      SuperExec terminated gracefully.
+[92mINFO [0m:      FastAPI lifespan: shutdown
+2026-10-25T11:14:19.346Z INFO [uvicorn.error] Application shutdown complete.
+2026-10-25T11:14:19.347Z INFO [uvicorn.error] Finished server process [16]

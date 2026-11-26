@@ -1,0 +1,5 @@
+{
+  "status": "complete",
+  "source_checkpoint": "models/subtype_flower_val_v1.pt",
+  "checkpoint_sha256": "928229a3102cb5c76edab1a28191ecfd3c6a052d6a24bfd4140365ef8a4cd6e7"
+}

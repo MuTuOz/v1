@@ -1,0 +1,38 @@
+Test samples: 160
+Features: 71
+
+Model loaded successfully.
+RAM before model: 46.14 MB
+RAM after model: 112.94 MB
+
+=== CLASSIFICATION RESULTS ===
+Correct: 151 / 160
+Accuracy: 94.38 %
+
+=== EXAMPLE PREDICTIONS ===
+Actual: benign       Predicted: benign
+Actual: bruteforce   Predicted: bruteforce
+Actual: ddos         Predicted: ddos
+Actual: dos          Predicted: dos
+Actual: malware      Predicted: malware
+Actual: mitm         Predicted: mitm
+Actual: recon        Predicted: recon
+Actual: web          Predicted: benign
+
+=== CONFUSION MATRIX ===
+Actual \ Predicted
+                   benign  bruteforce        ddos         dos     malware        mitm       recon         web
+       benign          19           0           0           0           0           0           1           0
+   bruteforce           1          19           0           0           0           0           0           0
+         ddos           0           0          20           0           0           0           0           0
+          dos           0           0           0          19           0           1           0           0
+      malware           0           0           0           0          20           0           0           0
+         mitm           1           0           0           0           0          19           0           0
+        recon           3           0           0           0           0           0          17           0
+          web           2           0           0           0           0           0           0          18
+
+=== RASPBERRY PI PERFORMANCE ===
+Average latency: 0.033 ms
+Median latency: 0.031 ms
+P95 latency: 0.049 ms
+Process RAM: 114.09 MB

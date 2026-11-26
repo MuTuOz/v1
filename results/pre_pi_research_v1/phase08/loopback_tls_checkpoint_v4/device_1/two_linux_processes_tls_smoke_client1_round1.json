@@ -1,0 +1,26 @@
+{
+  "client-id": 1,
+  "num-examples": 16,
+  "train_loss": 3.8008302450180054,
+  "optimizer_steps": 2,
+  "examples_seen": 16,
+  "training_seconds": 0.990526666999358,
+  "rss_bytes": 479895552,
+  "serialized_array_bytes": 38674,
+  "platform": "Linux-5.15.167.4-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+  "physical_raspberry_pi_verified": false,
+  "inference_batch_rows": 16,
+  "inference_batch_ms": [
+    0.05512999996426515,
+    0.04280200300854631,
+    0.041422001231694594,
+    0.04033699951833114,
+    0.041421000787522644,
+    0.041125000279862434,
+    0.04073099989909679,
+    0.04004099901067093,
+    0.04043499939143658,
+    0.04122400059713982
+  ],
+  "note": "Batch timing after warm-up; not per-record independent timing. Hardware identity must be verified externally."
+}

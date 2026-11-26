@@ -1,0 +1,7 @@
+WARNING: getmacbyip failed on [Errno 1] Operation not permitted
+WARNING: MAC address to reach destination not found. Using broadcast.
+WARNING: getmacbyip failed on [Errno 1] Operation not permitted
+WARNING: MAC address to reach destination not found. Using broadcast.
+WARNING: more getmacbyip failed on [Errno 1] Operation not permitted
+WARNING: more MAC address to reach destination not found. Using broadcast.
+Offline feature fixture, contract, guard and drift diagnostics completed.

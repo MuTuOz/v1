@@ -1,0 +1,22 @@
+{
+  "status": "passed",
+  "http_status": 200,
+  "body": "ok",
+  "command": [
+    "/home/seniorfl/seniorproject-fl-venv/bin/python",
+    "-m",
+    "streamlit",
+    "run",
+    "dashboard/app.py",
+    "--server.address",
+    "127.0.0.1",
+    "--server.port",
+    "18501",
+    "--server.headless",
+    "true",
+    "--browser.gatherUsageStats",
+    "false"
+  ],
+  "binding": "loopback only",
+  "real_browser_screenshot_taken": false
+}

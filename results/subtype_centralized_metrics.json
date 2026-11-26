@@ -1,0 +1,11 @@
+{
+  "subtype_accuracy": 0.6257342143906021,
+  "subtype_macro_f1": 0.26129280200965826,
+  "family_accuracy": 0.8266336270190896,
+  "family_macro_f1": 0.5778403861822586,
+  "within_family_errors": 2189,
+  "attack_to_benign": 468,
+  "benign_to_attack": 4,
+  "cross_attack_family": 1417,
+  "tested_classes": 56
+}

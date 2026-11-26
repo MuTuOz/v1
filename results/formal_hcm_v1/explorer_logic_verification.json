@@ -1,0 +1,16 @@
+{
+  "status": "passed",
+  "combinations_checked": 162,
+  "models": 2,
+  "levels": 3,
+  "normalizations": 3,
+  "actual_family_filters": 9,
+  "method": "V8 execution of the saved HTML's actual JavaScript using a minimal DOM test harness",
+  "checks": [
+    "All controls invoke rendering",
+    "Filtered row counts and displayed support match data",
+    "All count/row-normalized/joint-normalized cells match expected values",
+    "Zero-support normalized cells are N/A"
+  ],
+  "limitation": "Not a real-browser layout or screenshot test; static PNG figures were inspected separately."
+}

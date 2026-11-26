@@ -1,0 +1,144 @@
+╭────────────────── Update available ───────────────────╮
+│ A newer Flower version is available: 1.40.0 -> 1.42.0 │
+│ Upgrade: python -m pip install -U flwr                │
+╰───────────────────────────────────────────────────────╯
+Flower App configuration warnings in '/mnt/d/Alperen E/Belgelerim/4. Year/Güz Dönemi/CS 401/SeniorProject/flower_subtype_app/pyproject.toml':
+- Recommended property "license" missing in [project]
+Using SuperLink: subtype-simulation (127.0.0.1:39092)
+⚠️ Warning: `options.` fields in the SuperLink connection configuration are deprecated. Use `--federation-config` with `flwr run` instead. Alternatively, permanently set your simulation configuration via `flwr federation simulation-config`.
+Successfully started run 477190269447739362
+[92mINFO [0m:      Starting logstream for run_id `477190269447739362`
+[92mINFO [0m:      Starting Flower Simulation
+[93mWARNING [0m:   Since flwr 1.32, default simulated SuperNodes changed from 10 to 2.
+[92mINFO [0m:      Federation `@none/default` (5 simulated SuperNodes)
+[92mINFO [0m:      To change federation size, use the following command:
+[92mINFO [0m:      	flwr federation simulation-config @none/default <superlink> --num-supernodes <N>
+Successfully installed seniorproject-fl-subtype to /home/seniorfl/.flwr/subtype84_val_v1/apps/seniorproject.seniorproject-fl-subtype.0.1.0.ce334c8e.
+[93mWARNING [0m:   fraction_evaluate is set to 0.0. Federated evaluation will be skipped.
+[92mINFO [0m:      Starting AuditedFedAvg strategy:
+[92mINFO [0m:      	├── Number of rounds: 15
+[92mINFO [0m:      	├── ArrayRecord (0.04 MB)
+[92mINFO [0m:      	├── ConfigRecord (train): {'num-server-rounds': 15, 'local-epochs': 1, 'batch-size': 128, 'learning-rate': 0.001, 'seed': 42, 'project-root': /mnt/d/Alperen E/Belgelerim/4. Year/Güz Dönemi/CS 401/SeniorProject}
+[92mINFO [0m:      	├── ConfigRecord (evaluate): (empty!)
+[92mINFO [0m:      	├──> Sampling:
+[92mINFO [0m:      	│	├──Fraction: train (1.00) | evaluate ( 0.00)
+[92mINFO [0m:      	│	├──Minimum nodes: train (5) | evaluate (0)
+[92mINFO [0m:      	│	└──Minimum available nodes: 5
+[92mINFO [0m:      	└──> Keys in records:
+[92mINFO [0m:      		├── Weighted by: 'num-examples'
+[92mINFO [0m:      		├── ArrayRecord key: 'arrays'
+[92mINFO [0m:      		└── ConfigRecord key: 'config'
+[92mINFO [0m:      
+[92mINFO [0m:      
+[92mINFO [0m:      [ROUND 1/15]
+[92mINFO [0m:      configure_train: Sampled 5 nodes (out of 5)
+/home/seniorfl/seniorproject-fl-venv/lib/python3.12/site-packages/ray/_private/worker.py:2051: FutureWarning: Tip: In future versions of Ray, Ray will no longer override accelerator visible devices env var if num_gpus=0 or num_gpus=None (default). To enable this behavior and turn off this error message, set RAY_ACCEL_ENV_VAR_OVERRIDE_ON_ZERO=0
+  warnings.warn(
+[36m(ClientAppActor pid=868)[0m Client 1 round 1: n=4430, loss=3.235157
+[92mINFO [0m:      aggregate_train: Received 5 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'train_loss': 3.014947476243654, 'client-id': 2.8942984409799557}
+[92mINFO [0m:      
+[92mINFO [0m:      [ROUND 2/15]
+[92mINFO [0m:      configure_train: Sampled 5 nodes (out of 5)
+[92mINFO [0m:      aggregate_train: Received 5 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'train_loss': 1.9219411122453771, 'client-id': 2.8942984409799557}
+[92mINFO [0m:      
+[92mINFO [0m:      [ROUND 3/15]
+[92mINFO [0m:      configure_train: Sampled 5 nodes (out of 5)
+[92mINFO [0m:      aggregate_train: Received 5 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'train_loss': 1.6625828368281468, 'client-id': 2.8942984409799557}
+[92mINFO [0m:      
+[92mINFO [0m:      [ROUND 4/15]
+[92mINFO [0m:      configure_train: Sampled 5 nodes (out of 5)
+[92mINFO [0m:      aggregate_train: Received 5 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'train_loss': 1.5538442764064515, 'client-id': 2.8942984409799557}
+[92mINFO [0m:      
+[92mINFO [0m:      [ROUND 5/15]
+[92mINFO [0m:      configure_train: Sampled 5 nodes (out of 5)
+[92mINFO [0m:      aggregate_train: Received 5 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'train_loss': 1.457864986679336, 'client-id': 2.8942984409799557}
+[92mINFO [0m:      
+[92mINFO [0m:      [ROUND 6/15]
+[92mINFO [0m:      configure_train: Sampled 5 nodes (out of 5)
+[92mINFO [0m:      aggregate_train: Received 5 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'train_loss': 1.3878452609057947, 'client-id': 2.8942984409799557}
+[92mINFO [0m:      
+[92mINFO [0m:      [ROUND 7/15]
+[92mINFO [0m:      configure_train: Sampled 5 nodes (out of 5)
+[92mINFO [0m:      aggregate_train: Received 5 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'train_loss': 1.3113153219355773, 'client-id': 2.8942984409799557}
+[92mINFO [0m:      
+[92mINFO [0m:      [ROUND 8/15]
+[92mINFO [0m:      configure_train: Sampled 5 nodes (out of 5)
+[92mINFO [0m:      aggregate_train: Received 5 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'train_loss': 1.2464065035573624, 'client-id': 2.8942984409799557}
+[92mINFO [0m:      
+[92mINFO [0m:      [ROUND 9/15]
+[92mINFO [0m:      configure_train: Sampled 5 nodes (out of 5)
+[92mINFO [0m:      aggregate_train: Received 5 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'train_loss': 1.186228329325572, 'client-id': 2.8942984409799557}
+[92mINFO [0m:      
+[92mINFO [0m:      [ROUND 10/15]
+[92mINFO [0m:      configure_train: Sampled 5 nodes (out of 5)
+[92mINFO [0m:      aggregate_train: Received 5 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'train_loss': 1.1562929676980906, 'client-id': 2.8942984409799557}
+[92mINFO [0m:      
+[92mINFO [0m:      [ROUND 11/15]
+[92mINFO [0m:      configure_train: Sampled 5 nodes (out of 5)
+[92mINFO [0m:      aggregate_train: Received 5 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'train_loss': 1.140845600853784, 'client-id': 2.8942984409799557}
+[92mINFO [0m:      
+[92mINFO [0m:      [ROUND 12/15]
+[92mINFO [0m:      configure_train: Sampled 5 nodes (out of 5)
+[92mINFO [0m:      aggregate_train: Received 5 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'train_loss': 1.1184498414058728, 'client-id': 2.8942984409799557}
+[92mINFO [0m:      
+[92mINFO [0m:      [ROUND 13/15]
+[92mINFO [0m:      configure_train: Sampled 5 nodes (out of 5)
+[92mINFO [0m:      aggregate_train: Received 5 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'train_loss': 1.1091092732714651, 'client-id': 2.8942984409799557}
+[92mINFO [0m:      
+[92mINFO [0m:      [ROUND 14/15]
+[92mINFO [0m:      configure_train: Sampled 5 nodes (out of 5)
+[92mINFO [0m:      aggregate_train: Received 5 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'train_loss': 1.0854988772579715, 'client-id': 2.8942984409799557}
+[92mINFO [0m:      
+[92mINFO [0m:      [ROUND 15/15]
+[92mINFO [0m:      configure_train: Sampled 5 nodes (out of 5)
+[92mINFO [0m:      aggregate_train: Received 5 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'train_loss': 1.0792264059006769, 'client-id': 2.8942984409799557}
+[92mINFO [0m:      
+[92mINFO [0m:      Strategy execution finished in 12.14s
+[92mINFO [0m:      
+[92mINFO [0m:      Final results:
+[92mINFO [0m:      
+[92mINFO [0m:      	Global Arrays:
+[92mINFO [0m:      		ArrayRecord (0.037 MB)
+[92mINFO [0m:      	
+[92mINFO [0m:      	Aggregated ClientApp-side Train Metrics:
+[92mINFO [0m:      	{ 1: {'client-id': '2.8943e+00', 'train_loss': '3.0149e+00'},
+[92mINFO [0m:      	  2: {'client-id': '2.8943e+00', 'train_loss': '1.9219e+00'},
+[92mINFO [0m:      	  3: {'client-id': '2.8943e+00', 'train_loss': '1.6626e+00'},
+[92mINFO [0m:      	  4: {'client-id': '2.8943e+00', 'train_loss': '1.5538e+00'},
+[92mINFO [0m:      	  5: {'client-id': '2.8943e+00', 'train_loss': '1.4579e+00'},
+[92mINFO [0m:      	  6: {'client-id': '2.8943e+00', 'train_loss': '1.3878e+00'},
+[92mINFO [0m:      	  7: {'client-id': '2.8943e+00', 'train_loss': '1.3113e+00'},
+[92mINFO [0m:      	  8: {'client-id': '2.8943e+00', 'train_loss': '1.2464e+00'},
+[92mINFO [0m:      	  9: {'client-id': '2.8943e+00', 'train_loss': '1.1862e+00'},
+[92mINFO [0m:      	  10: {'client-id': '2.8943e+00', 'train_loss': '1.1563e+00'},
+[92mINFO [0m:      	  11: {'client-id': '2.8943e+00', 'train_loss': '1.1408e+00'},
+[92mINFO [0m:      	  12: {'client-id': '2.8943e+00', 'train_loss': '1.1184e+00'},
+[92mINFO [0m:      	  13: {'client-id': '2.8943e+00', 'train_loss': '1.1091e+00'},
+[92mINFO [0m:      	  14: {'client-id': '2.8943e+00', 'train_loss': '1.0855e+00'},
+[92mINFO [0m:      	  15: {'client-id': '2.8943e+00', 'train_loss': '1.0792e+00'}}
+[92mINFO [0m:      	
+[92mINFO [0m:      	Aggregated ClientApp-side Evaluate Metrics:
+[92mINFO [0m:      	{}
+[92mINFO [0m:      	
+[92mINFO [0m:      	ServerApp-side Evaluate Metrics:
+[92mINFO [0m:      	{}
+[92mINFO [0m:      
+Saved final 84-class model: /mnt/d/Alperen E/Belgelerim/4. Year/Güz Dönemi/CS 401/SeniorProject/models/subtype_flower_val_v1.pt
+[36m(ClientAppActor pid=862)[0m [93mWARNING [0m:   Manually terminating ClientAppActor
+[36m(ClientAppActor pid=846)[0m Client 5 round 15: n=3800, loss=1.014762[32m [repeated 74x across cluster] (Ray deduplicates logs by default. Set RAY_DEDUP_LOGS=0 to disable log deduplication, or see https://docs.ray.io/en/master/ray-observability/user-guides/configure-logging.html#log-deduplication for more options.)[0m
+[92mINFO [0m:      

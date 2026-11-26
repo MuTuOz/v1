@@ -1,0 +1,78 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta content="text/html; charset=UTF-8" http-equiv="content-type">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CVPR 2019 Open Access Repository</title>
+<link rel="stylesheet" type="text/css" href="../../static/conf.css">
+<script type="text/javascript" src="../../static/jquery.js"></script>
+<meta name="citation_title" content="Class-Balanced Loss Based on Effective Number of Samples">
+<meta name="citation_author" content="Cui, Yin">
+<meta name="citation_author" content="Jia, Menglin">
+<meta name="citation_author" content="Lin, Tsung-Yi">
+<meta name="citation_author" content="Song, Yang">
+<meta name="citation_author" content="Belongie, Serge">
+<meta name="citation_publication_date" content="2019">
+<meta name="citation_conference_title" content="Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition">
+<meta name="citation_firstpage" content="9268">
+<meta name="citation_lastpage" content="9277">
+<meta name="citation_pdf_url" content="http://openaccess.thecvf.com/content_CVPR_2019/papers/Cui_Class-Balanced_Loss_Based_on_Effective_Number_of_Samples_CVPR_2019_paper.pdf">
+</head>
+<body>
+<div id="header">
+<div id="header_left">
+<a href="http://cvpr2019.thecvf.com"><img src="../../img/cvpr2019_logo.png" width="175" border="0" alt="CVPR 2019"></a>
+<a href="http://www.cv-foundation.org/"><img src="../../img/cropped-cvf-s.jpg" width="175" height="112" border="0" alt="CVF"></a>
+</div>
+<div id="header_right">
+<div id="header_title">
+<a href="http://cvpr2019.thecvf.com">CVPR 2019</a> <a href="/" class="a_monochrome">open access</a>
+</div>
+<div id="help" >
+These CVPR 2019 papers are the Open Access versions, provided by the <a href="http://www.cv-foundation.org/">Computer Vision Foundation.</a><br> Except for the watermark, they are identical to the accepted versions; the final published version of the proceedings is available on IEEE Xplore.</div>
+<div id="disclaimer" >
+This material is presented to ensure timely dissemination of scholarly and technical work.
+Copyright and all rights therein are retained by authors or by other copyright holders.
+All persons copying this information are expected to adhere to the terms and constraints invoked by each author's copyright.<br><br>
+<form action="../../CVPR2019_search.py" method="post">
+<input type="text" name="query">
+<input type="submit" value="Search">
+</form>
+</div>
+</div>
+</div>
+<div class="clear">
+</div>
+<div id="content">
+<dl>
+<dd>
+<div id="papertitle">
+Class-Balanced Loss Based on Effective Number of Samples</div>
+<div id="authors">
+<br><b><i>Yin Cui,  Menglin Jia,  Tsung-Yi Lin,  Yang Song,  Serge Belongie</i></b>; Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR), 2019, pp. 9268-9277
+</div><font size="5">
+<br><b>Abstract</b>
+</font>
+<br><br><div id="abstract" >
+With the rapid increase of large-scale, real-world datasets, it becomes critical to address the problem of long-tailed data distribution (i.e., a few classes account for most of the data, while most classes are under-represented). Existing solutions typically adopt class re-balancing strategies such as re-sampling and re-weighting based on the number of observations for each class. In this work, we argue that as the number of samples increases, the additional benefit of a newly added data point will diminish. We introduce a novel theoretical framework to measure data overlap by associating with each sample a small neighboring region rather than a single point. The effective number of samples is defined as the volume of samples and can be calculated by a simple formula (1-b^ n )/(1-b), where n is the number of samples and b \in [0,1) is a hyperparameter. We design a re-weighting scheme that uses the effective number of samples for each class to re-balance the loss, thereby yielding a class-balanced loss. Comprehensive experiments are conducted on artificially induced long-tailed CIFAR datasets and large-scale datasets including ImageNet and iNaturalist. Our results show that when trained with the proposed class-balanced loss, the network is able to achieve significant performance gains on long-tailed datasets.</div>
+<font size="5">
+<br><b>Related Material</b>
+</font>
+<br><br>
+[<a href="../../content_CVPR_2019/papers/Cui_Class-Balanced_Loss_Based_on_Effective_Number_of_Samples_CVPR_2019_paper.pdf">pdf</a>]
+<div class="link2">[<a class="fakelink" onclick="$(this).siblings('.bibref').slideToggle()">bibtex</a>]
+<div class="bibref">
+@InProceedings{Cui_2019_CVPR,<br>
+author = {Cui, Yin and Jia, Menglin and Lin, Tsung-Yi and Song, Yang and Belongie, Serge},<br>
+title = {Class-Balanced Loss Based on Effective Number of Samples},<br>
+booktitle = {Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)},<br>
+month = {June},<br>
+year = {2019}<br>
+}
+</div>
+</div>
+</dd>
+</dl>
+</div>
+</body>
+</html>

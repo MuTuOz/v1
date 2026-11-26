@@ -1,0 +1,9 @@
+{
+  "command": [
+    "/home/seniorfl/seniorproject-fl-venv/bin/python",
+    "scripts/27_evaluate_formal_hcm_v1.py"
+  ],
+  "returncode": 1,
+  "expected_refusal": true,
+  "message": "Existing evaluation/report: choose a new --output-dir"
+}

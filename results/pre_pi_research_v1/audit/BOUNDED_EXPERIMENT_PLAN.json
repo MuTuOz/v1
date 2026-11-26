@@ -1,0 +1,35 @@
+{
+  "seeds": [
+    42,
+    52,
+    62
+  ],
+  "reference": {
+    "epochs": 15,
+    "rounds": 15,
+    "local_epochs": 1,
+    "batch_size": 128,
+    "lr": 0.001
+  },
+  "imbalance_methods": [
+    "unweighted",
+    "inverse_frequency",
+    "effective_number"
+  ],
+  "effective_number_beta": 0.999,
+  "imbalance_seed": 42,
+  "weights_source": "global training counts only; class metadata shared, no raw samples shared",
+  "phase05_variants": [
+    "balanced_full_e1",
+    "exclusive_full_e1",
+    "original_partial3_e1",
+    "original_full_e2"
+  ],
+  "phase05_seed": 42,
+  "network_only": [
+    "centralized",
+    "flower_fedavg"
+  ],
+  "selection": "fixed grid before new results; exploratory use of frozen validation; no winner selected for deployment",
+  "raw_row_iid_allocations_note": "new allocations operate on training rows, not independent episodes; evaluate fixed validation only"
+}

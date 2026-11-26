@@ -1,0 +1,8 @@
+Traceback (most recent call last):
+  File "/mnt/d/Alperen E/Belgelerim/4. Year/Güz Dönemi/CS 401/SeniorProject/scripts/30_hardware_loopback_smoke.py", line 128, in <module>
+    if __name__=='__main__':main()
+                            ^^^^^^
+  File "/mnt/d/Alperen E/Belgelerim/4. Year/Güz Dönemi/CS 401/SeniorProject/scripts/30_hardware_loopback_smoke.py", line 107, in main
+    assert packaged.read_bytes()==source.read_bytes(),str(relative)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: pyproject.toml

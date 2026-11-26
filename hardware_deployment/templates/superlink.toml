@@ -1,0 +1,6 @@
+# Replace placeholders after choosing the isolated lab endpoint.
+[superlink]
+default = "pi-lab"
+[superlink.pi-lab]
+address = "<LAB_SUPERLINK_DNS>:8000"
+root-certificates = "<ABSOLUTE_CA_CERTIFICATE_PATH>"

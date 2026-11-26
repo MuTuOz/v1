@@ -1,0 +1,858 @@
+PAGE 1
+arXiv:2306.09461v1  [cs.LG]  15 Jun 2023
+Hierarchical confusion matrix for classiﬁcation
+performance evaluation
+1st Kevin Riehl
+Gurdon Institute, University of Cambridge, UK
+T echnische Universit¨at Darmstadt, Germany
+kevin.riehl@gurdon.cam.ac.uk
+2nd Michael Neunteufel
+Institute of Analysis and Scientiﬁc Computing
+T echnische Universit¨at Wien
+Vienna, Austria
+michael.neunteufel@tuwien.ac.at
+3rd Martin Hemberg
+Evergrande Center for Immunological Disease
+Brigham and W omen’s Hospital, Harvard Medical School
+75 Francis Street, Boston, MA 02215, USA
+mhemberg@bwh.harvard.edu
+Abstract—In this work we propose a novel concept of a hierar-
+chical confusion matrix, opening the door for popular confu sion
+matrix based (ﬂat) evaluation measures from binary classiﬁ cation
+problems, while considering the peculiarities of hierarch ical
+classiﬁcation problems. We develop the concept to a general ized
+form and prove its applicability to all types of hierarchica l
+classiﬁcation problems including directed acyclic graphs , multi
+path labelling, and non mandatory leaf node prediction. Fin ally,
+we use measures based on the novel confusion matrix to evalua te
+models within a benchmark for three real world hierarchical
+classiﬁcation applications and compare the results to esta blished
+evaluation measures. The results outline the reasonabilit y of this
+approach and its usefulness to evaluate hierarchical class iﬁcation
+problems. The implementation of hierarchical confusion ma trix
+is available on GitHub.
+Index Terms —evaluation metrics, hierarchical classiﬁcation
+problems, hierarchical confusion matrix
+I. I NTRODUCTION
+Hierarchical classiﬁcation is the task of assigning m mul-
+tiple classes out of n multiple, overlapping classes ( Ci)
+disposed in a hierarchical structure. Classes in the hierar chical
+classiﬁcation task can be divided into sub classes or groupe d
+into super classes. Often, hierarchical classiﬁcation is w rongly
+referred to other problems [15], [20] such as hierarchical
+clustering of objects to generate structures of classes [9] , [10].
+This work explicitly understands hierarchical classiﬁcat ion as
+allocation of objects to a set of given classes rather than th e
+design of classes and their structure itself.
+Machine learning research started to focus on (hierarchi-
+cally) structured classiﬁcation problems in the context of
+text categorization in the mid-1990s [16]. From then on,
+hierarchical classiﬁcation has been applied in many ﬁelds,
+namely text categorization, music genre classiﬁcation and
+bioinformatic applications including sequence classiﬁca tion,
+and protein function prediction [8], [20]. Despite of inten sive
+research, many related questions in the ﬁeld remain open, as
+stated e.g. in [17].
+Hierarchical classiﬁcation evaluation is part of ongoing
+research and various measures have been proposed so far [5],
+[21]. While established evaluation measures for binary and
+multi-class classiﬁcation problems exist, there is still t he lack
+of consensus on which measures to employ in the context of
+hierarchical classiﬁcation problems [5].
+Hierarchical classiﬁcation studies frequently adopted co n-
+ventional, ﬂat measures from binary classiﬁcation problem s
+such as accuracy, precision, or recall [5], [15], [17]. Due t o
+their simple structure based on the confusion matrix, these
+measures are easy accessibly to human inspection. However,
+ﬂat measures do not appropriately consider the complex pecu -
+liarities of hierarchical classiﬁcation problems. The mea sures
+hierarchical precision, recall, and F-score [15] are obser ved
+to frequently occur in recent studies; these measures try to
+bridge the evaluation of binary and hierarchical classiﬁca tion
+problems.
+In this work we propose a novel concept for the evaluation
+of hierarchical classiﬁcation problems: the hierarchical confu-
+sion matrix. This approach opens the door for conventional
+measures in the context of hierarchical classiﬁcation and t o
+complete the ﬁeld of hierarchical classiﬁcation evaluatio n. Fur-
+ther, we extend the concept to a generalized form and prove it s
+applicability to all types of hierarchical classiﬁcation p roblems
+including directed acyclic graphs, multi path label, and no n-
+mandatory leaf-node prediction. Finally, we demonstrate t he
+application of measures based on the novel concept for the
+comparison of classiﬁers in three exemplary benchmarks re-
+lated to different types of hierarchical classiﬁcation pro blems.
+An implementation of the hierarchical confusion matrix
+in Python programming language, and the examples and
+experiments of this study are available on GitHub 1.
+The brief remainder of this work is organized as follows.
+Section II formally introduces the problems of hierarchica l
+classiﬁcation. In Section III a summary of proposed eval-
+1https://github.com/DerKevinRiehl/HierarchicalConfusionMatrix
+
+PAGE 2
+Yes No
+Patient 
+infected ?
+Africa
+Original 
+continent ?
+Asia America Australia Europe
+Fantasy
+Movie 
+genre ?
+Comedy Thriller Sci-Fi Horror
+Snack product 
+category ?
+Sweet Sour Salty
+Pickles Chips NutsMuffins
+White Dark
+Chocolate
+(a) Binary classification (b) Multi-class classification
+(c) Multi-label classification (d) Hierarchical classification
+Fig. 1: Classiﬁcation problems by example. The selected
+class is marked gray. (a) binary classiﬁcation. (b) multi-c lass
+classiﬁcation. (c) multi-label classiﬁcation. (d) hierar chical
+classiﬁcation. Note, that the single selected category ( dark
+chocolate) causes the selection of multiple parental vertices
+in the graph on a path up to the root node.
+uation measures for hierarchical classiﬁcation is present ed.
+Section IV proposes the novel hierarchical confusion matri x
+and possible evaluation measures based on it. In Section V
+the proposed evaluation measure is applied onto experiment al
+data and compared to existing measures. Finally, Section VI
+concludes this paper and summarizes its contribution.
+II. H IERARCHICAL CLASSIFICATION
+Supervised machine learning allows access to labelled data
+for training and testing stages. Classiﬁcation describes s uper-
+vised machine learning using categorical labels, and stand s
+for the allocation of objects to a set of existing classes. Th e
+ﬁeld of classiﬁcation can be divided into the sub problems
+binary, multi-class, multi-label, and hierarchical class iﬁcation,
+as shown in Fig. 1. In the binary classiﬁcation problem,
+objects need to be allocated to one of two non-overlapping
+classes ( C1, C2). Multi-class classiﬁcation requires the choice
+of one out of n multiple, non-overlapping classes ( Ci) for
+a given input object. Multi-label classiﬁcation represent s the
+assignment of objects to m multiple classes out of n multiple,
+non-overlapping classes ( Ci).
+Before we deﬁne hierarchical classiﬁcation, let us introdu ce
+the notation used in this paper. Therefore, we deﬁne a set of
+data Ω and a structure Γ. The structure Γ can be described by
+a graph, where the nodes represent the n classes Ci ∈ Γ and
+the edges stand for the possible relationships between thes e
+classes, namely ancestry and descendance. For each class Ci,
+let us denote the set of all descendants by D {Ci} and the set
+of all neighboring nodes (with at least one common ancestor)
+by N {Ci}.
+The root node R ∈ Γ is the only node without ancestors
+A {R} = ∅. Leaf nodes i are nodes without any descendants.
+Symbol Deﬁnition
+Γ structure of hierarchical classiﬁcation problem
+Ψ number of allocated paths of classiﬁcation problem
+Φ mandatoriness for leaf-node prediction
+Ω set of data
+od a single data set in O
+Ci class i, node in Γ
+R root node of Γ
+C {od} true class of od in Γ
+D {Ci} set of descendants of Ci
+N {Ci} set of neighbors of Ci
+⃗Pi allocation path to Ci
+Z
+{
+⃗Pi
+}
+leaf node of ⃗Pi
+Pa ∩ Pb longest, consecutively connected, common path
+Pd set of all predicted allocation paths for od
+ˆPd a single, predicted allocation path for od in Pd
+Wd set of all true allocation paths for od
+~Pd a single, true allocation path for od in Wd
+TABLE I: Deﬁnitions for hierarchical classiﬁcation.
+An allocation path ⃗Pi is a series of classes within Γ. This
+work requires three conditions for ⃗Pi: (1) for each consecutive
+pair of elements Ca, Cb ∈ ⃗Pi the ancestry relationship Ca ∈
+A {Cb} holds, (2) the connectivity to the root node R ∈ ⃗Pi,
+and (3) the connectivity to the allocated class Ci ∈ ⃗Pi. Let us
+denote the true class of a given object od ∈ Ω as C {od}.
+Pd describes the set of all predicted allocation paths for od,
+and a single, predicted allocation path is given by ˆPd ∈ Pd. Wd
+denotes the set of all true allocation paths for od based on Γ
+and ~Pd ∈ Wd deﬁnes a single, true allocation path. Moreover,
+let us denote the intersection of ˆPd and ~Pd by ˆPd ∩ ~Pd, the
+(longest, consecutively connected) common path of predict ion
+of ˆPd and ~Pd by ˆPd ∩ ~Pd, and the leaf node of a path ⃗Pi as
+Z
+{
+⃗Pi
+}
+.
+Hierarchical classiﬁcation is a structured classiﬁcation prob-
+lem and represents the allocation of one or multiple paths
+⃗Px ∈ Pd within the structure Γ to a given object od ∈ Ω.
+Table I summarizes the deﬁnitions of this work.
+According to [2], [17], [20], the different sub problems of
+hierarchical classiﬁcation can be categorized based on thr ee
+aspects: structure Γ, number of paths Ψ, and label depth
+Φ. First, the literature commonly differentiates two types o f
+structures Γ that put the classes into a hierarchical relationship:
+trees T and directed acyclic graphs DAG [20]. Both of these
+structures are presented in Fig. 2. A tree is a graph in which
+any two nodes are connected by exactly one path, whereas
+a DAG allows nodes to possess multiple parental nodes. T
+implies |Wd| = 1 and DAG entails |Wd| ≥ 1 for a single
+class resp. single labelled object od. Moreover, this work
+assumes that a classiﬁer is required to predict a speciﬁc pat h
+for DAG problems, while T problems require the prediction
+of a class only. Second, [20] distinguishes single (SPL) and
+multi path label (MPL) hierarchical classiﬁcation dependi ng
+on the number of allocated paths Ψ = |Pd| per object od ∈ Ω.
+SPL implies |Pd| = 1 , while MPL entails |Pd| ≥ 1. Third,
+hierarchical classiﬁcation problems differ by their requi red
+
+PAGE 3
+(a) Tree (b) Directed acyclic
+graph (DAG)
+Fig. 2: Structures of hierarchical classiﬁcation. (a) trees. (b)
+directed acyclic graphs (DAG).
+label depth Φ; there are problems that necessarily require full
+depth labeling (FD) meaning the mandatory leaf-node predic -
+tion (MLNP), and such that do not (partial depth labeling, PD
+or non-mandatory leaf-node prediction, NMLNP) [5], [8].
+Algorithms approaching the hierarchical classiﬁcation pr ob-
+lem can be grouped into three categories [6], [15], [20]:
+ﬂat, local-model, and global-model approaches. These thre e
+approaches and their sub types are outlined in Fig. 3.
+The ﬂat approach transforms the hierarchical classiﬁcatio n
+problem into a multi-class problem using the leaf-nodes onl y.
+Three types of local-model approaches are mentioned by [20] :
+local classiﬁer per node, local classiﬁer per parent node, a nd
+local classiﬁer per level. The local classiﬁer per node appr oach
+employs a binary classiﬁer for each node of the class hierarc hy,
+while the local classiﬁer per parent approach trains a multi -
+class classiﬁer for all non-leaf nodes. The local classiﬁer per
+level approach consists in using a multi-class classiﬁer fo r
+all labels present in the levels of a hierarchical structure .
+The global approach utilizes one single classiﬁer that capt ures
+the whole hierarchical class structure. [15] argues, that l ocal-
+model approaches produce consistent labeling and are efﬁci ent
+to train. This comes at the cost that local models are highly
+sensitive to ancestral decisions and hardly interpretable due
+to the vast amount of different classiﬁers. Therefore, they
+pronounce for the use of global models that probably have a
+higher chance for correct predictions. However, the traini ng of
+global-model approaches is complex and contrary to the othe r
+approaches the classiﬁcation problem is not decomposed to
+simpler problems. In general, the performance of classiﬁer s
+depends on their training step. A larger amount of data avail -
+able and less contradictions in the data set supports the tra ining
+of better models. This is an argument for local classiﬁers pe r
+level and ﬂat approaches. Local classiﬁers per node and pare nt
+node face a shrinking size of training data for the deeper lev els,
+while global-model approaches face contradicting data as t here
+is no decomposition of the data for different classiﬁers.
+All approaches have their point and with regards to the
+diversity of algorithms found in the literature, one can con -
+clude that different types of data and hierarchical classiﬁ cation
+problems require different, suitable approaches.
+A B
+r   ot
+D E
+C
+H I
+F G
+  ot
+B
+
+I
+F
+G
+A B
+  ot
+D E
+C
+ I
+F G
+A B
+  ot
+D E
+C
+	 I
+F G
+A B
+
+  ot
+D E
+C
+ I
+F G
+A B
+  ot
+D E
+C
+ I
+F G
+(a) Flat app  a  h (  ) Glo b al - m od e l app  ac 
+  ) L o al  la s  i f   
+p  n o! "
+# $ % & ' ) al * la+ , . / 0 1 2
+p3 4 pa 5 6 7 t 8 9 : ;
+< = > ? @ A al B laC D E F G I J
+pK M lN v O P
+D
+Fig. 3: Approaches to hierarchical classiﬁcation. The use
+of classiﬁers is marked with dashed lines. (a) transforms le af
+node classiﬁcation to a multi-class problem. (b) considers all
+classes at the same time. (c) employs a binary classiﬁer for
+each vertex of the structure. (d) utilizes a multi-class cla ssiﬁer
+for each parental node. (e) uses a multi-class classiﬁer at e ach
+level of the taxonomy.
+III. R ELATED WORKS
+In the context of the binary classiﬁcation problem, there ar e
+four possible cases that occur: a true positive prediction ( TP), a
+true negative prediction (TN), a false positive prediction (FP),
+and a false negative prediction (FN). Based on the number
+of times these four cases occur, that make up the confusion
+matrix, many different performance measures have been pro-
+posed [7]. Amongst these measures there are accuracy (ACC),
+precision (PPV), recall (TPR), false negative rate (FNR), f alse
+positive rate (FPR), speciﬁcity (TNR), prevalence (PT), F1 -
+score (F1), and Matthews correlation coefﬁcient (MCC) to
+name a few; their deﬁnitions are listed in Table II.
+Measure Deﬁnition
+ACC = T P +T NT P +T N+F P +F N
+PPV = T PT P +F P
+TPR = T PT P +F N
+FNR = F PF N+T P
+FPR = F PF P +T N
+TNR = T NT N+F P
+PT =
+√
+T P R(1−T N R)+T N R−1
+T P R+T N R−1
+F1 = 2T P2T P +F P +F N
+MCC = T P ×T N−F P ×F N√
+(T P +F P )(T P +F N)(T N+F P )(T N+F N)
+TABLE II: Common binary classiﬁcation measures.
+As it turns out, hierarchical classiﬁcation is a more comple x
+problem, and the deﬁnition of the confusion matrix elements
+is not trivial. [15] pleads for the consideration of partial ly
+correct classiﬁcation, the discriminatory punishment of m ore
+
+PAGE 4
+distant errors and errors at upper levels. Take the snack
+product categorization in Fig. 1(d) as an example; the wrong
+classiﬁcation of white chocolate could be considered to be
+more accurate compared to the wrong classiﬁcation of mufﬁns
+or even a snack from different ﬂavors.
+[17] discusses further issues, namely over- and under-
+specialization, alternative paths, pairing, and long dist ance
+problems. With regards to our snack product category exampl e,
+over- and under-specialization could occur in NMLNP prob-
+lems, where the classiﬁer predicts dark chocolate, and the true
+label is set as sweet snack or the over way around. Moreover,
+the MPL classiﬁcation problem can increase the complexity
+of evaluation further.
+Due to these complexities, speciﬁc measures for the eval-
+uation of hierarchical classiﬁcation problems have been pr o-
+posed. [17] differentiates pair based and set based measure s.
+Pair based measures assign costs to pairs of predicted and
+true classes; these measures are most suitable for tree and
+SPL problems. A possible extension to MPL problems is the
+relaxation for each class to be part of more than one pair.
+Set based measures take the whole set of predicted and true
+classes into account, including ancestry and descendance r ela-
+tionships. Symmetric difference loss and hierarchical pre cision
+and recall [14] count amongst the set based measures.
+[5] categorizes the evaluation measures into distance base d,
+depth based, semantics based, and hierarchy based measures .
+Distance based measures consider the distance of true and
+predicted classes in a structure [24], [25]. A possible issu e
+with these measures is the neglection of different levels, a s
+these measures commonly do not consider the difﬁculty for
+accurate classiﬁcation at deeper levels and the severity of
+misclassiﬁcation at shallower levels.
+A possible mean to encounter this shortcoming is the
+weighting of structural edges which is described as depth
+based measures. Besides the number of edges, and the depth
+of true and predicted classes are taken into consideration.
+However, the new problem of setting the weights occurs. [1],
+[11] employ exponential weighting. A possible issue with
+these measures is the discrimination and over-penalizatio n
+of leaf nodes with different depths. In addition to that, the
+deﬁnition of depth becomes more challenging in DAGs.
+Semantics based measures employ the concept of similarity
+between classes and objects to predict the performance of
+classiﬁcation models [24]. From this perspective, similar ity or
+distance can be quantiﬁed comparing different feature vect ors
+in a multidimensional space similar to the hierarchical clu ster-
+ing problems [9], [10]. One drawback doing so is that during
+the comparison of two algorithms with different features bu t
+identical predictions, evaluation results in different pe rfor-
+mances. Hierarchy based measures consider structure relat ed
+information. Mainly, these measures consider the intersec tion
+of allocation paths, with a focus eiter on descendants [12] o r
+ancestors [13].
+Finally, we also ﬁnd loss function based evaluation measure s
+in the literature [3], [4], that employ functions similar to the
+model training for evaluation purposes.
+IV. H IERARCHICAL CONFUSION MATRIX
+The orientation on binary classiﬁcation evaluation measur es
+in the context of hierarchical classiﬁcation problems can b e
+observed in many works such as [6], [14], [15], [22], [24].
+Especially the measures hierarchical precision (hP), reca ll
+(hR), and F-score (hF) [14], [15] enjoy increased attention in
+the ongoing discussion on hierarchical classiﬁcation eval uation
+and are frequently used in studies, e.g. [2]. Their deﬁnitio n for
+SPL problems is shown below, including a degree of freedom
+meaning that hP is considered β times more important than
+hR:
+hP =
+∑
+i
+⏐⏐⏐ ~Pi ∩ ˆPi⏐⏐⏐
+∑
+i
+⏐⏐⏐ ˆPi⏐⏐⏐ hR =
+∑
+i
+⏐⏐⏐ ~Pi ∩ ˆPi⏐⏐⏐
+∑
+i
+⏐⏐⏐ ~Pi⏐⏐⏐
+hF = (1 + β2) · hP · hR(β2 · hP + hR)
+(1)
+[20] recommends the usage of these measures, as the
+applicability and possible extension to both, trees & DAGs,
+and to both, SPL & MPL problems, is an argument for
+their choice. Unmistakably, they resemble strongly to the
+binary classiﬁcation measures PPV , TPR, and F1 based on
+the confusion matrix:
+P P V = T PT P + F P T P R = T PT P + F N
+F 1 = (1 + β2) · P P V · T P R(β2 · P P V + T P R) (2)
+Open questions arise on the deﬁnition of the confusion ma-
+trix for hierarchical classiﬁcation problems. The observa tion
+for hP , hR, and hF motivates to propose a novel confusion ma-
+trix for hierarchical classiﬁcation, that opens the door fo r the
+application of binary classiﬁcation measures while consid ering
+the peculiarities of the hierarchical classiﬁcation probl em. The
+concept of the hierarchical confusion matrix deﬁnes the fou r
+ﬁelds of the confusion matrix with a connotation to decision s
+that are done along the prediction path(s) as follows:
+• True positives ( T PH) - the number of nodes that were
+correctly labeled positively by the predicted path.
+• True negatives ( T NH) - the number of nodes that were
+correctly labeled negatively by the predicted path.
+• False positives ( F PH ) - the number of nodes that were
+wrongly labeled positively by the predicted path.
+• False negatives ( F NH) - the number of nodes that were
+wrongly labeled negatively by the predicted path.
+After determining T PH, T NH, F PH , and F NH for a single
+od ∈ Ω as a function of Pd and Wd, the values of hierarchical
+confusion can be calculated as the sum over the whole data
+
+PAGE 5
+set and used to determine the “ﬂat” evaluation measures of
+binary classiﬁcation (see Table II):
+T P =
+∑
+od∈Ω
+T PH {Pd, Wd} T N =
+∑
+od∈Ω
+T NH {Pd, Wd}
+F P =
+∑
+od∈Ω
+F PH {Pd, Wd} F N =
+∑
+od∈Ω
+F NH {Pd, Wd}
+(3)
+In the following we formalize this concept of hierarchical
+confusion beginning from its simplest form for ( Γ=T, Ψ=SPL,
+Φ=MLNP) problems and then extend it to a generalized form
+that is applicable to all hierarchical classiﬁcation probl ems.
+A. Hierarchical Confusion for ( Γ=T, Ψ=SPL, Φ=MLNP)
+According to the verbal deﬁnition of the confusion matrix
+elements in the prior section, we formalize the elements
+as follows. Since ( Γ=T, Ψ=SPL, Φ=MLNP) problems imply
+Wd = ~Pd and Pd = ˆPd, we deﬁne the elements as function
+of a given ~Pd and ˆPd instead of a given Wd and Pd. The true
+positive (T PH) equals the number of nodes in the intersection
+of ˆPd and ~Pd. The true negative ( T NH) is given by the union
+of the neighbors of each node on the common path 2 and the
+number of (correctly) negative predicted descendants of th e
+common path’s leaf node. The number of (correctly) negative
+predicted descendants of the common path’s leaf node can be
+obtained by the set of descendants of the common path’s leaf
+node excluding the false negative node of the true path ~Pd and
+the false positive node of the predicted path ˆPd.
+The false positive ( F PH ) equals the number of nodes of the
+predicted path that are not part of the common path. The false
+negative ( F NH) is given by the number of nodes of the true
+path that are not part of the common path. An example for the
+evaluation of a prediction in the context of a hierarchical t ree
+classiﬁcation problem is outlined in Fig. 4(a). To summariz e,
+the four aforementioned cases are formalized below:
+T PH
+{
+~Pd, ˆPd
+}
+=
+⏐⏐⏐ ˆPd ∩ ~Pd \ R⏐⏐⏐
+T NH
+{
+~Pd, ˆPd
+}
+=
+⏐⏐⏐⏐⏐⏐ ⋃Ci∈ ˆPd∩ ~Pd N {Ci} \ ~Pd⏐⏐⏐⏐⏐⏐
++
+⏐⏐⏐D {Z { ˆPd ∩ ~Pd}} \ { ~Pd ∪ ˆPd}⏐⏐⏐
+F PH
+{
+~Pd, ˆPd
+}
+=
+⏐⏐⏐ ˆPd \ ~Pd⏐⏐⏐
+F NH
+{
+~Pd, ˆPd
+}
+=
+⏐⏐⏐ ~Pd \ ˆPd⏐⏐⏐
+(4)
+2The union of the neighbors of each node on the common path excl uding
+nodes of the true path or duplicates in this set. In more compl ex problems
+such as DAG it is possible that nodes occur multiple times in t he union of
+the neighbors of each node on the common path, therefore they are excluded.
+Moreover, it is possible that nodes of the true path appear in this union set,
+and therefore are explicitly removed from the set.
+B. Hierarchical Confusion for ( Ψ=SPL, Φ=MLNP)
+In order to extend any deﬁnition for T PH , T NH, F PH , and
+F NH in the context of a T to a DAG problem, we propose a
+two step “benevolent” approach.
+• Step 1 : select the path i ( ~Pi ∈ Wd) that resembles most
+to ˆPd (SPL problems require |Pd| = 1):
+i = max
+~Pi∈Wd
+⏐⏐⏐ ~Pi ∩ ˆPd⏐⏐⏐ (5)
+• Step 2 : calculate T PH, T NH, F PH , and F NH like for
+a ( Γ=T, Ψ=SPL, Φ=MLNP) problem using ~Pi and ˆPd.
+We call this approach “benevolent” as one ~Pi of the possible
+true paths in Wd is chosen to enable the achievement of
+the best possible performance for a given prediction ˆPd. An
+example for the evaluation of a ( Γ=DAG) problem is outlined
+in Fig 4(b).
+C. Hierarchical Confusion for ( Φ=MLNP)
+The next step towards a generalized hierarchical confusion
+concept is the extension to MPL problems. Similar to the
+DAG extension, we can decompose the MPL problem to SPL
+problems. To do so, we ﬁrst need to extend the notation. In
+MPL problems, C {od} is a set of n true classes of od in Γ.
+The classiﬁer predicts m paths. The number of predicted paths
+m and the number of true classes n are not necessarily equal in
+applications, as n is considered to be unknown to the classiﬁer
+a priori. Wd,j is the set of all true allocation paths for od
+connected to Cj ∈ C {od}. Tree problems imply |Wd,j| = 1 .
+Based on this redeﬁnition, the concept of confusion matrix c an
+be extended to MPL problems with following, “benevolent”
+approach:
+• Step 1: Create a map M , that stores values m = M
+[
+ˆPk
+]
+for each ˆPk ∈ Pd.
+• Step 2 : For each ˆPk ∈ Pd determine the m values as
+follows:
+• Step 1.1 : Find the path i of any class j in Wd,j that
+resembles most to ˆPk:
+(i, j) = max
+~Pi∈Wd,j
+⏐⏐⏐ ~Pi ∩ ˆPk⏐⏐⏐ (6)
+• Step 1.2 : Set m accordingly to the number of
+intersections between ˆPk and the found ~Pi ∈ Wd,j :
+m =
+⏐⏐⏐ ~Pi ∩ ˆPk⏐⏐⏐ ⇒ M [ ˆPk] (7)
+• Step 3 : For each ˆPk ∈ Pd (in descending order of
+related m values stored in M ) determine T PH,k, T NH,k,
+F PH,k, and F NH,k as follows:
+• Step 3.1 : If Wd,j ⁄= ∅, go to Step 3.2. Otherwise,
+if Wd,j is empty, if there are more predictions m
+than true classes n, consider the whole prediction as
+a false positive:
+T PH,k = 0 T NH,k = 0
+F PH,k =
+⏐⏐⏐ ˆPk \ R⏐⏐⏐ F NH,k = 0 (8)
+
+PAGE 6
+Fig. 4: Four exemplary predictions and their evaluation us-
+ing the concept of hierarchical confusion. The true class(es)
+is (are) coloured gray and marked with a cross. The predictio ns
+are marked with numbered arrows and prediction paths are
+marked with an dotted resp. dashed lines. The tables right to
+the diagrams present the resulting numbers for the confusio n
+matrix ﬁelds and the relevant nodes that were considered in
+the speciﬁc context.
+• Step 3.2 : Find the path i of any class j in Wd,j that
+resembles most to ˆPk:
+(i, j) = max
+~Pi∈Wd,j
+⏐⏐⏐ ~Pi ∩ ˆPk⏐⏐⏐ (9)
+• Step 3.3 : Calculate T PH,k, T NH,k, F PH,k, and
+F NH,k like a ( Γ=T, Ψ=SPL, Φ=MLNP) problem
+using ~Pi and ˆPk.
+• Step 3.4 : Remove all paths in Wd,j related to class
+j. Remove Cj from the set of true labels C {od}.
+• Step 4 : Calculate the ﬁelds of the confusion matrix
+as sum of values determined by the single predictions
+ˆPk ∈ Pd. For all remaining classes Cj that were not
+removed from C {od} (if there are more true classes n
+than predictions m), consider the shortest paths inside as
+false negatives:
+T PH =
+∑
+ˆPk∈Pd
+T PH,k T NH =
+∑
+ˆPk∈Pd
+T NH,k
+F PH =
+∑
+ˆPk∈Pd
+F PH,k
+F NH =
+∑
+ˆPk∈Pd
+F NH,k +
+∑
+Cj ∈C{od}
+min
+∀ ~Pi∈Wd,j
+⏐⏐⏐ ~Pi \ R⏐⏐⏐
+(10)
+An example for the evaluation of a ( Γ=DAG, Ψ=MPL)
+problem is depicted in Fig. 4(c).
+D. Generalized Hierarchical Confusion (for all problems)
+Finally, the discussion of NMLNP problems remains. As
+it turns out, the approach presented for MPL problems is
+applicable to NMLNP problems as well, as shown in Fig. 4(d).
+NMLNP adds complexity to the game by not requiring the
+prediction to the deepest level of the taxonomy. This allows for
+misclassiﬁcation errors such as over- and under-specializ ation.
+The discussed approach in the previous subsection is also su it-
+able in this case, as the confusion matrix element deﬁnition s
+consider paths and their intersection.
+V. E XPERIMENTS
+In this section, we apply our concept of the hierarchical
+confusion matrix onto three, real-world hierarchical clas siﬁca-
+tion problems with differing levels of complexity. Employi ng
+binary performance measures (see Table II) using the hierar -
+chical confusion matrix allows for the comparison of differ ent
+classiﬁcation models in the three experiments. Code and dat a
+for reproduction can be found on GitHub.
+A. Transposon Classiﬁcation
+Transposon classiﬁcation is a task from bioinformatics and
+computational biology [19]. Transposons are DNA sequences
+that are able to move inside the genome using copy & paste
+and cut & paste transposition mechanisms and are suspected
+to play an important role as driver for genome evolution.
+Moreover, they can be classiﬁed into a tree structure depend ing
+on structural and protein features obtained by the sequence s
+
+PAGE 7
+that determine their speciﬁc transposition mechanisms. Th e
+transposon classiﬁcation task is a ( Γ=T, Ψ=SPL, Φ=MLNP)
+classiﬁcation problem. Within this experiment we use the
+combined dataset mipsREdat-PGSB 3, RepBase v23.08 4, and
+the taxonomy proposed in [19].
+Table III presents the hierarchical confusion matrix and
+evaluation measures based on it for different classiﬁcatio n
+models that were compared in [19]. Situations in which
+a clear ranking based on one measure is complicated, the
+consideration of multiple measures as presented in the tabl e
+can facilitate model ranking. The results show that evaluat ion
+measures based on the novel hierarchical confusion matrix
+span the whole range, comparable to the related binary mea-
+sures.
+B. GermEval 2019 competition, T ask 1A
+The GermEval 2019 competition [18] was a competition
+hold by the Language Technology Group of Universit¨ at Ham-
+burg, Germany. In total 18 teams participated to the compe-
+tition and worked on multiple tasks. Here, we consider Task
+1A and 1B, related to hierarchical classiﬁcation of blurb te xts
+in German language - short descriptions of books. The data
+set covers 20,784 books and a 3-level DAG structure with 343
+categories. All participant submissions, data set and taxo nomy
+were downloaded from the competition’s website 5.
+Task 1A is a ( Γ=(1-level)T, Ψ=MPL, Φ=MLNP) classi-
+ﬁcation problem. The challenge excercise was to classify
+one or multiple top-level categories for the blurbs that rep -
+resent literature genres. Table IV summarizes the confusio n
+matrix, evaluation measures calculated by us (HC) and the
+reported performances by the organizers of the competition
+(GE) for each participant and two baseline models (Base-
+line, Contender). The organizers employed micro-averaged
+recall, precision, and F1-score [20], [23] as well as subset
+accuracy [23] for evaluation purposes. This table allows fo r
+the comparison of the reported evaluation measures. Also, i t
+enables the comparison of different rankings based on the
+reported evaluation measures. Additionally, the MCC score
+based on the hierarchical confusion matrix is reported.
+First of all, the evaluation results and rankings for both
+evaluation approaches resemble strongly. The rankings dif -
+fer by only one pair (Comtravo-DS and HSHL). Next, the
+differences in precision, recall, and F1 score between the
+hierarchical confusion matrix and micro-averaged measure s
+are relatively small (on average 2.41%, 0.10% and 1.44%).
+However, larger differences become obvious with regards to
+accuracy (on average 17.53%). Differences in accuracy coul d
+be explained by the different perception of true negatives i n
+our proposed confusion matrix and subset accuracy.
+C. GermEval 2019 competition, T ask 1B
+Task 1B is a ( Γ=DAG, Ψ=MPL, Φ=NMLNP) classiﬁcation
+problem. The challenge excercise was to classify one or mul-
+3https://pgsb.helmholtz-muenchen.de/plant/recat/index.jsp
+4https://www.girinst.org/repbase/
+5https://www.inf.uni-hamburg.de/en/inst/ab/lt/resources/data/germeval-2019-hmc/germeval2019t1-public-da ta-ﬁnal.zip
+tiple categories from the DAG for the blurbs, not necessaril y
+to the deepest level. Table V summarizes the results similar to
+the task before. Again, resulting rankings are identical ex cept
+for one pair (EricssonResearch and TwistBytes). Differenc es
+in accuracy, precision, recall, and F1 score (67.44%, 2.44% ,
+5.20%, 4.25%) are higher compared to the previous task.
+Again, accuracy differs most. As Task 1B considers a more
+complex structure, differences between the evaluation mea -
+sures become more obvious.
+VI. C ONCLUSIONS
+In this work, we proposed the novel concept of hierarchical
+confusion matrix, which has been extended to a generalized
+form and we proved its applicability to all types of hierarch ical
+classiﬁcation problems including DAG structures, MPL, and
+NMLNP problems. The evaluation concept was demonstrated
+on real world applications, benchmarking hierarchical cla ssi-
+ﬁcation problems. The evaluation results were compared to
+alternative evaluation measures present in literature, re vealing
+and supporting the reasonability of the proposed concept.
+The novel concept of hierarchical confusion matrix allows
+for the evaluation of hierarchical classiﬁcation problems using
+measures based on binary classiﬁcation problems. Thus, it
+will facilitate future research on evaluation of hierarchi cal
+classiﬁcation models.
+REFERENCES
+[1] Hendrik Blockeel, Maurice Bruynooghe, Saˇ so Dˇ zeroski , Jan Ramon,
+and Jan Struyf. Hierarchical multi-classiﬁcation. In W orkshop Notes of
+the KDD’02 W orkshop on Multi-Relational Data Mining , pages 21–35,
+2002.
+[2] Helyane Bronoski Borges, Carlos N Silla Jr, and J´ ulio Ce sar Nievola. An
+evaluation of global-model hierarchical classiﬁcation al gorithms for hi-
+erarchical classiﬁcation problems with single path of labe ls. Computers
+& Mathematics with Applications , 66(10):1991–2002, 2013.
+[3] Nicolo Cesa-Bianchi, Claudio Gentile, Andrea Tironi, a nd Lucas Zani-
+boni. Incremental algorithms for hierarchical classiﬁcat ion. Advances
+in neural information processing systems , 17:233–240, 2005.
+[4] Nicolo Cesa-Bianchi, Claudio Gentile, and Luca Zanibon i. Hierarchical
+classiﬁcation: combining bayes with svm. In Proceedings of the 23rd
+international conference on Machine learning , pages 177–184, 2006.
+[5] Eduardo Costa, Ana Lorena, ACPLF Carvalho, and Alex Frei tas. A
+review of performance evaluation measures for hierarchica l classiﬁers.
+In Evaluation methods for machine learning II: Papers from the AAAI-
+2007 workshop , pages 1–6, 2007.
+[6] Susan Dumais and Hao Chen. Hierarchical classiﬁcation o f web content.
+In Proceedings of the 23rd annual international ACM SIGIR conf erence
+on Research and development in information retrieval , pages 256–263,
+2000.
+[7] Tom Fawcett. An introduction to roc analysis. Pattern recognition letters,
+27(8):861–874, 2006.
+[8] Alex Freitas and Andr´ e Carvalho. A tutorial on hierarch ical classiﬁcation
+with applications in bioinformatics. Research and trends in data mining
+technologies and applications , pages 175–208, 2007.
+[9] Hugh G Gauch Jr and Robert H Whittaker. Hierarchical clas siﬁcation
+of community data. The Journal of Ecology , pages 537–557, 1981.
+[10] Allan D Gordon. A review of hierarchical classiﬁcation . Journal of the
+Royal Statistical Society: Series A (General) , 150(2):119–137, 1987.
+[11] Nicholas Holden and Alex A Freitas. Hierarchical class iﬁcation of g-
+protein-coupled receptors with a pso/aco algorithm. In Proceedings of
+the IEEE Swarm Intelligence Symposium (SIS’06) , pages 77–84. IEEE
+Press, 2006.
+[12] Panagiotis G Ipeirotis, Luis Gravano, and Mehran Saham i. Probe, count,
+and classify: categorizing hidden web databases. In Proceedings of the
+2001 ACM SIGMOD international conference on Management of d ata,
+pages 67–78, 2001.
+
+PAGE 8
+model TP TN FP FN ACC PPV TPR F1 MCC Rank
+HC GA 19,145 27,690 7,854 7,744 75.02% 70.91% 71.20% 71.05% 49.08% 2
+HC LGA 18,420 25,582 8,598 8,469 72.05% 68.18% 68.50% 68.34% 43.33% 3
+NLLCPN 17,608 24,765 9,410 9,281 69.39% 65.17% 65.48% 65.33% 37.93% 4
+RFSB 22,833 34,026 4,131 4,056 87.41% 84.68% 84.92% 84.80% 74.06% 1
+TERL 366 630 18,776 26,523 2.15% 1.91% 1.36% 1.59% -95.58% 6
+TopDown 1,415 2,743 16,603 25,474 8.99% 7.85% 5.26% 6.30% -81.49% 5
+TABLE III: Transposon Classiﬁcation Experiment.
+Hierarchical confusion matrix performance evaluation (HC ) Reported performances (GE)
+model TP TN FP FN ACC PPV TPR F1 MCC ACC PPV TPR F1 Rank (HC) Rank (GE)
+Averbis 3,613 28,863 584 857 95.75% 86.09% 80.83% 83.37% 80.99% 79.00% 86.00% 81.00% 83.00% 6 6
+Comtravo-DS 3,690 29,517 1,078 780 94.70% 77.39% 82.55% 79.89% 76.89% 72.00% 81.00% 83.00% 82.00% 7 8
+DFKI-SLT 3,787 28,933 536 683 96.41% 87.60% 84.72% 86.14% 84.09% 82.00% 88.00% 85.00% 86.00% 3 3
+EricssonResearch 3,769 28,891 455 701 96.58% 89.23% 84.32% 86.70% 84.79% 84.00% 89.00% 84.00% 87.00% 1 1
+Fosil-hsmw 3,719 29,003 694 751 95.77% 84.27% 83.20% 83.73% 81.30% 79.00% 84.00% 83.00% 84.00% 5 5
+HSHL 3,647 28,877 777 823 95.31% 82.44% 81.59% 82.01% 79.32% 77.00% 82.00% 82.00% 82.00% 8 7
+HUIU 3,608 28,808 867 862 94.94% 80.63% 80.72% 80.67% 77.76% 76.00% 81.00% 81.00% 81.00% 9 9
+Raghavan 3,747 28,983 522 723 96.34% 87.77% 83.83% 85.75% 83.68% 83.00% 88.00% 84.00% 86.00% 4 4
+TwistBytes 3,852 29,551 752 618 96.06% 83.67% 86.17% 84.90% 82.65% 79.00% 87.00% 86.00% 86.00% 2 2
+Baseline 3,344 29,084 544 1,126 95.10% 86.01% 74.81% 80.02% 77.49% 71.00% 86.00% 75.00% 80.00%
+Contender 3,809 29,835 2,301 661 91.91% 62.34% 85.21% 72.00% 68.53% 74.00% 82.00% 85.00% 84.00%
+TABLE IV: GermEval 2019 Competition, Task 1A Experiment.
+Hierarchical confusion matrix performance evaluation (HC ) Reported performances (GE)
+model TP TN FP FN ACC PPV TPR F1 MCC ACC PPV TPR F1 Rank (HC) Rank (GE)
+Averbis 8,552 125,951 4,683 6,558 92.29% 64.62% 56.60% 60.34% 56.24% 27.00% 68.00% 61.00% 64.00% 3 3
+Comtravo-DS 7,187 111,871 3,376 7,923 91.33% 68.04% 47.56% 55.99% 52.36% 19.00% 70.00% 53.00% 60.00% 6 6
+DKFI-SLT 7,049 112,567 2,256 8,061 92.06% 75.75% 46.65% 57.74% 55.56% 21.00% 78.00% 52.00% 62.00% 4 4
+EricssonResearch 8,498 119,546 3,208 6,612 92.88% 72.60% 56.24% 63.38% 60.10% 38.00% 74.00% 62.00% 67.00% 1 2
+HSHL 7,167 106,488 3,025 7,943 91.20% 70.32% 47.43% 56.65% 53.21% 26.00% 72.00% 54.00% 62.00% 5 5
+TwistBytes 9,174 130,886 4,747 5,936 92.91% 65.90% 60.71% 63.20% 59.35% 25.00% 71.00% 65.00% 68.00% 2 1
+Baseline 5,183 97,128 964 9,927 90.38% 84.32% 34.30% 48.77% 50.00% 15.00% 85.00% 39.00% 53.00%
+Contender 7,693 118,017 2,854 7,417 92.45% 72.94% 50.91% 59.97% 57.05% 25.00% 76.00% 56.00% 64.00%
+TABLE V: GermEval 2019 Competition, Task 1B Experiment.
+[13] Svetlana Kiritchenko, Stan Matwin, A Fazel Famili, et a l. Hierarchical
+text categorization as a tool of associating genes with gene ontology
+codes. In European workshop on data mining and text mining in
+bioinformatics, pages 30–34, 2004.
+[14] Svetlana Kiritchenko, Stan Matwin, A Fazel Famili, et a l. Functional
+annotation of genes using hierarchical text categorizatio n. In Proc. of
+the ACL W orkshop on Linking Biological Literature, Ontolog ies and
+Databases: Mining Biological Semantics , 2005.
+[15] Svetlana Kiritchenko, Stan Matwin, Richard Nock, and A Fazel Famili.
+Learning and evaluation in the presence of class hierarchie s: Application
+to text categorization. In Conference of the Canadian Society for
+Computational Studies of Intelligence , pages 395–406. Springer, 2006.
+[16] Daphne Koller and Mehran Sahami. Hierarchically class ifying docu-
+ments using very few words. Technical report, Stanford Info Lab, 1997.
+[17] Aris Kosmopoulos, Ioannis Partalas, Eric Gaussier, Ge orgios Paliouras,
+and Ion Androutsopoulos. Evaluation measures for hierarch ical clas-
+siﬁcation: a uniﬁed view and novel approaches. Data Mining and
+Knowledge Discovery, 29(3):820–865, 2015.
+[18] Steffen Remus, Rami Aly, and Chris Biemann. Germeval 20 19 task 1:
+Hierarchical classiﬁcation of blurbs. In KONVENS, 2019.
+[19] Kevin Riehl, Cristian Riccio, Eric Miska, and Martin He mberg. Trans-
+poson ultimate: a bundle of tools for transposon identiﬁcat ion. 2021 (IN
+PREPARA TION, A V AILABLE ON BIORXIV SOON).
+[20] Carlos N Silla and Alex A Freitas. A survey of hierarchic al classiﬁcation
+across different application domains. Data Mining and Knowledge
+Discovery, 22(1):31–72, 2011.
+[21] Marina Sokolova, Nathalie Japkowicz, and Stan Szpakow icz. Beyond
+accuracy, f-score and roc: a family of discriminant measure s for per-
+formance evaluation. In Australasian joint conference on artiﬁcial
+intelligence, pages 1015–1021. Springer, 2006.
+[22] Marina Sokolova and Guy Lapalme. A systematic analysis of per-
+formance measures for classiﬁcation tasks. Information processing &
+management, 45(4):427–437, 2009.
+[23] Mohammad S Sorower. A literature survey on algorithms f or multi-label
+learning. Oregon State University, Corvallis , 18:1–25, 2010.
+[24] Aixin Sun and Ee-Peng Lim. Hierarchical text classiﬁca tion and
+evaluation. In Proceedings 2001 IEEE International Conference on Data
+Mining, pages 521–528. IEEE, 2001.
+[25] Ke Wang, Senqiang Zhou, and Shiang Chen Liew. Building h ierarchical
+classiﬁers using class proximity. In VLDB, volume 99, pages 7–10.
+Citeseer, 1999.

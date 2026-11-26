@@ -1,0 +1,17 @@
+test_attack_predicted_benign (test_formal_hcm.TestRiehlHCM.test_attack_predicted_benign) ... ok
+test_benign_predicted_attack (test_formal_hcm.TestRiehlHCM.test_benign_predicted_attack) ... ok
+test_exact_attack (test_formal_hcm.TestRiehlHCM.test_exact_attack) ... ok
+test_exact_benign_is_short_leaf (test_formal_hcm.TestRiehlHCM.test_exact_benign_is_short_leaf) ... ok
+test_full_84_by_84_author_reference_agreement (test_formal_hcm.TestRiehlHCM.test_full_84_by_84_author_reference_agreement) ... ok
+test_invalid_tree (test_formal_hcm.TestRiehlHCM.test_invalid_tree) ... ok
+test_micro_formulas_and_undefined (test_formal_hcm.TestRiehlHCM.test_micro_formulas_and_undefined) ... ok
+test_published_figure_4a (test_formal_hcm.TestRiehlHCM.test_published_figure_4a) ... ok
+test_reject_unknown_and_internal_labels (test_formal_hcm.TestRiehlHCM.test_reject_unknown_and_internal_labels) ... ok
+test_tn_is_not_every_off_path_node (test_formal_hcm.TestRiehlHCM.test_tn_is_not_every_off_path_node) ... ok
+test_wrong_attack_family (test_formal_hcm.TestRiehlHCM.test_wrong_attack_family) ... ok
+test_wrong_subtype_within_family (test_formal_hcm.TestRiehlHCM.test_wrong_subtype_within_family) ... ok
+
+----------------------------------------------------------------------
+Ran 12 tests in 3.245s
+
+OK

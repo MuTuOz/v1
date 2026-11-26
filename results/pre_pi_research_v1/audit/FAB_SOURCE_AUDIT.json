@@ -1,0 +1,49 @@
+{
+  "status": "passed",
+  "installed_app": "/home/seniorfl/.flwr/pre_pi_research_v1/apps/seniorproject.seniorproject-pre-pi-research.0.1.0.e7f74e01",
+  "checks": [
+    {
+      "path": "pyproject.toml",
+      "comparison": "TOML semantic equality",
+      "source_sha256": "67b761d0b893facc6250e9323de683a8444cd6ce1619be81e17f516ac4a09b46",
+      "packaged_sha256": "6a4414fb2f3d7cee1a7eb2e3a79b7203f5f6600e6b4dbeb531fd11b94a8eb50e"
+    },
+    {
+      "path": "researchfl/client_app.py",
+      "comparison": "byte equality",
+      "source_sha256": "123c03eaa8b97bd7a4bd9bdb1fbaa3ca129a8d985dd337f1fae9a50b87483435",
+      "packaged_sha256": "123c03eaa8b97bd7a4bd9bdb1fbaa3ca129a8d985dd337f1fae9a50b87483435"
+    },
+    {
+      "path": "researchfl/common.py",
+      "comparison": "byte equality",
+      "source_sha256": "580405e03150fc1cfb689af0fe23df644d463ce1e97ee4583a9964b9b5627393",
+      "packaged_sha256": "580405e03150fc1cfb689af0fe23df644d463ce1e97ee4583a9964b9b5627393"
+    },
+    {
+      "path": "researchfl/evaluation.py",
+      "comparison": "byte equality",
+      "source_sha256": "08fd1588aaed1cc015631f8f3aa0dddd24315da052e8e3f0fad75450694ccbde",
+      "packaged_sha256": "08fd1588aaed1cc015631f8f3aa0dddd24315da052e8e3f0fad75450694ccbde"
+    },
+    {
+      "path": "researchfl/schema.json",
+      "comparison": "byte equality",
+      "source_sha256": "515a0433d98ecbaa5a84b5912c3eb9f01a3962184addd536bdbbf784147a516c",
+      "packaged_sha256": "515a0433d98ecbaa5a84b5912c3eb9f01a3962184addd536bdbbf784147a516c"
+    },
+    {
+      "path": "researchfl/server_app.py",
+      "comparison": "byte equality",
+      "source_sha256": "a0c6262ca5924b881ea6aa4d55a627d559ee313f6adc830c77ac5014fb29d23e",
+      "packaged_sha256": "a0c6262ca5924b881ea6aa4d55a627d559ee313f6adc830c77ac5014fb29d23e"
+    },
+    {
+      "path": "researchfl/__init__.py",
+      "comparison": "byte equality",
+      "source_sha256": "917ae3ad25eb29b7328557525a959027e20277c91ddbfcc04ac4466597852d11",
+      "packaged_sha256": "917ae3ad25eb29b7328557525a959027e20277c91ddbfcc04ac4466597852d11"
+    }
+  ],
+  "note": "Original scientific simulation app source matches the installed FAB; Flower reserializes TOML formatting."
+}

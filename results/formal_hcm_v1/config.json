@@ -1,0 +1,43 @@
+{
+  "experiment": "formal_hcm_v1",
+  "type": "post-hoc evaluation; no new training",
+  "scope": "tree / single path / mandatory leaf prediction",
+  "primary_tn": "author reference: sibling union + immediate children at common-path terminal",
+  "sensitivity_tn": "transitive descendants at common-path terminal; not primary reference HCM",
+  "root_in_tp": false,
+  "benign_depth": 1,
+  "attack_leaf_depth": 3,
+  "aggregation": "sum sample HCM counts, then binary formulas (micro)",
+  "zero_denominator": "null",
+  "taxonomy_pruned_for_coverage": false,
+  "validation_samples": 6486,
+  "observed_leaf_classes": 28,
+  "absent_leaf_classes": 56,
+  "source_commit": "2256f4c24b813ffb752a53e20a8092ec7b1e3ac3",
+  "input_sha256": {
+    "flower_subtype_app/seniorfl_subtype/schema.json": "515a0433d98ecbaa5a84b5912c3eb9f01a3962184addd536bdbbf784147a516c",
+    "data/validation_v1/validation.csv": "723b49585cb2aa8062c7a27bb5debe27d8f43e6410fd7494227e45e553984fb7",
+    "results/subtype_flower_val_v1/centralized_recomputed_predictions.csv": "a8c7775768571c49947da3d53cc4ed2a1231f14644c3db02712d8cdde211b713",
+    "results/subtype_flower_val_v1/fedavg_predictions.csv": "bd2e378f8fb8bf2bfc79df661d4c68f3941c37961dc256892fbbcc0aef2037be",
+    "results/subtype_flower_val_v1/centralized_recomputed_metrics.json": "90b2a3b8678db2ee064696227495a223ae1e1acb58bc665a6edd91fa40d9a956",
+    "results/subtype_flower_val_v1/fedavg_metrics.json": "a152d2d0ff923235ea82cbe8337c9f16f6be477a367e884854bd8dbace9759b7",
+    "results/formal_hcm_v1/sources/riehl_reference.py": "60e6d400af167911eec77a302f948a930c180d2d9a260888614e0c1341e9bf68",
+    "results/formal_hcm_v1/sources/riehl_commit.json": "3679e5caa4444ca58ae08eeb56a5ae35a53b0f6f376451bf3f7678bbf4c8a809",
+    "results/formal_hcm_v1/sources/retrieval.json": "4ff0f86641f23cf291654128fa759b670020796b0a8910b63a2ea0ee7b9ef9fe"
+  },
+  "test_command": [
+    "/home/seniorfl/seniorproject-fl-venv/bin/python",
+    "-m",
+    "unittest",
+    "discover",
+    "-s",
+    "tests",
+    "-p",
+    "test_formal_hcm.py",
+    "-v"
+  ],
+  "seed": null,
+  "seed_note": "Deterministic evaluation of existing seed-42 model predictions",
+  "sources_dir": "/mnt/d/Alperen E/Belgelerim/4. Year/Güz Dönemi/CS 401/SeniorProject/results/formal_hcm_v1/sources",
+  "output_dir": "/mnt/d/Alperen E/Belgelerim/4. Year/Güz Dönemi/CS 401/SeniorProject/results/formal_hcm_v1"
+}

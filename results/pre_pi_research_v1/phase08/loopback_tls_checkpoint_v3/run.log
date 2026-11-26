@@ -1,0 +1,62 @@
+Flower App configuration warnings in '/mnt/d/Alperen E/Belgelerim/4. Year/Güz Dönemi/CS 401/SeniorProject/hardware_deployment/app/pyproject.toml':
+- Recommended property "description" missing in [project]
+- Recommended property "license" missing in [project]
+Using SuperLink: smoke (127.0.0.1:39112)
+Successfully started run 6853527189049590219
+[92mINFO [0m:      Starting logstream for run_id `6853527189049590219`
+[92mINFO [0m:      Start `flwr-serverapp` process
+Successfully installed seniorproject-pi-prepared to /home/seniorfl/.flwr/pre_pi_hardware_checkpoint_v3/apps/seniorproject.seniorproject-pi-prepared.0.1.0.13fd3825.
+[93mWARNING [0m:   fraction_evaluate is set to 0.0. Federated evaluation will be skipped.
+[92mINFO [0m:      Starting ResearchFedAvg strategy:
+[92mINFO [0m:      	├── Number of rounds: 2
+[92mINFO [0m:      	├── ArrayRecord (0.04 MB)
+[92mINFO [0m:      	├── ConfigRecord (train): {'experiment-json': {"experiment_id": "two_linux_processes_tls_smoke", "mode": "physical_preparation_smoke", "root": "/mnt/d/Alperen E/Belgelerim/4. Year/G\u00fcz D\u00f6nemi/CS 401/SeniorProject", "num_clients": 2, "clients_per_round": 2, "rounds": 2, "local_epochs": 1, "seed": 101, "batch_size": 8, "learning_rate": 0.001, "features": ["log_data-ranges_avg", "log_data-ranges_max", "log_data-ranges_min", "log_data-ranges_std_deviation", "log_data-types_count", "log_interval-messages", "log_messages_count", "network_fragmentation-score", "network_fragmented-packets", "network_header-length_avg", "network_header-length_max", "network_header-length_min", "network_header-length_std_deviation", "network_interval-packets", "network_ip-flags_avg", "network_ip-flags_max", "network_ip-flags_min", "network_ip-flags_std_deviation", "network_ip-length_avg", "network_ip-length_max", "network_ip-length_min", "network_ip-length_std_deviation", "network_ips_all_count", "network_ips_dst_count", "network_ips_src_count", "network_macs_all_count", "network_macs_dst_count", "network_macs_src_count", "network_mss_avg", "network_mss_max", "network_mss_min", "network_mss_std_deviation", "network_packet-size_avg", "network_packet-size_max", "network_packet-size_min", "network_packet-size_std_deviation", "network_packets_all_count", "network_packets_dst_count", "network_packets_src_count", "network_payload-length_avg", "network_payload-length_max", "network_payload-length_min", "network_payload-length_std_deviation", "network_ports_all_count", "network_ports_dst_count", "network_ports_src_count", "network_protocols_all_count", "network_protocols_dst_count", "network_protocols_src_count", "network_tcp-flags-ack_count", "network_tcp-flags-fin_count", "network_tcp-flags-psh_count", "network_tcp-flags-rst_count", "network_tcp-flags-syn_count", "network_tcp-flags-urg_count", "network_tcp-flags_avg", "network_tcp-flags_max", "network_tcp-flags_min", "network_tcp-flags_std_deviation", "network_time-delta_avg", "network_time-delta_max", "network_time-delta_min", "network_time-delta_std_deviation", "network_ttl_avg", "network_ttl_max", "network_ttl_min", "network_ttl_std_deviation", "network_window-size_avg", "network_window-size_max", "network_window-size_min", "network_window-size_std_deviation"], "class_counts": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], "loss": "unweighted", "partition": "node_local_synthetic", "synthetic_smoke_only": true, "initial_checkpoint": "/mnt/d/Alperen E/Belgelerim/4. Year/G\u00fcz D\u00f6nemi/CS 401/SeniorProject/models/subtype_flower_val_v1.pt", "schema_sha256": "e7307f97898ae4b9ae80323713f7892242fd87125f96e71f952d202ae99c5a08"}}
+[92mINFO [0m:      	├── ConfigRecord (evaluate): (empty!)
+[92mINFO [0m:      	├──> Sampling:
+[92mINFO [0m:      	│	├──Fraction: train (1.00) | evaluate ( 0.00)
+[92mINFO [0m:      	│	├──Minimum nodes: train (2) | evaluate (0)
+[92mINFO [0m:      	│	└──Minimum available nodes: 2
+[92mINFO [0m:      	└──> Keys in records:
+[92mINFO [0m:      		├── Weighted by: 'num-examples'
+[92mINFO [0m:      		├── ArrayRecord key: 'arrays'
+[92mINFO [0m:      		└── ConfigRecord key: 'config'
+[92mINFO [0m:      
+[92mINFO [0m:      
+[92mINFO [0m:      [ROUND 1/2]
+[92mINFO [0m:      aggregate_train: Received 2 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'client-id': 1.5, 'train_loss': 4.014468848705292, 'optimizer_steps': 2.0, 'examples_seen': 16.0, 'training_seconds': 1.039215836499352, 'rss_bytes': 481740800.0, 'serialized_array_bytes': 38674.0}
+[92mINFO [0m:      
+[92mINFO [0m:      [ROUND 2/2]
+[92mINFO [0m:      aggregate_train: Received 2 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'client-id': 1.5, 'train_loss': 3.8069841861724854, 'optimizer_steps': 2.0, 'examples_seen': 16.0, 'training_seconds': 0.989543217498067, 'rss_bytes': 481347584.0, 'serialized_array_bytes': 38674.0}
+[92mINFO [0m:      
+[92mINFO [0m:      Strategy execution finished in 15.51s
+[92mINFO [0m:      
+[92mINFO [0m:      Final results:
+[92mINFO [0m:      
+[92mINFO [0m:      	Global Arrays:
+[92mINFO [0m:      		ArrayRecord (0.037 MB)
+[92mINFO [0m:      	
+[92mINFO [0m:      	Aggregated ClientApp-side Train Metrics:
+[92mINFO [0m:      	{ 1: { 'client-id': '1.5000e+00',
+[92mINFO [0m:      	       'examples_seen': '1.6000e+01',
+[92mINFO [0m:      	       'optimizer_steps': '2.0000e+00',
+[92mINFO [0m:      	       'rss_bytes': '4.8174e+08',
+[92mINFO [0m:      	       'serialized_array_bytes': '3.8674e+04',
+[92mINFO [0m:      	       'train_loss': '4.0145e+00',
+[92mINFO [0m:      	       'training_seconds': '1.0392e+00'},
+[92mINFO [0m:      	  2: { 'client-id': '1.5000e+00',
+[92mINFO [0m:      	       'examples_seen': '1.6000e+01',
+[92mINFO [0m:      	       'optimizer_steps': '2.0000e+00',
+[92mINFO [0m:      	       'rss_bytes': '4.8135e+08',
+[92mINFO [0m:      	       'serialized_array_bytes': '3.8674e+04',
+[92mINFO [0m:      	       'train_loss': '3.8070e+00',
+[92mINFO [0m:      	       'training_seconds': '9.8954e-01'}}
+[92mINFO [0m:      	
+[92mINFO [0m:      	Aggregated ClientApp-side Evaluate Metrics:
+[92mINFO [0m:      	{}
+[92mINFO [0m:      	
+[92mINFO [0m:      	ServerApp-side Evaluate Metrics:
+[92mINFO [0m:      	{}
+[92mINFO [0m:      
+[92mINFO [0m:      

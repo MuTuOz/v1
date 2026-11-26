@@ -1,0 +1,7 @@
+{
+  "episode_test_accuracy": 0.8502202643171806,
+  "episode_test_macro_f1": 0.6255251069304716,
+  "web_diagnostic_recall": 0.8899082568807339,
+  "epochs": 15,
+  "training_records": 31216
+}

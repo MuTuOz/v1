@@ -1,0 +1,8 @@
+Traceback (most recent call last):
+  File "/mnt/d/Alperen E/Belgelerim/4. Year/Güz Dönemi/CS 401/SeniorProject/scripts/30_hardware_loopback_smoke.py", line 133, in <module>
+    if __name__=='__main__':main()
+                            ^^^^^^
+  File "/mnt/d/Alperen E/Belgelerim/4. Year/Güz Dönemi/CS 401/SeniorProject/scripts/30_hardware_loopback_smoke.py", line 115, in main
+    'ca_sha256':ca.fingerprint(hashes.SHA256()).hex(),'private_keys_archived':False,
+                               ^^^^^^^^^^^^^
+AttributeError: 'dict' object has no attribute 'SHA256'

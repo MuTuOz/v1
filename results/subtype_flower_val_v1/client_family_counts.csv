@@ -1,0 +1,6 @@
+,benign,ddos,dos,recon,mitm,web,bruteforce,malware
+client_1,2546,1104,780,0,0,0,0,0
+client_2,2432,0,0,2514,1270,0,0,0
+client_3,2584,0,0,0,0,197,120,0
+client_4,2736,1020,0,1347,0,0,0,0
+client_5,2698,0,720,0,0,191,0,191

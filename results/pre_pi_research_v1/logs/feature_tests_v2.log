@@ -1,0 +1,11 @@
+test_explicit_log_alignment (test_live_pipeline.OfflineFeatureTests.test_explicit_log_alignment) ... ok
+test_half_open_windows_and_direction (test_live_pipeline.OfflineFeatureTests.test_half_open_windows_and_direction) ... ok
+test_missing_logs_never_zero_filled (test_live_pipeline.OfflineFeatureTests.test_missing_logs_never_zero_filled) ... ok
+test_no_neighbor_resolution_or_packet_send (test_live_pipeline.OfflineFeatureTests.test_no_neighbor_resolution_or_packet_send) ... ok
+test_schema_complete (test_live_pipeline.OfflineFeatureTests.test_schema_complete) ... ok
+test_unrelated_traffic_excluded (test_live_pipeline.OfflineFeatureTests.test_unrelated_traffic_excluded) ... ok
+
+----------------------------------------------------------------------
+Ran 6 tests in 0.017s
+
+OK

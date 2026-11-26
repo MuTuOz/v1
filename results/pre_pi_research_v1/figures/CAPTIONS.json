@@ -1,0 +1,13 @@
+{
+  "phase01_local_global": "Measured saved-artifact figure; metric and support/normalization labelled on axes/title.",
+  "phase02_unseen_detection": "Measured saved-artifact figure; metric and support/normalization labelled on axes/title.",
+  "phase02_unseen_exact": "Measured saved-artifact figure; metric and support/normalization labelled on axes/title.",
+  "phase03_seed_variability": "Measured saved-artifact figure; metric and support/normalization labelled on axes/title.",
+  "phase04_imbalance_tradeoffs": "Measured saved-artifact figure; metric and support/normalization labelled on axes/title.",
+  "phase05_heterogeneity_audit": "Measured saved-artifact figure; metric and support/normalization labelled on axes/title.",
+  "phase05_partition_participation": "Measured saved-artifact figure; metric and support/normalization labelled on axes/title.",
+  "phase06_error_distribution": "Measured saved-artifact figure; metric and support/normalization labelled on axes/title.",
+  "phase06_family_confusions": "Measured saved-artifact figure; metric and support/normalization labelled on axes/title.",
+  "phase06_formal_hcm": "Measured saved-artifact figure; metric and support/normalization labelled on axes/title.",
+  "phase09_dataset_drift": "Measured saved-artifact figure; metric and support/normalization labelled on axes/title."
+}

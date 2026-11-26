@@ -1,0 +1,4 @@
+# Node-local values; client 2 uses a distinct ID, data path, credentials and logs.
+client-id = 1
+data-path = "<CLIENT_LOCAL_TRAINING_CSV>"
+log-dir = "<CLIENT_LOCAL_RUN_LOG_DIRECTORY>"

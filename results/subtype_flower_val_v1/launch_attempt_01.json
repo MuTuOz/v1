@@ -1,0 +1,29 @@
+{
+  "command": [
+    "/home/seniorfl/seniorproject-fl-venv/bin/flwr",
+    "run",
+    "/mnt/d/Alperen E/Belgelerim/4. Year/Güz Dönemi/CS 401/SeniorProject/flower_subtype_app",
+    "subtype-simulation",
+    "--stream"
+  ],
+  "superlink_command": [
+    "/home/seniorfl/seniorproject-fl-venv/bin/flower-superlink",
+    "--insecure",
+    "--simulation",
+    "--disable-runtime-dependency-installation",
+    "--host",
+    "127.0.0.1",
+    "--port",
+    "39092"
+  ],
+  "cwd": "/mnt/d/Alperen E/Belgelerim/4. Year/Güz Dönemi/CS 401/SeniorProject",
+  "transport": "Flower local SuperLink/Ray",
+  "env_overrides": {
+    "FLWR_HOME": "/home/seniorfl/.flwr/subtype84_val_v1",
+    "FLWR_TELEMETRY_ENABLED": "0",
+    "MPLCONFIGDIR": "/mnt/d/Alperen E/Belgelerim/4. Year/Güz Dönemi/CS 401/SeniorProject/results/subtype_flower_val_v1/matplotlib_config"
+  },
+  "runtime_dependency_installation": false,
+  "python_environment": "/home/seniorfl/seniorproject-fl-venv",
+  "started_utc": "2026-10-25T06:39:39.463118+00:00"
+}

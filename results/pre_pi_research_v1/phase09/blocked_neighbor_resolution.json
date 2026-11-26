@@ -1,0 +1,6 @@
+{
+  "issue": "Initial synthetic Ether frames without explicit MACs caused Scapy getmacbyip to attempt neighbor resolution.",
+  "evidence": "feature_readiness.log records Operation not permitted; no attack or authorized network reconfiguration was performed.",
+  "resolution": "Explicit locally administered synthetic MACs; fresh v2 artifacts; mocked neighbor/send APIs must not be called. No sandbox or permission changes.",
+  "initial_outputs_preserved": true
+}

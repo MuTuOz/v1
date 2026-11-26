@@ -1,0 +1,28 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "seniorproject-fl-subtype"
+version = "0.1.0"
+description = "84-class validation_v1 FedAvg experiment"
+requires-python = ">=3.12"
+dependencies = ["flwr[simulation]==1.40.0", "torch", "numpy", "pandas", "scikit-learn"]
+
+[tool.hatch.build.targets.wheel]
+packages = ["seniorfl_subtype"]
+
+[tool.flwr.app]
+publisher = "seniorproject"
+
+[tool.flwr.app.components]
+serverapp = "seniorfl_subtype.server_app:app"
+clientapp = "seniorfl_subtype.client_app:app"
+
+[tool.flwr.app.config]
+num-server-rounds = 15
+local-epochs = 1
+batch-size = 128
+learning-rate = 0.001
+seed = 42
+project-root = "/mnt/d/Alperen E/Belgelerim/4. Year/Güz Dönemi/CS 401/SeniorProject"

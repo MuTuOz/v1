@@ -1,0 +1,23 @@
+{
+  "status": "passed",
+  "protected_files_verified": 115,
+  "changed_historical_files": [],
+  "rounds": 15,
+  "client_updates": 75,
+  "checks": {
+    "fedavg": {
+      "predictions": 6486,
+      "confusion_total": 6486,
+      "hierarchical_total": 6486,
+      "metrics_consistent": true
+    },
+    "centralized_recomputed": {
+      "predictions": 6486,
+      "confusion_total": 6486,
+      "hierarchical_total": 6486,
+      "metrics_consistent": true
+    }
+  },
+  "test_sets_accessed": false,
+  "timestamp_utc": "2026-10-25T06:41:43.848936+00:00"
+}

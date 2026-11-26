@@ -1,0 +1,16 @@
+experiment_id,client_id,subset,samples,observed_subtypes,observed_families,status,exact_subtype_accuracy,subtype_macro_f1_observed,attack_only_subtype_accuracy,attack_only_subtype_macro_f1,family_accuracy,family_macro_f1_observed,attack_detection_recall,benign_false_positive_rate,attack_samples,benign_samples,hcm_f1
+inverse_frequency_local_c3_s42,1,A_unseen_subtype,2192,13,6.0,evaluated,0.0,0.0,0.0,0.0,0.037408759124087594,0.01668701668701669,0.7381386861313869,,2192.0,0.0,0.28323892035988
+inverse_frequency_local_c3_s42,1,B_unseen_family,2120,11,4.0,evaluated,0.0,0.0,0.0,0.0,0.038679245283018866,0.02614795918367347,0.7297169811320755,,2120.0,0.0,0.28149300155520995
+inverse_frequency_local_c3_s42,1,C_unseen_subtype_known_family,72,2,2.0,evaluated,0.0,0.0,0.0,0.0,0.0,0.0,0.9861111111111112,,72.0,0.0,0.3302325581395349
+inverse_frequency_local_c3_s42,2,A_unseen_subtype,1955,22,5.0,evaluated,0.0,0.0,0.0,0.0,0.04194373401534527,0.0223433242506812,0.7309462915601023,,1955.0,0.0,0.2830117999625398
+inverse_frequency_local_c3_s42,2,B_unseen_family,1081,20,4.0,evaluated,0.0,0.0,0.0,0.0,0.07585568917668825,0.039805825242718446,0.8963922294172063,,1081.0,0.0,0.33567550303417437
+inverse_frequency_local_c3_s42,2,C_unseen_subtype_known_family,874,2,1.0,evaluated,0.0,0.0,0.0,0.0,0.0,0.0,0.5263157894736842,,874.0,0.0,0.20833333333333334
+inverse_frequency_local_c3_s42,3,A_unseen_subtype,2528,25,5.0,evaluated,0.0,0.0,0.0,0.0,0.0,0.0,0.7685917721518988,,2528.0,0.0,0.27761108729818545
+inverse_frequency_local_c3_s42,3,B_unseen_family,2528,25,5.0,evaluated,0.0,0.0,0.0,0.0,0.0,0.0,0.7685917721518988,,2528.0,0.0,0.27761108729818545
+inverse_frequency_local_c3_s42,3,C_unseen_subtype_known_family,0,0,,unsupported_empty_subset,,,,,,,,,,,
+inverse_frequency_local_c3_s42,4,A_unseen_subtype,1210,14,6.0,evaluated,0.0,0.0,0.0,0.0,0.06776859504132231,0.02399765876499854,0.9049586776859504,,1210.0,0.0,0.334850640113798
+inverse_frequency_local_c3_s42,4,B_unseen_family,1042,11,4.0,evaluated,0.0,0.0,0.0,0.0,0.07869481765834933,0.041289023162134945,0.8992322456813819,,1042.0,0.0,0.3373055279708706
+inverse_frequency_local_c3_s42,4,C_unseen_subtype_known_family,168,3,2.0,evaluated,0.0,0.0,0.0,0.0,0.0,0.0,0.9404761904761905,,168.0,0.0,0.31983805668016196
+inverse_frequency_local_c3_s42,5,A_unseen_subtype,1987,20,4.0,evaluated,0.0,0.0,0.0,0.0,0.0412682435832914,0.027986348122866895,0.7146451937594364,,1987.0,0.0,0.27845754542083795
+inverse_frequency_local_c3_s42,5,B_unseen_family,1987,20,4.0,evaluated,0.0,0.0,0.0,0.0,0.0412682435832914,0.027986348122866895,0.7146451937594364,,1987.0,0.0,0.27845754542083795
+inverse_frequency_local_c3_s42,5,C_unseen_subtype_known_family,0,0,,unsupported_empty_subset,,,,,,,,,,,

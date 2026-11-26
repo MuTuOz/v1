@@ -1,0 +1,61 @@
+{
+  "centralized": {
+    "experiment": "centralized_recomputed",
+    "training_samples": 22450,
+    "validation_samples": 6486,
+    "num_classes": 84,
+    "num_observed_validation_classes": 28,
+    "exact_subtype_accuracy": 0.6954979956830095,
+    "subtype_macro_f1_observed": 0.3702992133538757,
+    "subtype_macro_f1_all_84_zero_support": 0.1234330711179586,
+    "attack_only_subtype_accuracy": 0.2609516616314199,
+    "attack_only_subtype_macro_f1": 0.3501461814106698,
+    "family_accuracy": 0.8509096515572001,
+    "family_macro_f1_observed": 0.6248067195867406,
+    "attack_detection_recall": 0.7651057401812689,
+    "benign_false_positive_rate": 0.004689942678478374,
+    "hierarchical_error_breakdown": {
+      "exact_correct": 4511,
+      "correct_family_wrong_subtype": 1008,
+      "attack_predicted_benign": 622,
+      "benign_predicted_attack": 18,
+      "wrong_attack_family": 327
+    },
+    "seed": 42,
+    "model_sha256": "c49c621221bb5acf67d9d8af4418b985b4383e6543e83dbf980623d524c5b75f",
+    "validation_sha256": "723b49585cb2aa8062c7a27bb5debe27d8f43e6410fd7494227e45e553984fb7",
+    "macro_f1_label_policy": "28 ground-truth observed subtypes; 27 attack subtypes; 7 observed families",
+    "attack_validation_samples": 2648,
+    "benign_validation_samples": 3838
+  },
+  "flower_fedavg": {
+    "experiment": "fedavg",
+    "training_samples": 22450,
+    "validation_samples": 6486,
+    "num_classes": 84,
+    "num_observed_validation_classes": 28,
+    "exact_subtype_accuracy": 0.6378353376503237,
+    "subtype_macro_f1_observed": 0.09671945280651104,
+    "subtype_macro_f1_all_84_zero_support": 0.03223981760217034,
+    "attack_only_subtype_accuracy": 0.11367069486404834,
+    "attack_only_subtype_macro_f1": 0.06647544301448552,
+    "family_accuracy": 0.769195189639223,
+    "family_macro_f1_observed": 0.33536314691286667,
+    "attack_detection_recall": 0.726963746223565,
+    "benign_false_positive_rate": 0.0005211047420531526,
+    "hierarchical_error_breakdown": {
+      "exact_correct": 4137,
+      "correct_family_wrong_subtype": 852,
+      "attack_predicted_benign": 723,
+      "benign_predicted_attack": 2,
+      "wrong_attack_family": 772
+    },
+    "seed": 42,
+    "model_sha256": "928229a3102cb5c76edab1a28191ecfd3c6a052d6a24bfd4140365ef8a4cd6e7",
+    "validation_sha256": "723b49585cb2aa8062c7a27bb5debe27d8f43e6410fd7494227e45e553984fb7",
+    "macro_f1_label_policy": "28 ground-truth observed subtypes; 27 attack subtypes; 7 observed families",
+    "attack_validation_samples": 2648,
+    "benign_validation_samples": 3838
+  },
+  "centralized_saved_predictions_reproduced_exactly": true
+}

@@ -1,0 +1,40 @@
+{
+  "samples": 6486,
+  "observed_subtypes": 28,
+  "observed_families": 7,
+  "status": "evaluated",
+  "exact_subtype_accuracy": 0.6475485661424607,
+  "subtype_macro_f1_observed": 0.11890635129813286,
+  "attack_only_subtype_accuracy": 0.14086102719033233,
+  "attack_only_subtype_macro_f1": 0.09079803069609417,
+  "family_accuracy": 0.667900092506938,
+  "family_macro_f1_observed": 0.257817579042417,
+  "attack_detection_recall": 0.6608761329305136,
+  "benign_false_positive_rate": 0.0028660760812923396,
+  "attack_samples": 2648,
+  "benign_samples": 3838,
+  "hcm_counts": {
+    "tp": 6455,
+    "tn": 23045,
+    "fp": 3553,
+    "fn": 5327
+  },
+  "hcm_metrics": {
+    "accuracy": 0.7686294945284002,
+    "precision": 0.6449840127897681,
+    "recall": 0.547869631641487,
+    "f1": 0.5924736117485085,
+    "specificity": 0.8664185277088503,
+    "false_positive_rate": 0.13358147229114972,
+    "false_negative_rate": 0.452130368358513,
+    "mcc": 0.4352290719102413
+  },
+  "hcm_f1": 0.5924736117485085,
+  "hierarchical_errors": {
+    "exact_correct": 4200,
+    "correct_family_wrong_subtype": 132,
+    "attack_predicted_benign": 898,
+    "benign_predicted_attack": 11,
+    "wrong_attack_family": 1245
+  }
+}

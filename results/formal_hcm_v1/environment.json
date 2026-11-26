@@ -1,0 +1,13 @@
+{
+  "python": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+  "executable": "/home/seniorfl/seniorproject-fl-venv/bin/python",
+  "platform": "Linux-5.15.167.4-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+  "packages": {
+    "numpy": "2.5.4",
+    "pandas": "3.0.6",
+    "matplotlib": "3.11.2",
+    "networkx": "3.6.1",
+    "pypdf": "6.21.2"
+  },
+  "utc": "2026-10-25T07:47:01.905745+00:00"
+}

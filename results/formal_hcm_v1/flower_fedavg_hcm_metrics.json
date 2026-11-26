@@ -1,0 +1,60 @@
+{
+  "all_validation": {
+    "samples": 6486,
+    "counts": {
+      "tp": 7215,
+      "tn": 24965,
+      "fp": 3125,
+      "fn": 4567
+    },
+    "metrics": {
+      "accuracy": 0.8070826645264848,
+      "precision": 0.6977756286266924,
+      "recall": 0.6123748090307248,
+      "f1": 0.6522918361811771,
+      "specificity": 0.88875044499822,
+      "false_positive_rate": 0.11124955500177999,
+      "false_negative_rate": 0.38762519096927517,
+      "mcc": 0.5217049639055975
+    },
+    "hcm_decision_total": 39872
+  },
+  "attack_truth_only": {
+    "samples": 2648,
+    "counts": {
+      "tp": 3379,
+      "tn": 21129,
+      "fp": 3119,
+      "fn": 4565
+    },
+    "metrics": {
+      "accuracy": 0.7613071570576541,
+      "precision": 0.5200061557402278,
+      "recall": 0.42535246727089626,
+      "f1": 0.46794072843096524,
+      "specificity": 0.8713708347080171,
+      "false_positive_rate": 0.12862916529198284,
+      "false_negative_rate": 0.5746475327291037,
+      "mcc": 0.3187157453744401
+    },
+    "hcm_decision_total": 32192
+  },
+  "transitive_tn_sensitivity_not_primary": {
+    "counts": {
+      "tp": 7215,
+      "tn": 151297,
+      "fp": 3125,
+      "fn": 4567
+    },
+    "metrics": {
+      "accuracy": 0.9537195254025174,
+      "precision": 0.6977756286266924,
+      "recall": 0.6123748090307248,
+      "f1": 0.6522918361811771,
+      "specificity": 0.9797632461695872,
+      "false_positive_rate": 0.020236753830412766,
+      "false_negative_rate": 0.38762519096927517,
+      "mcc": 0.6291495502787127
+    }
+  }
+}

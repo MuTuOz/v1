@@ -1,0 +1,13 @@
+{
+  "experiment": "centralized_mlp_val_v1",
+  "training_records": 22450,
+  "validation_records": 6486,
+  "validation_accuracy": 0.8590810977489979,
+  "validation_macro_f1_observed": 0.6590124881282478,
+  "validation_macro_f1_all_8": 0.5766359271122168,
+  "epochs": 15,
+  "batch_size": 128,
+  "learning_rate": 0.001,
+  "model_parameters": 6952,
+  "seed": 42
+}

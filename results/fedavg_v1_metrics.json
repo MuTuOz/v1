@@ -1,0 +1,7 @@
+{
+  "episode_test_accuracy": 0.7608296622613803,
+  "episode_test_macro_f1": 0.4440180630631887,
+  "web_diagnostic_recall": 0.1559633027522936,
+  "rounds": 15,
+  "local_epochs": 1
+}

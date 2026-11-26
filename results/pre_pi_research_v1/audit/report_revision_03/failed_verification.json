@@ -1,0 +1,7 @@
+{
+  "command": "python scripts/33_verify_pre_pi.py --seal-correction",
+  "exception": "AssertionError",
+  "reason": "Manifest file set changed: ARTIFACT_MANIFEST_revision_02.json incorrectly included in its own verification set because a loop shadowed the manifest path.",
+  "effects": "Revision-02 manifest/verification/source archive were created and preserved; self-check did not pass.",
+  "resolution": "Separate manifest_path and artifact_path variables; regression test checks explicit and automatically selected manifests."
+}

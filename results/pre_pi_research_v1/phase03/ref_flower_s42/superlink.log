@@ -1,0 +1,30 @@
+[93mWARNING [0m:   Option `--insecure` was set. Starting insecure HTTP server with unencrypted communication (TLS disabled). Proceed only if you understand the risks.
+[93mWARNING [0m:   SuperNode authentication is disabled. The SuperLink will accept connections from any SuperNode.
+[92mINFO [0m:      Starting Flower SuperLink
+[92mINFO [0m:      Starting the SuperLink Runtime HTTP API on 127.0.0.1:39102.
+[92mINFO [0m:      Starting the SuperLink Control HTTP API on 127.0.0.1:39102.
+[92mINFO [0m:      Starting the SuperLink Fleet HTTP API on 127.0.0.1:39102.
+2026-10-25T10:32:16.619Z INFO [uvicorn.error] Started server process [28]
+2026-10-25T10:32:16.620Z INFO [uvicorn.error] Waiting for application startup.
+[92mINFO [0m:      FastAPI lifespan: startup
+[92mINFO [0m:      SuperLinkLifespan: start
+2026-10-25T10:32:16.621Z INFO [uvicorn.error] Application startup complete.
+2026-10-25T10:32:16.622Z INFO [uvicorn.error] Uvicorn running on http://127.0.0.1:39102 (Press CTRL+C to quit)
+[92mINFO [0m:      Starting Flower SuperExec
+[92mINFO [0m:      ControlServicer.StartRun
+[92mINFO [0m:      Created run 5293376941059331700 in federation @none/default
+2026-10-25T10:32:17.864Z INFO [uvicorn.access] 127.0.0.1:59800 - "POST /v1/control/start-run HTTP/1.1" 200
+[92mINFO [0m:      ControlServicer.StreamLogs
+2026-10-25T10:32:17.870Z INFO [uvicorn.access] 127.0.0.1:59800 - "POST /v1/control/stream-logs HTTP/1.1" 200
+[92mINFO [0m:      Started task 6978334032048377993 of run 5293376941059331700
+2026-10-25T10:32:19.914Z INFO [uvicorn.access] 127.0.0.1:59818 - "POST /v1/runtime/pull-task-input HTTP/1.1" 200
+[92mINFO [0m:      Finished task 6978334032048377993 of run 5293376941059331700
+2026-10-25T10:32:41.920Z INFO [uvicorn.access] 127.0.0.1:33632 - "POST /v1/runtime/push-task-output HTTP/1.1" 200
+[92mINFO [0m:      All logs for run ID `5293376941059331700` returned
+2026-10-25T10:32:42.571Z INFO [uvicorn.error] Shutting down
+2026-10-25T10:32:42.672Z INFO [uvicorn.error] Waiting for application shutdown.
+[92mINFO [0m:      SuperLinkLifespan: stop
+[92mINFO [0m:      SuperExec terminated gracefully.
+[92mINFO [0m:      FastAPI lifespan: shutdown
+2026-10-25T10:32:42.887Z INFO [uvicorn.error] Application shutdown complete.
+2026-10-25T10:32:42.888Z INFO [uvicorn.error] Finished server process [28]

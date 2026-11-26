@@ -1,0 +1,12 @@
+{
+  "installed_app": "/home/seniorfl/.flwr/subtype84_val_v1/apps/seniorproject.seniorproject-fl-subtype.0.1.0.ce334c8e",
+  "source_matches_executed_package": {
+    "seniorfl_subtype/client_app.py": true,
+    "seniorfl_subtype/schema.json": true,
+    "seniorfl_subtype/server_app.py": true,
+    "seniorfl_subtype/task.py": true,
+    "seniorfl_subtype/__init__.py": true
+  },
+  "external_project_root": "/mnt/d/Alperen E/Belgelerim/4. Year/Güz Dönemi/CS 401/SeniorProject",
+  "dataset_in_package": false
+}

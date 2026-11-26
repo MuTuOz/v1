@@ -1,0 +1,965 @@
+{
+  "root": "root",
+  "nodes": 93,
+  "leaves": 84,
+  "edges": [
+    [
+      "root",
+      "benign"
+    ],
+    [
+      "root",
+      "attack"
+    ],
+    [
+      "attack",
+      "family:bruteforce"
+    ],
+    [
+      "attack",
+      "family:ddos"
+    ],
+    [
+      "attack",
+      "family:dos"
+    ],
+    [
+      "attack",
+      "family:malware"
+    ],
+    [
+      "attack",
+      "family:mitm"
+    ],
+    [
+      "attack",
+      "family:recon"
+    ],
+    [
+      "attack",
+      "family:web"
+    ],
+    [
+      "family:bruteforce",
+      "subtype:bruteforce_dictionary-ssh"
+    ],
+    [
+      "family:bruteforce",
+      "subtype:bruteforce_dictionary-telnet"
+    ],
+    [
+      "family:ddos",
+      "subtype:ddos_ack-frag-flood-port-1883"
+    ],
+    [
+      "family:ddos",
+      "subtype:ddos_ack-frag-flood-port-80"
+    ],
+    [
+      "family:ddos",
+      "subtype:ddos_connect-flood"
+    ],
+    [
+      "family:ddos",
+      "subtype:ddos_http-flood-port-1883"
+    ],
+    [
+      "family:ddos",
+      "subtype:ddos_http-flood-port-80"
+    ],
+    [
+      "family:ddos",
+      "subtype:ddos_icmp-flood"
+    ],
+    [
+      "family:ddos",
+      "subtype:ddos_icmp-frag-flood"
+    ],
+    [
+      "family:ddos",
+      "subtype:ddos_mqtt-publish-flood"
+    ],
+    [
+      "family:ddos",
+      "subtype:ddos_push-ack-flood-port-1883"
+    ],
+    [
+      "family:ddos",
+      "subtype:ddos_push-ack-flood-port-80"
+    ],
+    [
+      "family:ddos",
+      "subtype:ddos_rst-fin-flood-port-1883"
+    ],
+    [
+      "family:ddos",
+      "subtype:ddos_rst-fin-flood-port-80"
+    ],
+    [
+      "family:ddos",
+      "subtype:ddos_slowloris-port-1883"
+    ],
+    [
+      "family:ddos",
+      "subtype:ddos_slowloris-port-554"
+    ],
+    [
+      "family:ddos",
+      "subtype:ddos_slowloris-port-80"
+    ],
+    [
+      "family:ddos",
+      "subtype:ddos_slowloris-port-8000"
+    ],
+    [
+      "family:ddos",
+      "subtype:ddos_syn-flood-port-1883"
+    ],
+    [
+      "family:ddos",
+      "subtype:ddos_syn-flood-port-80"
+    ],
+    [
+      "family:ddos",
+      "subtype:ddos_synonymousip-flood-port-1883"
+    ],
+    [
+      "family:ddos",
+      "subtype:ddos_synonymousip-flood-port-80"
+    ],
+    [
+      "family:ddos",
+      "subtype:ddos_tcp-flood-port-1883"
+    ],
+    [
+      "family:ddos",
+      "subtype:ddos_tcp-flood-port-80"
+    ],
+    [
+      "family:ddos",
+      "subtype:ddos_udp-flood-port-1883"
+    ],
+    [
+      "family:ddos",
+      "subtype:ddos_udp-flood-port-80"
+    ],
+    [
+      "family:ddos",
+      "subtype:ddos_udp-frag-flood"
+    ],
+    [
+      "family:dos",
+      "subtype:dos_ack-frag-flood-port-1883"
+    ],
+    [
+      "family:dos",
+      "subtype:dos_ack-frag-flood-port-80"
+    ],
+    [
+      "family:dos",
+      "subtype:dos_connect-flood"
+    ],
+    [
+      "family:dos",
+      "subtype:dos_http-flood-port-1883"
+    ],
+    [
+      "family:dos",
+      "subtype:dos_http-flood-port-443"
+    ],
+    [
+      "family:dos",
+      "subtype:dos_http-flood-port-554"
+    ],
+    [
+      "family:dos",
+      "subtype:dos_http-flood-port-6668"
+    ],
+    [
+      "family:dos",
+      "subtype:dos_http-flood-port-80"
+    ],
+    [
+      "family:dos",
+      "subtype:dos_http-flood-port-9595"
+    ],
+    [
+      "family:dos",
+      "subtype:dos_icmp-flood"
+    ],
+    [
+      "family:dos",
+      "subtype:dos_icmp-frag-flood"
+    ],
+    [
+      "family:dos",
+      "subtype:dos_mqtt-publish-flood"
+    ],
+    [
+      "family:dos",
+      "subtype:dos_push-ack-flood-port-1883"
+    ],
+    [
+      "family:dos",
+      "subtype:dos_push-ack-flood-port-80"
+    ],
+    [
+      "family:dos",
+      "subtype:dos_rst-fin-flood-port-1883"
+    ],
+    [
+      "family:dos",
+      "subtype:dos_rst-fin-flood-port-80"
+    ],
+    [
+      "family:dos",
+      "subtype:dos_slowloris-port-1883"
+    ],
+    [
+      "family:dos",
+      "subtype:dos_slowloris-port-554"
+    ],
+    [
+      "family:dos",
+      "subtype:dos_slowloris-port-80"
+    ],
+    [
+      "family:dos",
+      "subtype:dos_slowloris-port-8000"
+    ],
+    [
+      "family:dos",
+      "subtype:dos_syn-flood-port-1883"
+    ],
+    [
+      "family:dos",
+      "subtype:dos_syn-flood-port-22"
+    ],
+    [
+      "family:dos",
+      "subtype:dos_syn-flood-port-23"
+    ],
+    [
+      "family:dos",
+      "subtype:dos_syn-flood-port-443"
+    ],
+    [
+      "family:dos",
+      "subtype:dos_syn-flood-port-554"
+    ],
+    [
+      "family:dos",
+      "subtype:dos_syn-flood-port-557"
+    ],
+    [
+      "family:dos",
+      "subtype:dos_syn-flood-port-80"
+    ],
+    [
+      "family:dos",
+      "subtype:dos_synonymousip-flood-port-1883"
+    ],
+    [
+      "family:dos",
+      "subtype:dos_synonymousip-flood-port-80"
+    ],
+    [
+      "family:dos",
+      "subtype:dos_tcp-flood-port-1883"
+    ],
+    [
+      "family:dos",
+      "subtype:dos_tcp-flood-port-22"
+    ],
+    [
+      "family:dos",
+      "subtype:dos_tcp-flood-port-23"
+    ],
+    [
+      "family:dos",
+      "subtype:dos_tcp-flood-port-443"
+    ],
+    [
+      "family:dos",
+      "subtype:dos_tcp-flood-port-554"
+    ],
+    [
+      "family:dos",
+      "subtype:dos_tcp-flood-port-80"
+    ],
+    [
+      "family:dos",
+      "subtype:dos_udp-flood"
+    ],
+    [
+      "family:dos",
+      "subtype:dos_udp-frag-flood"
+    ],
+    [
+      "family:malware",
+      "subtype:malware_mirai-syn-flood"
+    ],
+    [
+      "family:malware",
+      "subtype:malware_mirai-udp-flood"
+    ],
+    [
+      "family:mitm",
+      "subtype:mitm_arp-spoofing"
+    ],
+    [
+      "family:mitm",
+      "subtype:mitm_impersonation"
+    ],
+    [
+      "family:mitm",
+      "subtype:mitm_ip-spoofing"
+    ],
+    [
+      "family:recon",
+      "subtype:recon_host-disc-arp-ping"
+    ],
+    [
+      "family:recon",
+      "subtype:recon_host-disc-tcp-ack-ping"
+    ],
+    [
+      "family:recon",
+      "subtype:recon_host-disc-tcp-syn-ping"
+    ],
+    [
+      "family:recon",
+      "subtype:recon_host-disc-tcp-syn-stealth"
+    ],
+    [
+      "family:recon",
+      "subtype:recon_host-disc-udp-ping"
+    ],
+    [
+      "family:recon",
+      "subtype:recon_os-scan"
+    ],
+    [
+      "family:recon",
+      "subtype:recon_ping-sweep"
+    ],
+    [
+      "family:recon",
+      "subtype:recon_port-scan"
+    ],
+    [
+      "family:recon",
+      "subtype:recon_vuln-scan"
+    ],
+    [
+      "family:web",
+      "subtype:web_backdoor-upload"
+    ],
+    [
+      "family:web",
+      "subtype:web_command-injection"
+    ],
+    [
+      "family:web",
+      "subtype:web_sql-injection"
+    ],
+    [
+      "family:web",
+      "subtype:web_sql-injection-blind"
+    ],
+    [
+      "family:web",
+      "subtype:web_xss"
+    ]
+  ],
+  "class_to_leaf": {
+    "benign": "benign",
+    "bruteforce_dictionary-ssh": "subtype:bruteforce_dictionary-ssh",
+    "bruteforce_dictionary-telnet": "subtype:bruteforce_dictionary-telnet",
+    "ddos_ack-frag-flood-port-1883": "subtype:ddos_ack-frag-flood-port-1883",
+    "ddos_ack-frag-flood-port-80": "subtype:ddos_ack-frag-flood-port-80",
+    "ddos_connect-flood": "subtype:ddos_connect-flood",
+    "ddos_http-flood-port-1883": "subtype:ddos_http-flood-port-1883",
+    "ddos_http-flood-port-80": "subtype:ddos_http-flood-port-80",
+    "ddos_icmp-flood": "subtype:ddos_icmp-flood",
+    "ddos_icmp-frag-flood": "subtype:ddos_icmp-frag-flood",
+    "ddos_mqtt-publish-flood": "subtype:ddos_mqtt-publish-flood",
+    "ddos_push-ack-flood-port-1883": "subtype:ddos_push-ack-flood-port-1883",
+    "ddos_push-ack-flood-port-80": "subtype:ddos_push-ack-flood-port-80",
+    "ddos_rst-fin-flood-port-1883": "subtype:ddos_rst-fin-flood-port-1883",
+    "ddos_rst-fin-flood-port-80": "subtype:ddos_rst-fin-flood-port-80",
+    "ddos_slowloris-port-1883": "subtype:ddos_slowloris-port-1883",
+    "ddos_slowloris-port-554": "subtype:ddos_slowloris-port-554",
+    "ddos_slowloris-port-80": "subtype:ddos_slowloris-port-80",
+    "ddos_slowloris-port-8000": "subtype:ddos_slowloris-port-8000",
+    "ddos_syn-flood-port-1883": "subtype:ddos_syn-flood-port-1883",
+    "ddos_syn-flood-port-80": "subtype:ddos_syn-flood-port-80",
+    "ddos_synonymousip-flood-port-1883": "subtype:ddos_synonymousip-flood-port-1883",
+    "ddos_synonymousip-flood-port-80": "subtype:ddos_synonymousip-flood-port-80",
+    "ddos_tcp-flood-port-1883": "subtype:ddos_tcp-flood-port-1883",
+    "ddos_tcp-flood-port-80": "subtype:ddos_tcp-flood-port-80",
+    "ddos_udp-flood-port-1883": "subtype:ddos_udp-flood-port-1883",
+    "ddos_udp-flood-port-80": "subtype:ddos_udp-flood-port-80",
+    "ddos_udp-frag-flood": "subtype:ddos_udp-frag-flood",
+    "dos_ack-frag-flood-port-1883": "subtype:dos_ack-frag-flood-port-1883",
+    "dos_ack-frag-flood-port-80": "subtype:dos_ack-frag-flood-port-80",
+    "dos_connect-flood": "subtype:dos_connect-flood",
+    "dos_http-flood-port-1883": "subtype:dos_http-flood-port-1883",
+    "dos_http-flood-port-443": "subtype:dos_http-flood-port-443",
+    "dos_http-flood-port-554": "subtype:dos_http-flood-port-554",
+    "dos_http-flood-port-6668": "subtype:dos_http-flood-port-6668",
+    "dos_http-flood-port-80": "subtype:dos_http-flood-port-80",
+    "dos_http-flood-port-9595": "subtype:dos_http-flood-port-9595",
+    "dos_icmp-flood": "subtype:dos_icmp-flood",
+    "dos_icmp-frag-flood": "subtype:dos_icmp-frag-flood",
+    "dos_mqtt-publish-flood": "subtype:dos_mqtt-publish-flood",
+    "dos_push-ack-flood-port-1883": "subtype:dos_push-ack-flood-port-1883",
+    "dos_push-ack-flood-port-80": "subtype:dos_push-ack-flood-port-80",
+    "dos_rst-fin-flood-port-1883": "subtype:dos_rst-fin-flood-port-1883",
+    "dos_rst-fin-flood-port-80": "subtype:dos_rst-fin-flood-port-80",
+    "dos_slowloris-port-1883": "subtype:dos_slowloris-port-1883",
+    "dos_slowloris-port-554": "subtype:dos_slowloris-port-554",
+    "dos_slowloris-port-80": "subtype:dos_slowloris-port-80",
+    "dos_slowloris-port-8000": "subtype:dos_slowloris-port-8000",
+    "dos_syn-flood-port-1883": "subtype:dos_syn-flood-port-1883",
+    "dos_syn-flood-port-22": "subtype:dos_syn-flood-port-22",
+    "dos_syn-flood-port-23": "subtype:dos_syn-flood-port-23",
+    "dos_syn-flood-port-443": "subtype:dos_syn-flood-port-443",
+    "dos_syn-flood-port-554": "subtype:dos_syn-flood-port-554",
+    "dos_syn-flood-port-557": "subtype:dos_syn-flood-port-557",
+    "dos_syn-flood-port-80": "subtype:dos_syn-flood-port-80",
+    "dos_synonymousip-flood-port-1883": "subtype:dos_synonymousip-flood-port-1883",
+    "dos_synonymousip-flood-port-80": "subtype:dos_synonymousip-flood-port-80",
+    "dos_tcp-flood-port-1883": "subtype:dos_tcp-flood-port-1883",
+    "dos_tcp-flood-port-22": "subtype:dos_tcp-flood-port-22",
+    "dos_tcp-flood-port-23": "subtype:dos_tcp-flood-port-23",
+    "dos_tcp-flood-port-443": "subtype:dos_tcp-flood-port-443",
+    "dos_tcp-flood-port-554": "subtype:dos_tcp-flood-port-554",
+    "dos_tcp-flood-port-80": "subtype:dos_tcp-flood-port-80",
+    "dos_udp-flood": "subtype:dos_udp-flood",
+    "dos_udp-frag-flood": "subtype:dos_udp-frag-flood",
+    "malware_mirai-syn-flood": "subtype:malware_mirai-syn-flood",
+    "malware_mirai-udp-flood": "subtype:malware_mirai-udp-flood",
+    "mitm_arp-spoofing": "subtype:mitm_arp-spoofing",
+    "mitm_impersonation": "subtype:mitm_impersonation",
+    "mitm_ip-spoofing": "subtype:mitm_ip-spoofing",
+    "recon_host-disc-arp-ping": "subtype:recon_host-disc-arp-ping",
+    "recon_host-disc-tcp-ack-ping": "subtype:recon_host-disc-tcp-ack-ping",
+    "recon_host-disc-tcp-syn-ping": "subtype:recon_host-disc-tcp-syn-ping",
+    "recon_host-disc-tcp-syn-stealth": "subtype:recon_host-disc-tcp-syn-stealth",
+    "recon_host-disc-udp-ping": "subtype:recon_host-disc-udp-ping",
+    "recon_os-scan": "subtype:recon_os-scan",
+    "recon_ping-sweep": "subtype:recon_ping-sweep",
+    "recon_port-scan": "subtype:recon_port-scan",
+    "recon_vuln-scan": "subtype:recon_vuln-scan",
+    "web_backdoor-upload": "subtype:web_backdoor-upload",
+    "web_command-injection": "subtype:web_command-injection",
+    "web_sql-injection": "subtype:web_sql-injection",
+    "web_sql-injection-blind": "subtype:web_sql-injection-blind",
+    "web_xss": "subtype:web_xss"
+  },
+  "allocation_paths": {
+    "benign": [
+      "root",
+      "benign"
+    ],
+    "bruteforce_dictionary-ssh": [
+      "root",
+      "attack",
+      "family:bruteforce",
+      "subtype:bruteforce_dictionary-ssh"
+    ],
+    "bruteforce_dictionary-telnet": [
+      "root",
+      "attack",
+      "family:bruteforce",
+      "subtype:bruteforce_dictionary-telnet"
+    ],
+    "ddos_ack-frag-flood-port-1883": [
+      "root",
+      "attack",
+      "family:ddos",
+      "subtype:ddos_ack-frag-flood-port-1883"
+    ],
+    "ddos_ack-frag-flood-port-80": [
+      "root",
+      "attack",
+      "family:ddos",
+      "subtype:ddos_ack-frag-flood-port-80"
+    ],
+    "ddos_connect-flood": [
+      "root",
+      "attack",
+      "family:ddos",
+      "subtype:ddos_connect-flood"
+    ],
+    "ddos_http-flood-port-1883": [
+      "root",
+      "attack",
+      "family:ddos",
+      "subtype:ddos_http-flood-port-1883"
+    ],
+    "ddos_http-flood-port-80": [
+      "root",
+      "attack",
+      "family:ddos",
+      "subtype:ddos_http-flood-port-80"
+    ],
+    "ddos_icmp-flood": [
+      "root",
+      "attack",
+      "family:ddos",
+      "subtype:ddos_icmp-flood"
+    ],
+    "ddos_icmp-frag-flood": [
+      "root",
+      "attack",
+      "family:ddos",
+      "subtype:ddos_icmp-frag-flood"
+    ],
+    "ddos_mqtt-publish-flood": [
+      "root",
+      "attack",
+      "family:ddos",
+      "subtype:ddos_mqtt-publish-flood"
+    ],
+    "ddos_push-ack-flood-port-1883": [
+      "root",
+      "attack",
+      "family:ddos",
+      "subtype:ddos_push-ack-flood-port-1883"
+    ],
+    "ddos_push-ack-flood-port-80": [
+      "root",
+      "attack",
+      "family:ddos",
+      "subtype:ddos_push-ack-flood-port-80"
+    ],
+    "ddos_rst-fin-flood-port-1883": [
+      "root",
+      "attack",
+      "family:ddos",
+      "subtype:ddos_rst-fin-flood-port-1883"
+    ],
+    "ddos_rst-fin-flood-port-80": [
+      "root",
+      "attack",
+      "family:ddos",
+      "subtype:ddos_rst-fin-flood-port-80"
+    ],
+    "ddos_slowloris-port-1883": [
+      "root",
+      "attack",
+      "family:ddos",
+      "subtype:ddos_slowloris-port-1883"
+    ],
+    "ddos_slowloris-port-554": [
+      "root",
+      "attack",
+      "family:ddos",
+      "subtype:ddos_slowloris-port-554"
+    ],
+    "ddos_slowloris-port-80": [
+      "root",
+      "attack",
+      "family:ddos",
+      "subtype:ddos_slowloris-port-80"
+    ],
+    "ddos_slowloris-port-8000": [
+      "root",
+      "attack",
+      "family:ddos",
+      "subtype:ddos_slowloris-port-8000"
+    ],
+    "ddos_syn-flood-port-1883": [
+      "root",
+      "attack",
+      "family:ddos",
+      "subtype:ddos_syn-flood-port-1883"
+    ],
+    "ddos_syn-flood-port-80": [
+      "root",
+      "attack",
+      "family:ddos",
+      "subtype:ddos_syn-flood-port-80"
+    ],
+    "ddos_synonymousip-flood-port-1883": [
+      "root",
+      "attack",
+      "family:ddos",
+      "subtype:ddos_synonymousip-flood-port-1883"
+    ],
+    "ddos_synonymousip-flood-port-80": [
+      "root",
+      "attack",
+      "family:ddos",
+      "subtype:ddos_synonymousip-flood-port-80"
+    ],
+    "ddos_tcp-flood-port-1883": [
+      "root",
+      "attack",
+      "family:ddos",
+      "subtype:ddos_tcp-flood-port-1883"
+    ],
+    "ddos_tcp-flood-port-80": [
+      "root",
+      "attack",
+      "family:ddos",
+      "subtype:ddos_tcp-flood-port-80"
+    ],
+    "ddos_udp-flood-port-1883": [
+      "root",
+      "attack",
+      "family:ddos",
+      "subtype:ddos_udp-flood-port-1883"
+    ],
+    "ddos_udp-flood-port-80": [
+      "root",
+      "attack",
+      "family:ddos",
+      "subtype:ddos_udp-flood-port-80"
+    ],
+    "ddos_udp-frag-flood": [
+      "root",
+      "attack",
+      "family:ddos",
+      "subtype:ddos_udp-frag-flood"
+    ],
+    "dos_ack-frag-flood-port-1883": [
+      "root",
+      "attack",
+      "family:dos",
+      "subtype:dos_ack-frag-flood-port-1883"
+    ],
+    "dos_ack-frag-flood-port-80": [
+      "root",
+      "attack",
+      "family:dos",
+      "subtype:dos_ack-frag-flood-port-80"
+    ],
+    "dos_connect-flood": [
+      "root",
+      "attack",
+      "family:dos",
+      "subtype:dos_connect-flood"
+    ],
+    "dos_http-flood-port-1883": [
+      "root",
+      "attack",
+      "family:dos",
+      "subtype:dos_http-flood-port-1883"
+    ],
+    "dos_http-flood-port-443": [
+      "root",
+      "attack",
+      "family:dos",
+      "subtype:dos_http-flood-port-443"
+    ],
+    "dos_http-flood-port-554": [
+      "root",
+      "attack",
+      "family:dos",
+      "subtype:dos_http-flood-port-554"
+    ],
+    "dos_http-flood-port-6668": [
+      "root",
+      "attack",
+      "family:dos",
+      "subtype:dos_http-flood-port-6668"
+    ],
+    "dos_http-flood-port-80": [
+      "root",
+      "attack",
+      "family:dos",
+      "subtype:dos_http-flood-port-80"
+    ],
+    "dos_http-flood-port-9595": [
+      "root",
+      "attack",
+      "family:dos",
+      "subtype:dos_http-flood-port-9595"
+    ],
+    "dos_icmp-flood": [
+      "root",
+      "attack",
+      "family:dos",
+      "subtype:dos_icmp-flood"
+    ],
+    "dos_icmp-frag-flood": [
+      "root",
+      "attack",
+      "family:dos",
+      "subtype:dos_icmp-frag-flood"
+    ],
+    "dos_mqtt-publish-flood": [
+      "root",
+      "attack",
+      "family:dos",
+      "subtype:dos_mqtt-publish-flood"
+    ],
+    "dos_push-ack-flood-port-1883": [
+      "root",
+      "attack",
+      "family:dos",
+      "subtype:dos_push-ack-flood-port-1883"
+    ],
+    "dos_push-ack-flood-port-80": [
+      "root",
+      "attack",
+      "family:dos",
+      "subtype:dos_push-ack-flood-port-80"
+    ],
+    "dos_rst-fin-flood-port-1883": [
+      "root",
+      "attack",
+      "family:dos",
+      "subtype:dos_rst-fin-flood-port-1883"
+    ],
+    "dos_rst-fin-flood-port-80": [
+      "root",
+      "attack",
+      "family:dos",
+      "subtype:dos_rst-fin-flood-port-80"
+    ],
+    "dos_slowloris-port-1883": [
+      "root",
+      "attack",
+      "family:dos",
+      "subtype:dos_slowloris-port-1883"
+    ],
+    "dos_slowloris-port-554": [
+      "root",
+      "attack",
+      "family:dos",
+      "subtype:dos_slowloris-port-554"
+    ],
+    "dos_slowloris-port-80": [
+      "root",
+      "attack",
+      "family:dos",
+      "subtype:dos_slowloris-port-80"
+    ],
+    "dos_slowloris-port-8000": [
+      "root",
+      "attack",
+      "family:dos",
+      "subtype:dos_slowloris-port-8000"
+    ],
+    "dos_syn-flood-port-1883": [
+      "root",
+      "attack",
+      "family:dos",
+      "subtype:dos_syn-flood-port-1883"
+    ],
+    "dos_syn-flood-port-22": [
+      "root",
+      "attack",
+      "family:dos",
+      "subtype:dos_syn-flood-port-22"
+    ],
+    "dos_syn-flood-port-23": [
+      "root",
+      "attack",
+      "family:dos",
+      "subtype:dos_syn-flood-port-23"
+    ],
+    "dos_syn-flood-port-443": [
+      "root",
+      "attack",
+      "family:dos",
+      "subtype:dos_syn-flood-port-443"
+    ],
+    "dos_syn-flood-port-554": [
+      "root",
+      "attack",
+      "family:dos",
+      "subtype:dos_syn-flood-port-554"
+    ],
+    "dos_syn-flood-port-557": [
+      "root",
+      "attack",
+      "family:dos",
+      "subtype:dos_syn-flood-port-557"
+    ],
+    "dos_syn-flood-port-80": [
+      "root",
+      "attack",
+      "family:dos",
+      "subtype:dos_syn-flood-port-80"
+    ],
+    "dos_synonymousip-flood-port-1883": [
+      "root",
+      "attack",
+      "family:dos",
+      "subtype:dos_synonymousip-flood-port-1883"
+    ],
+    "dos_synonymousip-flood-port-80": [
+      "root",
+      "attack",
+      "family:dos",
+      "subtype:dos_synonymousip-flood-port-80"
+    ],
+    "dos_tcp-flood-port-1883": [
+      "root",
+      "attack",
+      "family:dos",
+      "subtype:dos_tcp-flood-port-1883"
+    ],
+    "dos_tcp-flood-port-22": [
+      "root",
+      "attack",
+      "family:dos",
+      "subtype:dos_tcp-flood-port-22"
+    ],
+    "dos_tcp-flood-port-23": [
+      "root",
+      "attack",
+      "family:dos",
+      "subtype:dos_tcp-flood-port-23"
+    ],
+    "dos_tcp-flood-port-443": [
+      "root",
+      "attack",
+      "family:dos",
+      "subtype:dos_tcp-flood-port-443"
+    ],
+    "dos_tcp-flood-port-554": [
+      "root",
+      "attack",
+      "family:dos",
+      "subtype:dos_tcp-flood-port-554"
+    ],
+    "dos_tcp-flood-port-80": [
+      "root",
+      "attack",
+      "family:dos",
+      "subtype:dos_tcp-flood-port-80"
+    ],
+    "dos_udp-flood": [
+      "root",
+      "attack",
+      "family:dos",
+      "subtype:dos_udp-flood"
+    ],
+    "dos_udp-frag-flood": [
+      "root",
+      "attack",
+      "family:dos",
+      "subtype:dos_udp-frag-flood"
+    ],
+    "malware_mirai-syn-flood": [
+      "root",
+      "attack",
+      "family:malware",
+      "subtype:malware_mirai-syn-flood"
+    ],
+    "malware_mirai-udp-flood": [
+      "root",
+      "attack",
+      "family:malware",
+      "subtype:malware_mirai-udp-flood"
+    ],
+    "mitm_arp-spoofing": [
+      "root",
+      "attack",
+      "family:mitm",
+      "subtype:mitm_arp-spoofing"
+    ],
+    "mitm_impersonation": [
+      "root",
+      "attack",
+      "family:mitm",
+      "subtype:mitm_impersonation"
+    ],
+    "mitm_ip-spoofing": [
+      "root",
+      "attack",
+      "family:mitm",
+      "subtype:mitm_ip-spoofing"
+    ],
+    "recon_host-disc-arp-ping": [
+      "root",
+      "attack",
+      "family:recon",
+      "subtype:recon_host-disc-arp-ping"
+    ],
+    "recon_host-disc-tcp-ack-ping": [
+      "root",
+      "attack",
+      "family:recon",
+      "subtype:recon_host-disc-tcp-ack-ping"
+    ],
+    "recon_host-disc-tcp-syn-ping": [
+      "root",
+      "attack",
+      "family:recon",
+      "subtype:recon_host-disc-tcp-syn-ping"
+    ],
+    "recon_host-disc-tcp-syn-stealth": [
+      "root",
+      "attack",
+      "family:recon",
+      "subtype:recon_host-disc-tcp-syn-stealth"
+    ],
+    "recon_host-disc-udp-ping": [
+      "root",
+      "attack",
+      "family:recon",
+      "subtype:recon_host-disc-udp-ping"
+    ],
+    "recon_os-scan": [
+      "root",
+      "attack",
+      "family:recon",
+      "subtype:recon_os-scan"
+    ],
+    "recon_ping-sweep": [
+      "root",
+      "attack",
+      "family:recon",
+      "subtype:recon_ping-sweep"
+    ],
+    "recon_port-scan": [
+      "root",
+      "attack",
+      "family:recon",
+      "subtype:recon_port-scan"
+    ],
+    "recon_vuln-scan": [
+      "root",
+      "attack",
+      "family:recon",
+      "subtype:recon_vuln-scan"
+    ],
+    "web_backdoor-upload": [
+      "root",
+      "attack",
+      "family:web",
+      "subtype:web_backdoor-upload"
+    ],
+    "web_command-injection": [
+      "root",
+      "attack",
+      "family:web",
+      "subtype:web_command-injection"
+    ],
+    "web_sql-injection": [
+      "root",
+      "attack",
+      "family:web",
+      "subtype:web_sql-injection"
+    ],
+    "web_sql-injection-blind": [
+      "root",
+      "attack",
+      "family:web",
+      "subtype:web_sql-injection-blind"
+    ],
+    "web_xss": [
+      "root",
+      "attack",
+      "family:web",
+      "subtype:web_xss"
+    ]
+  }
+}

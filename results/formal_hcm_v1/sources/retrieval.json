@@ -1,0 +1,67 @@
+{
+  "retrieved_utc": "2026-10-25T07:36:29.387316+00:00",
+  "local_papers_before_task": false,
+  "records": [
+    {
+      "file": "riehl_paper.pdf",
+      "url": "https://arxiv.org/pdf/2306.09461",
+      "sha256": "9eebba13b7ccf9313e768b9e8bae2882fff9e8e53c39839816decacf4c1a3fdf",
+      "bytes": 674149,
+      "status": "downloaded"
+    },
+    {
+      "file": "neo_paper.pdf",
+      "url": "https://arxiv.org/pdf/2110.12536v2",
+      "sha256": "fc47fa775bcaf4360e3692f81e9190a7494573c5b8e4e3f2e4d9622ab97755c9",
+      "bytes": 19498055,
+      "status": "downloaded"
+    },
+    {
+      "file": "riehl_publisher.html",
+      "url": "https://academic.oup.com/jrsssc/article/72/5/1394/7217007",
+      "status": "failed",
+      "error": "HTTP Error 403: Forbidden"
+    },
+    {
+      "file": "riehl_README.md",
+      "url": "https://raw.githubusercontent.com/DerKevinRiehl/HierarchicalConfusionMatrix/2256f4c24b813ffb752a53e20a8092ec7b1e3ac3/README.md",
+      "sha256": "7e723f67a5a6bd0cbef36186624e98a691cb2e1d4eb7033fe4c9ada991426646",
+      "bytes": 5328,
+      "status": "downloaded"
+    },
+    {
+      "file": "riehl_Example_Paper.py",
+      "url": "https://raw.githubusercontent.com/DerKevinRiehl/HierarchicalConfusionMatrix/2256f4c24b813ffb752a53e20a8092ec7b1e3ac3/Example_Paper.py",
+      "sha256": "4cc7e45a62c568c7b52c39b5ab51b34bf15a4d2951e53e5e971c659f7fb83f9e",
+      "bytes": 5394,
+      "status": "downloaded"
+    },
+    {
+      "file": "riehl_repo_tree.json",
+      "url": "https://api.github.com/repos/DerKevinRiehl/HierarchicalConfusionMatrix/git/trees/2256f4c24b813ffb752a53e20a8092ec7b1e3ac3?recursive=1",
+      "sha256": "29314dfc2d139c99ab61ac8066ec95e7e8d7f2ebcdc5e0844fae58501870ae62",
+      "bytes": 24423,
+      "status": "downloaded"
+    },
+    {
+      "file": "neo_author_page.html",
+      "url": "https://fredhohman.com/papers/neo/",
+      "status": "failed",
+      "error": "HTTP Error 404: Not Found"
+    },
+    {
+      "file": "riehl_reference.py",
+      "url": "https://raw.githubusercontent.com/DerKevinRiehl/HierarchicalConfusionMatrix/2256f4c24b813ffb752a53e20a8092ec7b1e3ac3/hierarchical_confusion_matrix/HierarchicalConfusion.py",
+      "sha256": "60e6d400af167911eec77a302f948a930c180d2d9a260888614e0c1341e9bf68",
+      "bytes": 5817,
+      "status": "downloaded"
+    },
+    {
+      "file": "neo_publication.html",
+      "url": "https://machinelearning.apple.com/research/generalizing-confusion-matrix",
+      "sha256": "b95ae7f546c87c6e0467c5ae7d7222541f7fd41c36c4eec17877316b5c32c421",
+      "bytes": 28294,
+      "status": "downloaded"
+    }
+  ]
+}

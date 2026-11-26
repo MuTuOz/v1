@@ -1,0 +1,7 @@
+test_all_views_and_model_selection (test_dashboard.DashboardTests.test_all_views_and_model_selection) ... 2026-10-25 13:41:35.734 WARNING streamlit.runtime.scriptrunner_utils.script_run_context: Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+ok
+
+----------------------------------------------------------------------
+Ran 1 test in 3.773s
+
+OK

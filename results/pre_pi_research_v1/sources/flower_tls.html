@@ -1,0 +1,1125 @@
+<!doctype html>
+<html class="no-js" lang="en">
+  <head><meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <meta name="color-scheme" content="light dark">
+    
+      <link rel="canonical" href="https://flower.ai/docs/framework/how-to-enable-tls-connections.html">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta content="Guide to starting a TLS-secured Flower server (“SuperLink”) and connecting a Flower client (“SuperNode”) with secure connections." name="description" />
+<meta property="og:title" content="Enable TLS connections" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="how-to-enable-tls-connections.html" />
+<meta property="og:site_name" content="Flower" />
+<meta property="og:description" content="Guide to starting a TLS-secured Flower server (“SuperLink”) and connecting a Flower client (“SuperNode”) with secure connections." />
+<link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="next" title="Authenticate SuperNodes" href="how-to-authenticate-supernodes.html" /><link rel="prev" title="Run Flower with the Deployment Runtime" href="how-to-run-flower-with-deployment-engine.html" />
+
+    <link rel="shortcut icon" href="_static/favicon.ico"/><meta name="generator" content="sphinx-7.4.7, furo 2024.08.06"/>
+        <title>Enable TLS connections - Flower Framework</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?v=354aac6f" />
+    <link rel="stylesheet" type="text/css" href="_static/graphviz.css?v=fd3f3429" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/furo-extensions.css?v=302659d7" />
+    <link rel="stylesheet" type="text/css" href="_static/custom.css?v=725df99e" />
+    
+    
+
+
+<style>
+  body {
+    --color-code-background: #f8f8f8;
+  --color-code-foreground: black;
+  --color-announcement-background: #f2b705;
+  --color-announcement-text: #000000;
+  --color-sidebar-link-text: #5e5e5e;
+  --color-sidebar-link-text--top-level: #404040;
+  --color-sidebar-item-background--hover: #e5e5e5;
+  --color-sidebar-search-background: #f2f2f2;
+  --color-sidebar-search-background--focus: #e2e2e2;
+  --color-sidebar-background: #f2f2f2;
+  --color-toc-item-text--active: #404040;
+  
+  }
+  @media not print {
+    body[data-theme="dark"] {
+      --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  --color-announcement-text: #000000;
+  --color-announcement-background: #f2b705;
+  --color-sidebar-link-text: #7c7c7c;
+  --color-sidebar-link-text--top-level: #ababab;
+  --color-sidebar-item-background--hover: #222222;
+  --color-sidebar-background: #161616;
+  --color-sidebar-search-background: #161616;
+  --color-sidebar-search-background--focus: #1c1c1c;
+  --color-toc-title-text: #7c7c7c;
+  --color-toc-item-text: #ababab;
+  --color-toc-item-text--hover: #d2d2d2;
+  --color-toc-item-text--active: #fff5bf;
+  
+    }
+    @media (prefers-color-scheme: dark) {
+      body:not([data-theme="light"]) {
+        --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  --color-announcement-text: #000000;
+  --color-announcement-background: #f2b705;
+  --color-sidebar-link-text: #7c7c7c;
+  --color-sidebar-link-text--top-level: #ababab;
+  --color-sidebar-item-background--hover: #222222;
+  --color-sidebar-background: #161616;
+  --color-sidebar-search-background: #161616;
+  --color-sidebar-search-background--focus: #1c1c1c;
+  --color-toc-title-text: #7c7c7c;
+  --color-toc-item-text: #ababab;
+  --color-toc-item-text--hover: #d2d2d2;
+  --color-toc-item-text--active: #fff5bf;
+  
+      }
+    }
+  }
+</style></head>
+  <body>
+    <script>
+      document.body.dataset.theme = localStorage.getItem("theme") || "light";
+    </script>
+    
+
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <symbol id="svg-toc" viewBox="0 0 24 24">
+    <title>Contents</title>
+    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024">
+      <path d="M408 442h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8zm-8 204c0 4.4 3.6 8 8 8h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56zm504-486H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 632H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zM115.4 518.9L271.7 642c5.8 4.6 14.4.5 14.4-6.9V388.9c0-7.4-8.5-11.5-14.4-6.9L115.4 505.1a8.74 8.74 0 0 0 0 13.8z"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-menu" viewBox="0 0 24 24">
+    <title>Menu</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-menu">
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-arrow-right" viewBox="0 0 24 24">
+    <title>Expand</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-chevron-right">
+      <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+  </symbol>
+  <symbol id="svg-sun" viewBox="0 0 24 24">
+    <title>Light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="feather-sun">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon" viewBox="0 0 24 24">
+    <title>Dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-moon">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" />
+    </svg>
+  </symbol>
+  <symbol id="svg-sun-with-moon" viewBox="0 0 24 24">
+    <title>Auto light/dark, in light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
+      class="icon-custom-derived-from-feather-sun-and-tabler-moon">
+      <path style="opacity: 50%" d="M 5.411 14.504 C 5.471 14.504 5.532 14.504 5.591 14.504 C 3.639 16.319 4.383 19.569 6.931 20.352 C 7.693 20.586 8.512 20.551 9.25 20.252 C 8.023 23.207 4.056 23.725 2.11 21.184 C 0.166 18.642 1.702 14.949 4.874 14.536 C 5.051 14.512 5.231 14.5 5.411 14.5 L 5.411 14.504 Z"/>
+      <line x1="14.5" y1="3.25" x2="14.5" y2="1.25"/>
+      <line x1="14.5" y1="15.85" x2="14.5" y2="17.85"/>
+      <line x1="10.044" y1="5.094" x2="8.63" y2="3.68"/>
+      <line x1="19" y1="14.05" x2="20.414" y2="15.464"/>
+      <line x1="8.2" y1="9.55" x2="6.2" y2="9.55"/>
+      <line x1="20.8" y1="9.55" x2="22.8" y2="9.55"/>
+      <line x1="10.044" y1="14.006" x2="8.63" y2="15.42"/>
+      <line x1="19" y1="5.05" x2="20.414" y2="3.636"/>
+      <circle cx="14.5" cy="9.55" r="3.6"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon-with-sun" viewBox="0 0 24 24">
+    <title>Auto light/dark, in dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
+      class="icon-custom-derived-from-feather-sun-and-tabler-moon">
+      <path d="M 8.282 7.007 C 8.385 7.007 8.494 7.007 8.595 7.007 C 5.18 10.184 6.481 15.869 10.942 17.24 C 12.275 17.648 13.706 17.589 15 17.066 C 12.851 22.236 5.91 23.143 2.505 18.696 C -0.897 14.249 1.791 7.786 7.342 7.063 C 7.652 7.021 7.965 7 8.282 7 L 8.282 7.007 Z"/>
+      <line style="opacity: 50%" x1="18" y1="3.705" x2="18" y2="2.5"/>
+      <line style="opacity: 50%" x1="18" y1="11.295" x2="18" y2="12.5"/>
+      <line style="opacity: 50%" x1="15.316" y1="4.816" x2="14.464" y2="3.964"/>
+      <line style="opacity: 50%" x1="20.711" y1="10.212" x2="21.563" y2="11.063"/>
+      <line style="opacity: 50%" x1="14.205" y1="7.5" x2="13.001" y2="7.5"/>
+      <line style="opacity: 50%" x1="21.795" y1="7.5" x2="23" y2="7.5"/>
+      <line style="opacity: 50%" x1="15.316" y1="10.184" x2="14.464" y2="11.036"/>
+      <line style="opacity: 50%" x1="20.711" y1="4.789" x2="21.563" y2="3.937"/>
+      <circle style="opacity: 50%" cx="18" cy="7.5" r="2.169"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-pencil" viewBox="0 0 24 24">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-pencil-code">
+      <path d="M4 20h4l10.5 -10.5a2.828 2.828 0 1 0 -4 -4l-10.5 10.5v4" />
+      <path d="M13.5 6.5l4 4" />
+      <path d="M20 21l2 -2l-2 -2" />
+      <path d="M17 17l-2 2l2 2" />
+    </svg>
+  </symbol>
+  <symbol id="svg-eye" viewBox="0 0 24 24">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-eye-code">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M10 12a2 2 0 1 0 4 0a2 2 0 0 0 -4 0" />
+      <path
+        d="M11.11 17.958c-3.209 -.307 -5.91 -2.293 -8.11 -5.958c2.4 -4 5.4 -6 9 -6c3.6 0 6.6 2 9 6c-.21 .352 -.427 .688 -.647 1.008" />
+      <path d="M20 21l2 -2l-2 -2" />
+      <path d="M17 17l-2 2l2 2" />
+    </svg>
+  </symbol>
+</svg>
+
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation">
+<input type="checkbox" class="sidebar-toggle" name="__toc" id="__toc">
+<label class="overlay sidebar-overlay" for="__navigation">
+  <div class="visually-hidden">Hide navigation sidebar</div>
+</label>
+<label class="overlay toc-overlay" for="__toc">
+  <div class="visually-hidden">Hide table of contents sidebar</div>
+</label>
+
+<a class="skip-to-content muted-link" href="#furo-main-content">Skip to content</a>
+
+<div class="announcement">
+  <aside class="announcement-content">
+     <span id='flwr-runtime-announcement'></span> 
+  </aside>
+</div>
+
+<div class="page">
+  <header class="mobile-header">
+    <div class="header-left">
+      <label class="nav-overlay-icon" for="__navigation">
+        <div class="visually-hidden">Toggle site navigation sidebar</div>
+        <i class="icon"><svg><use href="#svg-menu"></use></svg></i>
+      </label>
+    </div>
+    <div class="header-center">
+      <a href="index.html"><div class="brand">Flower Framework</div></a>
+    </div>
+    <div class="header-right">
+      <div class="theme-toggle-container theme-toggle-header">
+        <button class="theme-toggle">
+          <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+          <svg class="theme-icon-when-auto-light"><use href="#svg-sun-with-moon"></use></svg>
+          <svg class="theme-icon-when-auto-dark"><use href="#svg-moon-with-sun"></use></svg>
+          <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+          <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+        </button>
+      </div>
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
+        <div class="visually-hidden">Toggle table of contents sidebar</div>
+        <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+      </label>
+    </div>
+  </header>
+  <aside class="sidebar-drawer">
+    <div class="sidebar-container">
+      
+      <div class="sidebar-sticky"><a class="sidebar-brand" href="index.html">
+  
+  <div class="sidebar-logo-container">
+    <img class="sidebar-logo only-light" src="_static/flower-logo-light.png" alt="Light Logo"/>
+    <img class="sidebar-logo only-dark" src="_static/flower-logo-dark.png" alt="Dark Logo"/>
+  </div>
+  
+    <span class="sidebar-brand-text">v1.42.x</span>
+  
+</a><form class="sidebar-search-container" method="get" action="search.html" role="search">
+  <input class="sidebar-search" placeholder="Type / to search" name="q" aria-label="Search">
+  <input type="hidden" name="check_keywords" value="yes">
+  <input type="hidden" name="area" value="default">
+</form>
+<div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
+  <p class="caption" role="heading"><span class="caption-text">Tutorial</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="tutorial-series-what-is-federated-learning.html">What is Federated Learning?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorial-series-get-started-with-flower.html">Get started with Flower</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorial-series-write-your-first-flower-app.html">Write your first Flower App</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorial-series-write-your-first-flower-app-pytorch.html">Write your first Flower App with PyTorch</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorial-series-use-a-federated-learning-strategy-pytorch.html">Use a federated learning strategy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorial-series-build-a-strategy-from-scratch-pytorch.html">Customize a Flower Strategy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorial-series-customize-the-client-pytorch.html">Communicate custom Messages</a></li>
+</ul>
+<ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="tutorial-quickstart.html">Quickstart tutorials</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle navigation of Quickstart tutorials</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="tutorial-quickstart-pytorch.html">Quickstart PyTorch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorial-quickstart-tensorflow.html">Quickstart TensorFlow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorial-quickstart-mlx.html">Quickstart MLX</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorial-quickstart-huggingface.html">Quickstart 🤗 Transformers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorial-quickstart-jax.html">Quickstart JAX</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorial-quickstart-pandas.html">Quickstart Pandas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorial-quickstart-fastai.html">Quickstart fastai</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorial-quickstart-pytorch-lightning.html">Quickstart PyTorch Lightning</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorial-quickstart-scikitlearn.html">Quickstart scikit-learn</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorial-quickstart-xgboost.html">Quickstart XGBoost</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorial-quickstart-android.html">Quickstart Android</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorial-quickstart-ios.html">Quickstart iOS</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">How-to Guides</span></p>
+<ul class="current">
+<li class="toctree-l1 has-children"><a class="reference internal" href="build.html">Build</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle navigation of Build</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="how-to-install-flower.html">Install Flower</a></li>
+<li class="toctree-l2"><a class="reference internal" href="how-to-configure-pyproject-toml.html">Configure <code class="docutils literal notranslate"><span class="pre">pyproject.toml</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="how-to-configure-clients.html">Configure a <code class="docutils literal notranslate"><span class="pre">ClientApp</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="how-to-design-stateful-clients.html">Design stateful ClientApps</a></li>
+<li class="toctree-l2"><a class="reference internal" href="how-to-use-strategies.html">Use strategies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="how-to-implement-strategies.html">Implement strategies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="how-to-aggregate-evaluation-results.html">Aggregate evaluation results</a></li>
+<li class="toctree-l2"><a class="reference internal" href="how-to-save-and-load-model-checkpoints.html">Save and load model checkpoints</a></li>
+<li class="toctree-l2"><a class="reference internal" href="how-to-use-built-in-mods.html">Use Built-in Mods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="how-to-use-differential-privacy.html">Use Differential Privacy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="how-to-implement-fedbn.html">Implement FedBN</a></li>
+<li class="toctree-l2"><a class="reference internal" href="how-to-use-cli-json-output.html">Use CLI JSON output</a></li>
+<li class="toctree-l2"><a class="reference internal" href="how-to-install-app-dependencies-at-runtime.html">Install Flower App dependencies at runtime</a></li>
+<li class="toctree-l2"><a class="reference internal" href="how-to-migrate-from-openfl.html">Migrate from OpenFL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="how-to-upgrade-to-flower-1.0.html">Upgrade to Flower 1.0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="how-to-upgrade-to-flower-1.13.html">Upgrade to Flower 1.13</a></li>
+<li class="toctree-l2"><a class="reference internal" href="how-to-upgrade-to-message-api.html">Upgrade to Message API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="how-to-upgrade-to-flower-1.28.html">Upgrade to Flower 1.28</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="simulate.html">Simulate</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" role="switch" type="checkbox"/><label for="toctree-checkbox-3"><div class="visually-hidden">Toggle navigation of Simulate</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="how-to-run-flower-locally.html">Run Flower Locally with a Managed SuperLink</a></li>
+<li class="toctree-l2"><a class="reference internal" href="how-to-run-simulations.html">Run simulations</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current has-children"><a class="reference internal" href="deploy.html">Deploy</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" role="switch" type="checkbox"/><label for="toctree-checkbox-4"><div class="visually-hidden">Toggle navigation of Deploy</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="how-to-run-flower-with-deployment-engine.html">Run Flower with the Deployment Runtime</a></li>
+<li class="toctree-l2 current current-page"><a class="current reference internal" href="#">Enable TLS connections</a></li>
+<li class="toctree-l2"><a class="reference internal" href="how-to-authenticate-supernodes.html">Authenticate SuperNodes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="how-to-configure-logging.html">Configure logging</a></li>
+<li class="toctree-l2"><a class="reference internal" href="how-to-run-flower-on-gcp.html">Run Flower on GCP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="how-to-run-flower-on-azure.html">Run Flower on Azure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="how-to-run-flower-on-red-hat-openshift.html">Run Flower on Red Hat OpenShift</a></li>
+<li class="toctree-l2"><a class="reference internal" href="how-to-run-flower-on-multiple-openshift-clusters.html">Run Flower on Multiple OpenShift Clusters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="how-to-authenticate-accounts.html">Authenticate Accounts via OpenID Connect</a></li>
+<li class="toctree-l2"><a class="reference internal" href="how-to-configure-audit-logging.html">Configure Audit Logging</a></li>
+<li class="toctree-l2"><a class="reference internal" href="how-to-manage-flower-federations.html">Manage Flower Federations</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="docker/index.html">Run Flower using Docker</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" role="switch" type="checkbox"/><label for="toctree-checkbox-5"><div class="visually-hidden">Toggle navigation of Run Flower using Docker</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="docker/tutorial-quickstart-docker.html">Quickstart with Docker</a></li>
+<li class="toctree-l3"><a class="reference internal" href="docker/enable-tls.html">Enable TLS for Secure Connections</a></li>
+<li class="toctree-l3"><a class="reference internal" href="docker/persist-superlink-state.html">Persist the State of the SuperLink</a></li>
+<li class="toctree-l3"><a class="reference internal" href="docker/set-environment-variables.html">Set Environment Variables</a></li>
+<li class="toctree-l3"><a class="reference internal" href="docker/run-as-root-user.html">Run with Root User Privileges</a></li>
+<li class="toctree-l3"><a class="reference internal" href="docker/run-as-subprocess.html">Run ServerApp or ClientApp as a Subprocess</a></li>
+<li class="toctree-l3"><a class="reference internal" href="docker/pin-version.html">Pin a Docker Image to a Specific Version</a></li>
+<li class="toctree-l3"><a class="reference internal" href="docker/use-a-different-version.html">Use a Different Flower Version</a></li>
+<li class="toctree-l3"><a class="reference internal" href="docker/tutorial-quickstart-docker-compose.html">Quickstart with Docker Compose</a></li>
+<li class="toctree-l3"><a class="reference internal" href="docker/run-quickstart-examples-docker-compose.html">Run Flower Quickstart Examples with Docker Compose</a></li>
+<li class="toctree-l3"><a class="reference internal" href="docker/tutorial-deploy-on-multiple-machines.html">Deploy Flower on Multiple Machines with Docker Compose</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="helm/index.html">Run Flower using Helm</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" role="switch" type="checkbox"/><label for="toctree-checkbox-6"><div class="visually-hidden">Toggle navigation of Run Flower using Helm</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="helm/how-to-deploy-superlink-using-helm.html">Deploy SuperLink</a></li>
+<li class="toctree-l3"><a class="reference internal" href="helm/how-to-deploy-supernode-using-helm.html">Deploy SuperNode</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="how-to-create-and-manage-federations.html">Create and Manage Federations on SuperGrid</a></li>
+<li class="toctree-l2"><a class="reference internal" href="how-to-connect-supernodes-to-supergrid.html">Connect SuperNodes to SuperGrid</a></li>
+<li class="toctree-l2"><a class="reference internal" href="how-to-run-flower-apps-on-supergrid.html">Run Flower Apps on SuperGrid</a></li>
+<li class="toctree-l2"><a class="reference internal" href="how-to-deploy-supernode-using-slurm.html">Deploy SuperNodes using Slurm</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Explanations</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="explanation-federated-evaluation.html">Federated evaluation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="explanation-differential-privacy.html">Differential Privacy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="explanation-ref-secure-aggregation-protocols.html">Secure Aggregation Protocols</a></li>
+<li class="toctree-l1"><a class="reference internal" href="explanation-flower-architecture.html">Flower Architecture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="explanation-superlink-high-availability.html">SuperLink High Availability Mode</a></li>
+<li class="toctree-l1"><a class="reference internal" href="explanation-flower-strategy-abstraction.html">Flower Strategy Abstraction</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">References</span></p>
+<ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="reference.html">Reference</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" role="switch" type="checkbox"/><label for="toctree-checkbox-7"><div class="visually-hidden">Toggle navigation of Reference</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="ref-api/flwr.html">flwr</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" role="switch" type="checkbox"/><label for="toctree-checkbox-8"><div class="visually-hidden">Toggle navigation of flwr</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="ref-api/flwr.agentapp.html">agentapp</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" role="switch" type="checkbox"/><label for="toctree-checkbox-9"><div class="visually-hidden">Toggle navigation of agentapp</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="ref-api/flwr.agentapp.AgentApp.html">AgentApp</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ref-api/flwr.agentapp.AgentConnectors.html">AgentConnectors</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ref-api/flwr.agentapp.AgentEvents.html">AgentEvents</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ref-api/flwr.agentapp.AgentGrid.html">AgentGrid</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ref-api/flwr.agentapp.AgentSession.html">AgentSession</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ref-api/flwr.agentapp.LoadAgentAppError.html">LoadAgentAppError</a></li>
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="ref-api/flwr.app.html">app</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" role="switch" type="checkbox"/><label for="toctree-checkbox-10"><div class="visually-hidden">Toggle navigation of app</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="ref-api/flwr.app.Array.html">Array</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ref-api/flwr.app.ArrayRecord.html">ArrayRecord</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ref-api/flwr.app.ConfigRecord.html">ConfigRecord</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ref-api/flwr.app.Context.html">Context</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ref-api/flwr.app.Error.html">Error</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ref-api/flwr.app.Message.html">Message</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ref-api/flwr.app.MessageType.html">MessageType</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ref-api/flwr.app.Metadata.html">Metadata</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ref-api/flwr.app.MetricRecord.html">MetricRecord</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ref-api/flwr.app.RecordDict.html">RecordDict</a></li>
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="ref-api/flwr.clientapp.html">clientapp</a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" role="switch" type="checkbox"/><label for="toctree-checkbox-11"><div class="visually-hidden">Toggle navigation of clientapp</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="ref-api/flwr.clientapp.ClientApp.html">ClientApp</a></li>
+<li class="toctree-l4 has-children"><a class="reference internal" href="ref-api/flwr.clientapp.mod.html">mod</a><input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" role="switch" type="checkbox"/><label for="toctree-checkbox-12"><div class="visually-hidden">Toggle navigation of mod</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l5"><a class="reference internal" href="ref-api/flwr.clientapp.mod.adaptiveclipping_mod.html">adaptiveclipping_mod</a></li>
+<li class="toctree-l5"><a class="reference internal" href="ref-api/flwr.clientapp.mod.arrays_size_mod.html">arrays_size_mod</a></li>
+<li class="toctree-l5"><a class="reference internal" href="ref-api/flwr.clientapp.mod.fixedclipping_mod.html">fixedclipping_mod</a></li>
+<li class="toctree-l5"><a class="reference internal" href="ref-api/flwr.clientapp.mod.message_size_mod.html">message_size_mod</a></li>
+<li class="toctree-l5"><a class="reference internal" href="ref-api/flwr.clientapp.mod.LocalDpMod.html">LocalDpMod</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="ref-api/flwr.serverapp.html">serverapp</a><input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" role="switch" type="checkbox"/><label for="toctree-checkbox-13"><div class="visually-hidden">Toggle navigation of serverapp</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="ref-api/flwr.serverapp.GaussianPrivacyEvent.html">GaussianPrivacyEvent</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ref-api/flwr.serverapp.Grid.html">Grid</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ref-api/flwr.serverapp.NeighboringRelation.html">NeighboringRelation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ref-api/flwr.serverapp.PrivacyAccountant.html">PrivacyAccountant</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ref-api/flwr.serverapp.PrivacyConfig.html">PrivacyConfig</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ref-api/flwr.serverapp.PrivacySpent.html">PrivacySpent</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ref-api/flwr.serverapp.RdpAccountant.html">RdpAccountant</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ref-api/flwr.serverapp.SamplingMethod.html">SamplingMethod</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ref-api/flwr.serverapp.ServerApp.html">ServerApp</a></li>
+<li class="toctree-l4 has-children"><a class="reference internal" href="ref-api/flwr.serverapp.strategy.html">strategy</a><input class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" role="switch" type="checkbox"/><label for="toctree-checkbox-14"><div class="visually-hidden">Toggle navigation of strategy</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l5"><a class="reference internal" href="ref-api/flwr.serverapp.strategy.Bulyan.html">Bulyan</a></li>
+<li class="toctree-l5"><a class="reference internal" href="ref-api/flwr.serverapp.strategy.DifferentialPrivacyClientSideAdaptiveClipping.html">DifferentialPrivacyClientSideAdaptiveClipping</a></li>
+<li class="toctree-l5"><a class="reference internal" href="ref-api/flwr.serverapp.strategy.DifferentialPrivacyClientSideFixedClipping.html">DifferentialPrivacyClientSideFixedClipping</a></li>
+<li class="toctree-l5"><a class="reference internal" href="ref-api/flwr.serverapp.strategy.DifferentialPrivacyServerSideAdaptiveClipping.html">DifferentialPrivacyServerSideAdaptiveClipping</a></li>
+<li class="toctree-l5"><a class="reference internal" href="ref-api/flwr.serverapp.strategy.DifferentialPrivacyServerSideFixedClipping.html">DifferentialPrivacyServerSideFixedClipping</a></li>
+<li class="toctree-l5"><a class="reference internal" href="ref-api/flwr.serverapp.strategy.FedAdagrad.html">FedAdagrad</a></li>
+<li class="toctree-l5"><a class="reference internal" href="ref-api/flwr.serverapp.strategy.FedAdam.html">FedAdam</a></li>
+<li class="toctree-l5"><a class="reference internal" href="ref-api/flwr.serverapp.strategy.FedAvg.html">FedAvg</a></li>
+<li class="toctree-l5"><a class="reference internal" href="ref-api/flwr.serverapp.strategy.FedAvgM.html">FedAvgM</a></li>
+<li class="toctree-l5"><a class="reference internal" href="ref-api/flwr.serverapp.strategy.FedMedian.html">FedMedian</a></li>
+<li class="toctree-l5"><a class="reference internal" href="ref-api/flwr.serverapp.strategy.FedProx.html">FedProx</a></li>
+<li class="toctree-l5"><a class="reference internal" href="ref-api/flwr.serverapp.strategy.FedTrimmedAvg.html">FedTrimmedAvg</a></li>
+<li class="toctree-l5"><a class="reference internal" href="ref-api/flwr.serverapp.strategy.FedXgbBagging.html">FedXgbBagging</a></li>
+<li class="toctree-l5"><a class="reference internal" href="ref-api/flwr.serverapp.strategy.FedXgbCyclic.html">FedXgbCyclic</a></li>
+<li class="toctree-l5"><a class="reference internal" href="ref-api/flwr.serverapp.strategy.FedYogi.html">FedYogi</a></li>
+<li class="toctree-l5"><a class="reference internal" href="ref-api/flwr.serverapp.strategy.Krum.html">Krum</a></li>
+<li class="toctree-l5"><a class="reference internal" href="ref-api/flwr.serverapp.strategy.MultiKrum.html">MultiKrum</a></li>
+<li class="toctree-l5"><a class="reference internal" href="ref-api/flwr.serverapp.strategy.QFedAvg.html">QFedAvg</a></li>
+<li class="toctree-l5"><a class="reference internal" href="ref-api/flwr.serverapp.strategy.Result.html">Result</a></li>
+<li class="toctree-l5"><a class="reference internal" href="ref-api/flwr.serverapp.strategy.Strategy.html">Strategy</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="ref-api/flwr.client.html">client</a><input class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" role="switch" type="checkbox"/><label for="toctree-checkbox-15"><div class="visually-hidden">Toggle navigation of client</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="ref-api/flwr.client.start_client.html">start_client</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ref-api/flwr.client.start_numpy_client.html">start_numpy_client</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ref-api/flwr.client.Client.html">Client</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ref-api/flwr.client.ClientApp.html">ClientApp</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ref-api/flwr.client.NumPyClient.html">NumPyClient</a></li>
+<li class="toctree-l4 has-children"><a class="reference internal" href="ref-api/flwr.client.mod.html">mod</a><input class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" role="switch" type="checkbox"/><label for="toctree-checkbox-16"><div class="visually-hidden">Toggle navigation of mod</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l5"><a class="reference internal" href="ref-api/flwr.client.mod.adaptiveclipping_mod.html">adaptiveclipping_mod</a></li>
+<li class="toctree-l5"><a class="reference internal" href="ref-api/flwr.client.mod.arrays_size_mod.html">arrays_size_mod</a></li>
+<li class="toctree-l5"><a class="reference internal" href="ref-api/flwr.client.mod.fixedclipping_mod.html">fixedclipping_mod</a></li>
+<li class="toctree-l5"><a class="reference internal" href="ref-api/flwr.client.mod.make_ffn.html">make_ffn</a></li>
+<li class="toctree-l5"><a class="reference internal" href="ref-api/flwr.client.mod.message_size_mod.html">message_size_mod</a></li>
+<li class="toctree-l5"><a class="reference internal" href="ref-api/flwr.client.mod.secagg_mod.html">secagg_mod</a></li>
+<li class="toctree-l5"><a class="reference internal" href="ref-api/flwr.client.mod.secaggplus_mod.html">secaggplus_mod</a></li>
+<li class="toctree-l5"><a class="reference internal" href="ref-api/flwr.client.mod.LocalDpMod.html">LocalDpMod</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="ref-api/flwr.common.html">common</a><input class="toctree-checkbox" id="toctree-checkbox-17" name="toctree-checkbox-17" role="switch" type="checkbox"/><label for="toctree-checkbox-17"><div class="visually-hidden">Toggle navigation of common</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="ref-api/flwr.common.array_from_numpy.html">array_from_numpy</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ref-api/flwr.common.bytes_to_ndarray.html">bytes_to_ndarray</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ref-api/flwr.common.configure.html">configure</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ref-api/flwr.common.event.html">event</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ref-api/flwr.common.log.html">log</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ref-api/flwr.common.ndarray_to_bytes.html">ndarray_to_bytes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ref-api/flwr.common.ndarrays_to_parameters.html">ndarrays_to_parameters</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ref-api/flwr.common.now.html">now</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ref-api/flwr.common.parameters_to_ndarrays.html">parameters_to_ndarrays</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ref-api/flwr.common.Array.html">Array</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ref-api/flwr.common.ArrayRecord.html">ArrayRecord</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ref-api/flwr.common.ClientMessage.html">ClientMessage</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ref-api/flwr.common.Code.html">Code</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ref-api/flwr.common.ConfigRecord.html">ConfigRecord</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ref-api/flwr.common.ConfigsRecord.html">ConfigsRecord</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ref-api/flwr.common.Context.html">Context</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ref-api/flwr.common.DisconnectRes.html">DisconnectRes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ref-api/flwr.common.Error.html">Error</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ref-api/flwr.common.EvaluateIns.html">EvaluateIns</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ref-api/flwr.common.EvaluateRes.html">EvaluateRes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ref-api/flwr.common.EventType.html">EventType</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ref-api/flwr.common.FitIns.html">FitIns</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ref-api/flwr.common.FitRes.html">FitRes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ref-api/flwr.common.GetParametersIns.html">GetParametersIns</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ref-api/flwr.common.GetParametersRes.html">GetParametersRes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ref-api/flwr.common.GetPropertiesIns.html">GetPropertiesIns</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ref-api/flwr.common.GetPropertiesRes.html">GetPropertiesRes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ref-api/flwr.common.Message.html">Message</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ref-api/flwr.common.MessageType.html">MessageType</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ref-api/flwr.common.MessageTypeLegacy.html">MessageTypeLegacy</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ref-api/flwr.common.Metadata.html">Metadata</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ref-api/flwr.common.MetricRecord.html">MetricRecord</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ref-api/flwr.common.MetricsRecord.html">MetricsRecord</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ref-api/flwr.common.Parameters.html">Parameters</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ref-api/flwr.common.ParametersRecord.html">ParametersRecord</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ref-api/flwr.common.ReconnectIns.html">ReconnectIns</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ref-api/flwr.common.RecordDict.html">RecordDict</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ref-api/flwr.common.RecordSet.html">RecordSet</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ref-api/flwr.common.ServerMessage.html">ServerMessage</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ref-api/flwr.common.Status.html">Status</a></li>
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="ref-api/flwr.server.html">server</a><input class="toctree-checkbox" id="toctree-checkbox-18" name="toctree-checkbox-18" role="switch" type="checkbox"/><label for="toctree-checkbox-18"><div class="visually-hidden">Toggle navigation of server</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="ref-api/flwr.server.start_server.html">start_server</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ref-api/flwr.server.ClientManager.html">ClientManager</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ref-api/flwr.server.Driver.html">Driver</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ref-api/flwr.server.Grid.html">Grid</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ref-api/flwr.server.History.html">History</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ref-api/flwr.server.LegacyContext.html">LegacyContext</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ref-api/flwr.server.Server.html">Server</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ref-api/flwr.server.ServerApp.html">ServerApp</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ref-api/flwr.server.ServerAppComponents.html">ServerAppComponents</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ref-api/flwr.server.ServerConfig.html">ServerConfig</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ref-api/flwr.server.SimpleClientManager.html">SimpleClientManager</a></li>
+<li class="toctree-l4 has-children"><a class="reference internal" href="ref-api/flwr.server.strategy.html">strategy</a><input class="toctree-checkbox" id="toctree-checkbox-19" name="toctree-checkbox-19" role="switch" type="checkbox"/><label for="toctree-checkbox-19"><div class="visually-hidden">Toggle navigation of strategy</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l5"><a class="reference internal" href="ref-api/flwr.server.strategy.Bulyan.html">Bulyan</a></li>
+<li class="toctree-l5"><a class="reference internal" href="ref-api/flwr.server.strategy.DPFedAvgAdaptive.html">DPFedAvgAdaptive</a></li>
+<li class="toctree-l5"><a class="reference internal" href="ref-api/flwr.server.strategy.DPFedAvgFixed.html">DPFedAvgFixed</a></li>
+<li class="toctree-l5"><a class="reference internal" href="ref-api/flwr.server.strategy.DifferentialPrivacyClientSideAdaptiveClipping.html">DifferentialPrivacyClientSideAdaptiveClipping</a></li>
+<li class="toctree-l5"><a class="reference internal" href="ref-api/flwr.server.strategy.DifferentialPrivacyClientSideFixedClipping.html">DifferentialPrivacyClientSideFixedClipping</a></li>
+<li class="toctree-l5"><a class="reference internal" href="ref-api/flwr.server.strategy.DifferentialPrivacyServerSideAdaptiveClipping.html">DifferentialPrivacyServerSideAdaptiveClipping</a></li>
+<li class="toctree-l5"><a class="reference internal" href="ref-api/flwr.server.strategy.DifferentialPrivacyServerSideFixedClipping.html">DifferentialPrivacyServerSideFixedClipping</a></li>
+<li class="toctree-l5"><a class="reference internal" href="ref-api/flwr.server.strategy.FaultTolerantFedAvg.html">FaultTolerantFedAvg</a></li>
+<li class="toctree-l5"><a class="reference internal" href="ref-api/flwr.server.strategy.FedAdagrad.html">FedAdagrad</a></li>
+<li class="toctree-l5"><a class="reference internal" href="ref-api/flwr.server.strategy.FedAdam.html">FedAdam</a></li>
+<li class="toctree-l5"><a class="reference internal" href="ref-api/flwr.server.strategy.FedAvg.html">FedAvg</a></li>
+<li class="toctree-l5"><a class="reference internal" href="ref-api/flwr.server.strategy.FedAvgAndroid.html">FedAvgAndroid</a></li>
+<li class="toctree-l5"><a class="reference internal" href="ref-api/flwr.server.strategy.FedAvgM.html">FedAvgM</a></li>
+<li class="toctree-l5"><a class="reference internal" href="ref-api/flwr.server.strategy.FedMedian.html">FedMedian</a></li>
+<li class="toctree-l5"><a class="reference internal" href="ref-api/flwr.server.strategy.FedOpt.html">FedOpt</a></li>
+<li class="toctree-l5"><a class="reference internal" href="ref-api/flwr.server.strategy.FedProx.html">FedProx</a></li>
+<li class="toctree-l5"><a class="reference internal" href="ref-api/flwr.server.strategy.FedTrimmedAvg.html">FedTrimmedAvg</a></li>
+<li class="toctree-l5"><a class="reference internal" href="ref-api/flwr.server.strategy.FedXgbBagging.html">FedXgbBagging</a></li>
+<li class="toctree-l5"><a class="reference internal" href="ref-api/flwr.server.strategy.FedXgbCyclic.html">FedXgbCyclic</a></li>
+<li class="toctree-l5"><a class="reference internal" href="ref-api/flwr.server.strategy.FedXgbNnAvg.html">FedXgbNnAvg</a></li>
+<li class="toctree-l5"><a class="reference internal" href="ref-api/flwr.server.strategy.FedYogi.html">FedYogi</a></li>
+<li class="toctree-l5"><a class="reference internal" href="ref-api/flwr.server.strategy.Krum.html">Krum</a></li>
+<li class="toctree-l5"><a class="reference internal" href="ref-api/flwr.server.strategy.QFedAvg.html">QFedAvg</a></li>
+<li class="toctree-l5"><a class="reference internal" href="ref-api/flwr.server.strategy.Strategy.html">Strategy</a></li>
+</ul>
+</li>
+<li class="toctree-l4 has-children"><a class="reference internal" href="ref-api/flwr.server.workflow.html">workflow</a><input class="toctree-checkbox" id="toctree-checkbox-20" name="toctree-checkbox-20" role="switch" type="checkbox"/><label for="toctree-checkbox-20"><div class="visually-hidden">Toggle navigation of workflow</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l5"><a class="reference internal" href="ref-api/flwr.server.workflow.DefaultWorkflow.html">DefaultWorkflow</a></li>
+<li class="toctree-l5"><a class="reference internal" href="ref-api/flwr.server.workflow.SecAggPlusWorkflow.html">SecAggPlusWorkflow</a></li>
+<li class="toctree-l5"><a class="reference internal" href="ref-api/flwr.server.workflow.SecAggWorkflow.html">SecAggWorkflow</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="ref-api/flwr.simulation.html">simulation</a><input class="toctree-checkbox" id="toctree-checkbox-21" name="toctree-checkbox-21" role="switch" type="checkbox"/><label for="toctree-checkbox-21"><div class="visually-hidden">Toggle navigation of simulation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="ref-api/flwr.simulation.run_simulation.html">run_simulation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ref-api/flwr.simulation.run_simulation_process.html">run_simulation_process</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ref-api/flwr.simulation.start_simulation.html">start_simulation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ref-api/flwr.simulation.SimulationIoConnection.html">SimulationIoConnection</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="ref-api-cli.html">Flower CLI reference</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ref-flower-configuration.html">Flower Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ref-example-projects.html">Example projects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ref-telemetry.html">Telemetry</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ref-changelog.html">Changelog</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ref-flower-runtime-comparison.html">Flower Runtime Comparison</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ref-flower-network-communication.html">Flower Network Communication</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="ref-exit-codes-dir.html">Exit Codes</a><input class="toctree-checkbox" id="toctree-checkbox-22" name="toctree-checkbox-22" role="switch" type="checkbox"/><label for="toctree-checkbox-22"><div class="visually-hidden">Toggle navigation of Exit Codes</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="ref-exit-codes/0.html">[0] SUCCESS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ref-exit-codes/1.html">[1] GRACEFUL_EXIT_SIGINT</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ref-exit-codes/101.html">[101] SUPERLINK_LICENSE_INVALID</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ref-exit-codes/102.html">[102] SUPERLINK_LICENSE_MISSING</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ref-exit-codes/103.html">[103] SUPERLINK_LICENSE_URL_INVALID</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ref-exit-codes/104.html">[104] SUPERLINK_INVALID_ARGS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ref-exit-codes/105.html">[105] SUPERLINK_DATABASE_SCHEMA_MISMATCH</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ref-exit-codes/2.html">[2] GRACEFUL_EXIT_SIGQUIT</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ref-exit-codes/200.html">[200] SERVERAPP_STRATEGY_PRECONDITION_UNMET</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ref-exit-codes/201.html">[201] SERVERAPP_EXCEPTION</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ref-exit-codes/202.html">[202] SERVERAPP_STRATEGY_AGGREGATION_ERROR</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ref-exit-codes/203.html">[203] SERVERAPP_RUN_START_REJECTED</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ref-exit-codes/250.html">[250] CLIENTAPP_COMMUNICATION_ERROR</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ref-exit-codes/3.html">[3] GRACEFUL_EXIT_SIGTERM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ref-exit-codes/302.html">[302] SUPERNODE_NODE_AUTH_KEY_INVALID</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ref-exit-codes/303.html">[303] SUPERNODE_STARTED_WITHOUT_TLS_BUT_NODE_AUTH_ENABLED</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ref-exit-codes/304.html">[304] SUPERNODE_INVALID_TRUSTED_ENTITIES</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ref-exit-codes/305.html">[305] SUPERNODE_CONNECTION_ERROR</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ref-exit-codes/400.html">[400] SUPEREXEC_INVALID_PLUGIN_CONFIG</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ref-exit-codes/401.html">[401] SUPEREXEC_AUTH_SECRET_LOAD_FAILED</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ref-exit-codes/402.html">[402] SUPEREXEC_INVALID_EXECUTOR_CONFIG</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ref-exit-codes/500.html">[500] FLWRCLI_NODE_AUTH_PUBLIC_KEY_INVALID</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ref-exit-codes/600.html">[600] COMMON_ADDRESS_INVALID</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ref-exit-codes/602.html">[602] COMMON_TLS_NOT_SUPPORTED</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ref-exit-codes/603.html">[603] COMMON_TLS_ROOT_CERTIFICATES_INCOMPATIBLE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ref-exit-codes/604.html">[604] COMMON_PATH_INVALID</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ref-exit-codes/605.html">[605] COMMON_TLS_SERVER_CERTIFICATES_INVALID</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ref-exit-codes/606.html">[606] RUNTIME_VERSION_INCOMPATIBLE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ref-exit-codes/607.html">[607] COMMON_APP_IMPORT_ERROR</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ref-exit-codes/608.html">[608] COMMON_RUNTIME_DEPENDENCY_INSTALLATION_ERROR</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ref-exit-codes/700.html">[700] SIMULATION_EXCEPTION</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ref-exit-codes/701.html">[701] SIMULATION_MISSING_EXTRA</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ref-exit-codes/800.html">[800] TASK_PROC_EXCEPTION</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="ref-faq.html">FAQ</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Contributor docs</span></p>
+<ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="contribute.html">Contribute</a><input class="toctree-checkbox" id="toctree-checkbox-23" name="toctree-checkbox-23" role="switch" type="checkbox"/><label for="toctree-checkbox-23"><div class="visually-hidden">Toggle navigation of Contribute</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="contributor-tutorial-contribute-on-github.html">Contribute on GitHub</a></li>
+<li class="toctree-l2"><a class="reference internal" href="contributor-tutorial-get-started-as-a-contributor.html">Get started as a contributor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="contributor-how-to-install-development-versions.html">Install development versions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="contributor-how-to-set-up-a-virtual-env.html">Set up a virtual env</a></li>
+<li class="toctree-l2"><a class="reference internal" href="contributor-how-to-develop-in-vscode-dev-containers.html">Develop in VSCode Dev Containers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="contributor-how-to-write-documentation.html">Write documentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="contributor-how-to-release-flower.html">Release Flower</a></li>
+<li class="toctree-l2"><a class="reference internal" href="contributor-how-to-contribute-translations.html">Contribute translations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="contributor-how-to-build-docker-images.html">How to Build Docker Flower Images Locally</a></li>
+<li class="toctree-l2"><a class="reference internal" href="contributor-how-to-migrate-database.html">Migrate Flower Database Schema</a></li>
+<li class="toctree-l2"><a class="reference internal" href="contributor-explanation-public-and-private-apis.html">Public and private APIs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="contributor-ref-good-first-contributions.html">Good first contributions</a></li>
+</ul>
+</li>
+</ul>
+
+</div></div>
+
+<style>
+input[type='checkbox'] {
+  display: none;
+}
+
+.lbl-toggle {
+  display: block;
+
+  padding: 1rem;
+
+  cursor: pointer;
+
+  border-radius: 7px;
+  transition: all 0.25s ease-out;
+}
+
+.lbl-toggle::before {
+  content: ' ';
+  display: inline-block;
+
+  border-top: 5px solid transparent;
+  border-bottom: 5px solid transparent;
+  border-left: 5px solid currentColor;
+
+  vertical-align: middle;
+  margin-right: .7rem;
+  transform: translateY(-2px);
+
+  transition: transform .2s ease-out;
+}
+
+.collapsible-content {
+  max-height: 0px;
+  padding-top: 0px;
+  overflow: hidden;
+
+  transition: max-height .25s ease-in-out;
+}
+
+.toggle:checked + .lbl-toggle + .collapsible-content {
+  max-height: 45vh;
+  overflow-y: auto;
+}
+
+.toggle:checked + .lbl-toggle::before {
+  transform: rotate(90deg) translateX(-3px);
+}
+
+.toggle:checked + .lbl-toggle {
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+.content-inner {
+  padding-bottom: 1rem;
+}
+
+.content-inner ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.content-inner li a {
+  display: block;
+  padding: 0.5rem 1rem 0.5rem 2.2rem;
+  text-decoration: none;
+  color: inherit;
+}
+</style>
+
+<div class="wrap-collabsible"
+     data-flwr-versioning
+     data-docs-ui-metadata-url="https://flower.ai/docs/framework/docs-ui-metadata.json"
+     data-current-version="1.42"
+     data-current-version-label="v1.42.x"
+     data-current-language="en"
+     data-pagename="how-to-enable-tls-connections"
+     data-docs-base-url="https://flower.ai/docs/framework">
+  <input id="collapsible" class="toggle" type="checkbox">
+  <label for="collapsible" class="lbl-toggle">Versions</label>
+  <div class="collapsible-content">
+    <div class="content-inner">
+      <ul data-flwr-version-list>
+        <li>
+          <a href="https://flower.ai/docs/framework/main/en/how-to-enable-tls-connections.html"
+             data-version-url="main">
+             main
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/0.8.2/css/flag-icon.min.css">
+
+<div style="text-align: center; padding-bottom: 1rem;">
+  <a href="https://flower.ai/docs/framework/1.42/en/how-to-enable-tls-connections.html"
+    style="text-decoration:none; padding-right: 2rem; font-size: 150%;">&#127468;&#127463;</a>
+  <a href="https://flower.ai/docs/framework/1.42/fr/how-to-enable-tls-connections.html"
+    style="text-decoration:none; padding-right: 2rem; font-size: 150%;">&#127467;&#127479;</a>
+  <a href="https://flower.ai/docs/framework/1.42/zh_Hans/how-to-enable-tls-connections.html"
+    style="text-decoration:none; padding-right: 2rem; font-size: 150%;">&#x1F1E8;&#x1F1F3;</a>
+  <a href="https://flower.ai/docs/framework/1.42/ko/how-to-enable-tls-connections.html"
+    style="text-decoration:none; font-size: 150%;">&#x1F1F0;&#x1F1F7;</a>
+</div>
+
+      </div>
+      
+    </div>
+  </aside>
+  <div class="main">
+    <div class="content">
+      <div class="article-container">
+        <a href="#" class="back-to-top muted-link">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"></path>
+          </svg>
+          <span>Back to top</span>
+        </a>
+        <div class="content-icon-container">
+          <div class="view-this-page">
+  <a class="muted-link" href="_sources/how-to-enable-tls-connections.rst.txt" title="View this page">
+    <svg><use href="#svg-eye"></use></svg>
+    <span class="visually-hidden">View this page</span>
+  </a>
+</div>
+<div class="theme-toggle-container theme-toggle-content">
+            <button class="theme-toggle">
+              <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+              <svg class="theme-icon-when-auto-light"><use href="#svg-sun-with-moon"></use></svg>
+              <svg class="theme-icon-when-auto-dark"><use href="#svg-moon-with-sun"></use></svg>
+              <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+              <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+            </button>
+          </div>
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
+            <div class="visually-hidden">Toggle table of contents sidebar</div>
+            <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+          </label>
+        </div>
+        <article role="main" id="furo-main-content">
+          <section id="enable-tls-connections">
+<h1>Enable TLS connections<a class="headerlink" href="#enable-tls-connections" title="Link to this heading">¶</a></h1>
+<p>Transport Layer Security (TLS) ensures the communication between endpoints is encrypted.
+This guide describes how to establish secure TLS SuperLink ↔ SuperNodes as well as User
+↔ SuperLink connections. It also explains how to enable TLS on the internal Runtime API
+connections used by SuperExec, <code class="docutils literal notranslate"><span class="pre">ServerApp</span></code> processes, and <code class="docutils literal notranslate"><span class="pre">ClientApp</span></code> processes.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This guide builds on the Flower App setup presented in
+<a class="reference internal" href="how-to-run-flower-with-deployment-engine.html"><span class="doc">Run Flower with the Deployment Runtime</span></a> guide and extends it to replace the
+use of <code class="docutils literal notranslate"><span class="pre">--insecure</span></code> in favour of TLS.</p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Checkout the <a class="reference external" href="https://github.com/flwrlabs/flower/tree/main/examples/supernode-authentication">Flower Authentication</a>
+example for a complete self-contained example on how to setup TLS and (optionally)
+node authentication. Check out the <a class="reference internal" href="how-to-authenticate-supernodes.html"><span class="doc">Authenticate SuperNodes</span></a> guide to
+learn more about adding an authentication layer to SuperLink ↔ SuperNode
+connections.</p>
+</div>
+<section id="certificates">
+<h2>Certificates<a class="headerlink" href="#certificates" title="Link to this heading">¶</a></h2>
+<p>Using TLS-enabled connections expects some certificates generated and passed when
+launching the SuperLink, the SuperNodes and when a user (e.g. a data scientist that
+wants to submit a <code class="docutils literal notranslate"><span class="pre">Run</span></code>) interacts with the federation via the <a class="reference external" href="ref-api-cli.html">flwr CLI</a>. The same certificates can be used for local prototyping when
+enabling TLS on internal Runtime API connections.</p>
+<p>We have prepared a script that can be used to generate such set of certificates. While
+using these is fine for prototyping, we advise you to follow the standards set in your
+team/organization and to generate the certificates and share them with the corresponding
+parties. Refer to the <strong>Generate TLS certificates</strong> section in the example linked at the
+top of this guide.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># In the example directory, generate the certificates</span>
+$<span class="w"> </span>python<span class="w"> </span>generate_creds.py
+</pre></div>
+</div>
+<p>This will generate the TLS certificates in a new <code class="docutils literal notranslate"><span class="pre">certificates/</span></code> directory. Copy this
+directory into the directory of your app (e.g. a directory generated earlier via <code class="docutils literal notranslate"><span class="pre">flwr</span>
+<span class="pre">new</span></code>).</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>The approach for generating TLS certificates in the context of this example can
+serve as an inspiration and starting point, but it should not be used as a reference
+for production environments. Please refer to other sources regarding the issue of
+correctly generating certificates for production environments. For non-critical
+prototyping or research projects, it might be sufficient to use the self-signed
+certificates generated using the scripts mentioned in this guide. In production, do
+not reuse the same server certificate and private key for multiple services. A
+better practice is to use a unique key pair for each service, for example the
+SuperLink Fleet API, the SuperLink-hosted Runtime API, and each SuperNode-hosted
+Runtime API.</p>
+</div>
+</section>
+<section id="launching-the-superlink-with-tls">
+<span id="id1"></span><h2>Launching the SuperLink with TLS<a class="headerlink" href="#launching-the-superlink-with-tls" title="Link to this heading">¶</a></h2>
+<p>This section describes how to launch a SuperLink that works on TLS-enabled connections.
+The code snippet below assumes the <cite>certificates/</cite> directory is in the same directory
+where you execute the command from. Edit the paths accordingly if that is not the case.
+The SuperLink expects three certificate paths: CA certificate, server certificate, and
+server private key.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Since Flower 1.37, the Fleet, Control, and Runtime APIs share this TLS
+configuration.</p>
+</div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>flower-superlink<span class="w"> </span><span class="se">\</span>
+<span class="hll"><span class="w">    </span>--ssl-ca-certfile<span class="w"> </span>certificates/ca.crt<span class="w"> </span><span class="se">\</span>
+</span><span class="hll"><span class="w">    </span>--ssl-certfile<span class="w"> </span>certificates/server.pem<span class="w"> </span><span class="se">\</span>
+</span><span class="hll"><span class="w">    </span>--ssl-keyfile<span class="w"> </span>certificates/server.key
+</span></pre></div>
+</div>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Understand the command</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<ul>
+<li><p class="sd-card-text"><code class="docutils literal notranslate"><span class="pre">--ssl-ca-certfile</span></code>: Specify the location of the CA certificate file in your file. This file is a certificate that is used to verify the identity of the SuperLink.</p></li>
+<li><div class="line-block">
+<div class="line"><code class="docutils literal notranslate"><span class="pre">--ssl-certfile</span></code>: Specify the location of the SuperLink’s TLS certificate file. This file is used to identify the SuperLink and to encrypt the packages that are transmitted over the network.</div>
+</div>
+<p class="sd-card-text">The certificate must include Subject Alternative Names (SANs) for the Runtime API
+address used by SuperExec. When using an IP address such as <code class="docutils literal notranslate"><span class="pre">127.0.0.1</span></code>, the
+certificate must include a matching IP SAN.</p>
+</li>
+<li><div class="line-block">
+<div class="line"><code class="docutils literal notranslate"><span class="pre">--ssl-keyfile</span></code>: Specify the location of the SuperLink’s TLS private key file. This file is used to decrypt the packages that are transmitted over the network.</div>
+</div>
+</li>
+</ul>
+</div>
+</details></section>
+<section id="connecting-the-supernodes-with-tls">
+<span id="id2"></span><h2>Connecting the SuperNodes with TLS<a class="headerlink" href="#connecting-the-supernodes-with-tls" title="Link to this heading">¶</a></h2>
+<p>This section describes how to launch a SuperNode that works on TLS-enabled connections.
+The code snippet below assumes the <cite>certificates/</cite> directory is in the same directory
+where you execute the command from. To secure the SuperNode ↔ SuperLink connection,
+replace <code class="docutils literal notranslate"><span class="pre">--insecure</span></code> with <code class="docutils literal notranslate"><span class="pre">--root-certificates</span></code>. The same command can also provide
+certificates for the SuperNode’s Runtime API.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>flower-supernode<span class="w"> </span><span class="se">\</span>
+<span class="hll"><span class="w">    </span>--root-certificates<span class="w"> </span>certificates/ca.crt<span class="w"> </span><span class="se">\</span>
+</span><span class="hll"><span class="w">    </span>--ssl-ca-certfile<span class="w"> </span>certificates/ca.crt<span class="w"> </span><span class="se">\</span>
+</span><span class="hll"><span class="w">    </span>--ssl-certfile<span class="w"> </span>certificates/server.pem<span class="w"> </span><span class="se">\</span>
+</span><span class="hll"><span class="w">    </span>--ssl-keyfile<span class="w"> </span>certificates/server.key<span class="w"> </span><span class="se">\</span>
+</span><span class="w">    </span>--superlink<span class="w"> </span><span class="m">127</span>.0.0.1:8000<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--host<span class="w"> </span><span class="m">127</span>.0.0.1<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--port<span class="w"> </span><span class="m">9094</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--node-config<span class="o">=</span><span class="s2">&quot;partition-id=0 num-partitions=2&quot;</span>
+</pre></div>
+</div>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Understand the command</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<ul>
+<li><p class="sd-card-text"><code class="docutils literal notranslate"><span class="pre">--root-certificates</span></code>: This specifies the location of the CA certificate file. The <code class="docutils literal notranslate"><span class="pre">ca.crt</span></code> file is used to verify the identity of the SuperLink.</p></li>
+<li><div class="line-block">
+<div class="line"><code class="docutils literal notranslate"><span class="pre">--ssl-ca-certfile</span></code>: Specify the location of the CA certificate file used by SuperExec to verify the SuperNode’s Runtime API server certificate.</div>
+</div>
+</li>
+<li><div class="line-block">
+<div class="line"><code class="docutils literal notranslate"><span class="pre">--ssl-certfile</span></code>: Specify the location of the Runtime API server TLS certificate file.
+The certificate must include Subject Alternative Names (SANs) for the Runtime API address used by
+SuperExec. When using an IP address such as <code class="docutils literal notranslate"><span class="pre">127.0.0.1</span></code>, the certificate must include a
+matching IP SAN.</div>
+</div>
+</li>
+<li><div class="line-block">
+<div class="line"><code class="docutils literal notranslate"><span class="pre">--ssl-keyfile</span></code>: Specify the location of the Runtime API server TLS private key file.</div>
+</div>
+</li>
+</ul>
+</div>
+</details><p>Follow the same procedure, i.e. replacing <code class="docutils literal notranslate"><span class="pre">--insecure</span></code> with <code class="docutils literal notranslate"><span class="pre">--root-certificates</span></code>,
+to launch the second SuperNode.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>flower-supernode<span class="w"> </span><span class="se">\</span>
+<span class="hll"><span class="w">    </span>--root-certificates<span class="w"> </span>certificates/ca.crt<span class="w"> </span><span class="se">\</span>
+</span><span class="hll"><span class="w">    </span>--ssl-ca-certfile<span class="w"> </span>certificates/ca.crt<span class="w"> </span><span class="se">\</span>
+</span><span class="hll"><span class="w">    </span>--ssl-certfile<span class="w"> </span>certificates/server.pem<span class="w"> </span><span class="se">\</span>
+</span><span class="hll"><span class="w">    </span>--ssl-keyfile<span class="w"> </span>certificates/server.key<span class="w"> </span><span class="se">\</span>
+</span><span class="w">    </span>--superlink<span class="w"> </span><span class="m">127</span>.0.0.1:8000<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--host<span class="w"> </span><span class="m">127</span>.0.0.1<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--port<span class="w"> </span><span class="m">9095</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--node-config<span class="o">=</span><span class="s2">&quot;partition-id=1 num-partitions=2&quot;</span>
+</pre></div>
+</div>
+<p>At this point, you have successfully launched a SuperLink and two SuperNodes with
+TLS-enabled connections.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">--ssl-*</span></code> Runtime API TLS options configure server-authenticated TLS. They do
+not configure mutual TLS. The <code class="docutils literal notranslate"><span class="pre">--ssl-ca-certfile</span></code> file is used by SuperExec and
+app processes to verify the Runtime API server certificate, not as a client
+certificate. If Runtime API TLS is not configured, internal Runtime API connections
+remain unencrypted and should stay inside a trusted network.</p>
+</div>
+</section>
+<section id="tls-for-runtime-api-connections-in-process-isolation-mode">
+<h2>TLS for Runtime API Connections in “Process” Isolation Mode<a class="headerlink" href="#tls-for-runtime-api-connections-in-process-isolation-mode" title="Link to this heading">¶</a></h2>
+<p>For details about SuperExec, “process” isolation mode, and “subprocess” isolation mode,
+see <a class="reference internal" href="ref-flower-network-communication.html"><span class="doc">Flower Network Communication</span></a>.</p>
+<p>So far, we’ve been showing you how to enable TLS for Runtime API connections when using
+the default “subprocess” isolation mode. In this mode, SuperLink and SuperNode
+automatically start their SuperExecs with the correct Runtime API TLS options. However,
+if you want to run SuperExec separately in “process” isolation mode, you need to do a
+few things differently to enable TLS for the Runtime API connections.</p>
+<p>First, we need to launch the SuperLink and SuperNode with <code class="docutils literal notranslate"><span class="pre">--isolation=process</span></code> and
+with the Runtime API TLS options. This tells the SuperLink and SuperNode that the
+SuperExecs will be launched separately, e.g. by an operator or orchestration system.
+Next, in order for the SuperExecs to establish TLS connections to the Runtime APIs, we
+need to provide the Runtime API TLS options when launching the SuperExecs. Below is an
+example command to launch a SuperExec that can establish TLS connections to the Runtime
+API hosted by the SuperLink:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>flower-superexec<span class="w"> </span><span class="se">\</span>
+<span class="hll"><span class="w">    </span>--root-certificates<span class="w"> </span>certificates/ca.crt<span class="w"> </span><span class="se">\</span>
+</span><span class="w">    </span>--runtime-api-address<span class="w"> </span><span class="m">127</span>.0.0.1:8000
+</pre></div>
+</div>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Understand the command</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<ul>
+<li><p class="sd-card-text"><code class="docutils literal notranslate"><span class="pre">--root-certificates</span></code>: Specify the location of the CA certificate file. The <code class="docutils literal notranslate"><span class="pre">ca.crt</span></code> file is used by SuperExec to verify the Runtime API server certificate.</p></li>
+<li><div class="line-block">
+<div class="line"><code class="docutils literal notranslate"><span class="pre">--runtime-api-address</span></code>: Specify the address of the Runtime API that SuperExec should connect to. In this example, <code class="docutils literal notranslate"><span class="pre">127.0.0.1:8000</span></code> is the SuperLink’s Runtime API.</div>
+</div>
+</li>
+</ul>
+</div>
+</details><p>Next, use the same procedure for a <code class="docutils literal notranslate"><span class="pre">ClientApp</span></code> SuperExec, but pass the SuperNode’s
+Runtime API address, e.g. <code class="docutils literal notranslate"><span class="pre">127.0.0.1:9094</span></code>.</p>
+<p>Now your SuperLink-side SuperExec and SuperNode-side SuperExec can establish TLS
+connections to their respective Runtime APIs. When using “process” isolation mode, it is
+the responsibility of the process launcher (e.g. user or orchestrator) to launch the
+SuperExecs with the correct Runtime API TLS options. If you use an orchestration system
+to launch the SuperExecs, make sure to include the Runtime API TLS options in the
+commands or configuration used by your orchestration system.</p>
+</section>
+<section id="tls-enabled-flower-cli">
+<h2>TLS-enabled Flower CLI<a class="headerlink" href="#tls-enabled-flower-cli" title="Link to this heading">¶</a></h2>
+<p>The <a class="reference external" href="ref-api-cli.html">Flower CLI</a> (e.g. <code class="docutils literal notranslate"><span class="pre">flwr</span> <span class="pre">run</span></code> command) is the way a user (e.g.
+a data scientist) can interact with a deployed federation. The Flower CLI commands are
+processed by the SuperLink and therefore, if it has been configured to only operate on
+TLS conenction, the requests sent by the Flower CLI need to make use of a TLS
+certificate. To do so, replace the <code class="docutils literal notranslate"><span class="pre">insecure</span> <span class="pre">=</span> <span class="pre">true</span></code> field in your Flower
+Configuration TOML file with a new field that reads the certificate:</p>
+<div class="literal-block-wrapper docutils container" id="id4">
+<div class="code-block-caption"><span class="caption-text">config.toml</span><a class="headerlink" href="#id4" title="Link to this code">¶</a></div>
+<div class="highlight-toml notranslate"><div class="highlight"><pre><span></span><span class="k">[superlink.local-deployment]</span>
+<span class="n">address</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;127.0.0.1:8000&quot;</span>
+<span class="hll"><span class="n">root-certificates</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;/absolute/path/to/certificates/ca.crt&quot;</span>
+</span></pre></div>
+</div>
+</div>
+<p>Note that the path to the <code class="docutils literal notranslate"><span class="pre">root-certificates</span></code> is relative to the root of the project.
+Now, you can run the example by executing <code class="docutils literal notranslate"><span class="pre">flwr</span> <span class="pre">run</span></code>:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>flwr<span class="w"> </span>run<span class="w"> </span>.<span class="w"> </span>local-deployment<span class="w"> </span>--stream
+</pre></div>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>You can setup your <code class="docutils literal notranslate"><span class="pre">local-deployment</span></code> profile as the default so you don’t have to
+specify it in every Flower CLI command that needs to connect to the SuperLink. For
+that and more details about the Flower configuration, refer to the <a class="reference internal" href="ref-flower-configuration.html"><span class="doc">the Flower
+Configuration</span></a> guide.</p>
+</div>
+</section>
+<section id="conclusion">
+<h2>Conclusion<a class="headerlink" href="#conclusion" title="Link to this heading">¶</a></h2>
+<p>You should now have learned how to generate self-signed certificates using the given
+script, start a TLS-enabled server and have two clients establish secure connections to
+it. You should also have learned how to run your Flower project using <code class="docutils literal notranslate"><span class="pre">flwr</span> <span class="pre">run</span></code> with
+TLS enabled and how to secure internal Runtime API connections. All other commands in
+the <a class="reference external" href="ref-api-cli.html">Flower CLI</a> will also be TLS-enabled.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Refer to the <a class="reference internal" href="docker/index.html"><span class="doc">Run Flower using Docker</span></a> documentation to learn how to setup a federation
+where each component runs in its own Docker container. You can make use of TLS and
+other security features in Flower such as implement a SuperNode authentication
+mechanism.</p>
+</div>
+</section>
+<section id="additional-resources">
+<h2>Additional resources<a class="headerlink" href="#additional-resources" title="Link to this heading">¶</a></h2>
+<p>These additional sources might be relevant if you would like to dive deeper into the
+topic of certificates:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://letsencrypt.org/docs/">Let’s Encrypt</a></p></li>
+<li><p><a class="reference external" href="https://certbot.eff.org/">certbot</a></p></li>
+</ul>
+</section>
+</section>
+
+        </article>
+      </div>
+      <footer>
+        
+        <div class="related-pages">
+          <a class="next-page" href="how-to-authenticate-supernodes.html">
+              <div class="page-info">
+                <div class="context">
+                  <span>Next</span>
+                </div>
+                <div class="title">Authenticate SuperNodes</div>
+              </div>
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
+            </a>
+          <a class="prev-page" href="how-to-run-flower-with-deployment-engine.html">
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
+              <div class="page-info">
+                <div class="context">
+                  <span>Previous</span>
+                </div>
+                
+                <div class="title">Run Flower with the Deployment Runtime</div>
+                
+              </div>
+            </a>
+        </div>
+        <div class="bottom-of-page">
+          <div class="left-details">
+            <div class="copyright">
+                Copyright &#169; 2026 Flower Labs GmbH
+            </div>
+            Made with <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
+            
+            <a href="https://github.com/pradyunsg/furo">Furo</a>
+            
+          </div>
+          <div class="right-details">
+            
+          </div>
+        </div>
+        
+      </footer>
+    </div>
+    <aside class="toc-drawer">
+      
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            On this page
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">Enable TLS connections</a><ul>
+<li><a class="reference internal" href="#certificates">Certificates</a></li>
+<li><a class="reference internal" href="#launching-the-superlink-with-tls">Launching the SuperLink with TLS</a></li>
+<li><a class="reference internal" href="#connecting-the-supernodes-with-tls">Connecting the SuperNodes with TLS</a></li>
+<li><a class="reference internal" href="#tls-for-runtime-api-connections-in-process-isolation-mode">TLS for Runtime API Connections in “Process” Isolation Mode</a></li>
+<li><a class="reference internal" href="#tls-enabled-flower-cli">TLS-enabled Flower CLI</a></li>
+<li><a class="reference internal" href="#conclusion">Conclusion</a></li>
+<li><a class="reference internal" href="#additional-resources">Additional resources</a></li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
+      
+      
+    </aside>
+  </div>
+</div>
+    <script src="https://unpkg.com/mermaid@9.4.0/dist/mermaid.min.js"></script>
+    <script>
+      function mermaidTheme() {
+        const t = document.body.dataset.theme || "auto";
+        if (t === "dark") return "dark";
+        if (t === "light") return "default";
+        // auto → follow system
+        return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "default";
+      }
+
+      function renderMermaid() {
+        const nodes = document.querySelectorAll(".mermaid, .language-mermaid");
+        nodes.forEach((el) => {
+          if (!el.dataset.mermaidSource) el.dataset.mermaidSource = el.textContent;
+          el.removeAttribute("data-processed");
+          el.textContent = el.dataset.mermaidSource;
+        });
+        mermaid.initialize({ startOnLoad: false, theme: mermaidTheme() });
+        mermaid.init(undefined, nodes);
+      }
+
+      document.addEventListener("DOMContentLoaded", () => {
+        renderMermaid();
+
+        // Re-render whenever the user clicks the theme toggle button
+        document.querySelectorAll(".theme-toggle").forEach((btn) => {
+          btn.addEventListener("click", () => {
+            // wait a tick to let Furo update body[data-theme]
+            requestAnimationFrame(renderMermaid);
+          });
+        });
+      });
+    </script><script src="_static/documentation_options.js?v=a750e919"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/scripts/furo.js?v=5fa4622c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=c136e461"></script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="_static/docs-ui.js?v=99ff1515"></script>
+    <script defer data-domain="flower.ai" data-api="/static/pla/api/event" src="/static/pla/js/script.js"></script>
+  </body>
+</html>

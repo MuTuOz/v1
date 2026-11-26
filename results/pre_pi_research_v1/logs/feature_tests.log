@@ -1,0 +1,16 @@
+test_explicit_log_alignment (test_live_pipeline.OfflineFeatureTests.test_explicit_log_alignment) ... WARNING: getmacbyip failed on [Errno 1] Operation not permitted
+WARNING: MAC address to reach destination not found. Using broadcast.
+WARNING: getmacbyip failed on [Errno 1] Operation not permitted
+WARNING: MAC address to reach destination not found. Using broadcast.
+WARNING: more getmacbyip failed on [Errno 1] Operation not permitted
+WARNING: more MAC address to reach destination not found. Using broadcast.
+ok
+test_half_open_windows_and_direction (test_live_pipeline.OfflineFeatureTests.test_half_open_windows_and_direction) ... ok
+test_missing_logs_never_zero_filled (test_live_pipeline.OfflineFeatureTests.test_missing_logs_never_zero_filled) ... ok
+test_schema_complete (test_live_pipeline.OfflineFeatureTests.test_schema_complete) ... ok
+test_unrelated_traffic_excluded (test_live_pipeline.OfflineFeatureTests.test_unrelated_traffic_excluded) ... ok
+
+----------------------------------------------------------------------
+Ran 5 tests in 0.055s
+
+OK

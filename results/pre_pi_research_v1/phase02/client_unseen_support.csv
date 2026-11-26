@@ -1,0 +1,16 @@
+client_id,subset,training_absent_eligible_subtypes,validation_observed_subtypes,validation_samples,eligible_subtypes_without_validation_support,status
+1,A_unseen_subtype,47,13,2192,34,evaluated
+1,B_unseen_family,21,11,2120,10,evaluated
+1,C_unseen_subtype_known_family,26,2,72,24,evaluated
+2,A_unseen_subtype,74,22,1955,52,evaluated
+2,B_unseen_family,71,20,1081,51,evaluated
+2,C_unseen_subtype_known_family,3,2,874,1,evaluated
+3,A_unseen_subtype,78,25,2528,53,evaluated
+3,B_unseen_family,76,25,2528,51,evaluated
+3,C_unseen_subtype_known_family,2,0,0,2,unsupported_empty_subset
+4,A_unseen_subtype,61,14,1210,47,evaluated
+4,B_unseen_family,49,11,1042,38,evaluated
+4,C_unseen_subtype_known_family,12,3,168,9,evaluated
+5,A_unseen_subtype,58,20,1987,38,evaluated
+5,B_unseen_family,39,20,1987,19,evaluated
+5,C_unseen_subtype_known_family,19,0,0,19,unsupported_empty_subset

@@ -1,0 +1,12 @@
+test_balanced_all_seen_and_empty_subset (test_pre_pi_research.ResearchProtocolTests.test_balanced_all_seen_and_empty_subset) ... ok
+test_compatible_preprocessing (test_pre_pi_research.ResearchProtocolTests.test_compatible_preprocessing) ... ok
+test_hcm_reuses_verified_implementation (test_pre_pi_research.ResearchProtocolTests.test_hcm_reuses_verified_implementation) ... ok
+test_training_only_paths (test_pre_pi_research.ResearchProtocolTests.test_training_only_paths) ... ok
+test_unseen_metrics_denominators (test_pre_pi_research.ResearchProtocolTests.test_unseen_metrics_denominators) ... ok
+test_unseen_split (test_pre_pi_research.ResearchProtocolTests.test_unseen_split) ... ok
+test_weights_training_counts (test_pre_pi_research.ResearchProtocolTests.test_weights_training_counts) ... ok
+
+----------------------------------------------------------------------
+Ran 7 tests in 1.220s
+
+OK

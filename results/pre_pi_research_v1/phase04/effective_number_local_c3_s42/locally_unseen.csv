@@ -1,0 +1,16 @@
+experiment_id,client_id,subset,samples,observed_subtypes,observed_families,status,exact_subtype_accuracy,subtype_macro_f1_observed,attack_only_subtype_accuracy,attack_only_subtype_macro_f1,family_accuracy,family_macro_f1_observed,attack_detection_recall,benign_false_positive_rate,attack_samples,benign_samples,hcm_f1
+effective_number_local_c3_s42,1,A_unseen_subtype,2192,13,6.0,evaluated,0.0,0.0,0.0,0.0,0.03467153284671533,0.016460905349794237,0.6802007299270073,,2192.0,0.0,0.26672340425531915
+effective_number_local_c3_s42,1,B_unseen_family,2120,11,4.0,evaluated,0.0,0.0,0.0,0.0,0.035849056603773584,0.025885558583106268,0.6698113207547169,,2120.0,0.0,0.2643109540636042
+effective_number_local_c3_s42,1,C_unseen_subtype_known_family,72,2,2.0,evaluated,0.0,0.0,0.0,0.0,0.0,0.0,0.9861111111111112,,72.0,0.0,0.3302325581395349
+effective_number_local_c3_s42,2,A_unseen_subtype,1955,22,5.0,evaluated,0.0,0.0,0.0,0.0,0.03887468030690537,0.021081830790568655,0.7130434782608696,,1955.0,0.0,0.27714932126696834
+effective_number_local_c3_s42,2,B_unseen_family,1081,20,4.0,evaluated,0.0,0.0,0.0,0.0,0.07030527289546716,0.03718199608610567,0.8889916743755781,,1081.0,0.0,0.3320525136087096
+effective_number_local_c3_s42,2,C_unseen_subtype_known_family,874,2,1.0,evaluated,0.0,0.0,0.0,0.0,0.0,0.0,0.4954233409610984,,874.0,0.0,0.19853278312700595
+effective_number_local_c3_s42,3,A_unseen_subtype,2528,25,5.0,evaluated,0.0,0.0,0.0,0.0,0.0,0.0,0.7199367088607594,,2528.0,0.0,0.2646887725421757
+effective_number_local_c3_s42,3,B_unseen_family,2528,25,5.0,evaluated,0.0,0.0,0.0,0.0,0.0,0.0,0.7199367088607594,,2528.0,0.0,0.2646887725421757
+effective_number_local_c3_s42,3,C_unseen_subtype_known_family,0,0,,unsupported_empty_subset,,,,,,,,,,,
+effective_number_local_c3_s42,4,A_unseen_subtype,1210,14,6.0,evaluated,0.0,0.0,0.0,0.0,0.0628099173553719,0.023742580443611373,0.8314049586776859,,1210.0,0.0,0.315820198482195
+effective_number_local_c3_s42,4,B_unseen_family,1042,11,4.0,evaluated,0.0,0.0,0.0,0.0,0.07293666026871401,0.040992448759439054,0.8301343570057581,,1042.0,0.0,0.31909121736181756
+effective_number_local_c3_s42,4,C_unseen_subtype_known_family,168,3,2.0,evaluated,0.0,0.0,0.0,0.0,0.0,0.0,0.8392857142857143,,168.0,0.0,0.29559748427672955
+effective_number_local_c3_s42,5,A_unseen_subtype,1987,20,4.0,evaluated,0.0,0.0,0.0,0.0,0.03824861600402617,0.027798098024871983,0.6502264720684449,,1987.0,0.0,0.25977971895176605
+effective_number_local_c3_s42,5,B_unseen_family,1987,20,4.0,evaluated,0.0,0.0,0.0,0.0,0.03824861600402617,0.027798098024871983,0.6502264720684449,,1987.0,0.0,0.25977971895176605
+effective_number_local_c3_s42,5,C_unseen_subtype_known_family,0,0,,unsupported_empty_subset,,,,,,,,,,,

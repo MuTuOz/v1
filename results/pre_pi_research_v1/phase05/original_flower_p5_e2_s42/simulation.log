@@ -1,0 +1,210 @@
+Flower App configuration warnings in '/mnt/d/Alperen E/Belgelerim/4. Year/Güz Dönemi/CS 401/SeniorProject/pre_pi_app/pyproject.toml':
+- Recommended property "license" missing in [project]
+Using SuperLink: pre-pi (127.0.0.1:39102)
+⚠️ Warning: `options.` fields in the SuperLink connection configuration are deprecated. Use `--federation-config` with `flwr run` instead. Alternatively, permanently set your simulation configuration via `flwr federation simulation-config`.
+Successfully started run 15137050386763858533
+[92mINFO [0m:      Starting logstream for run_id `15137050386763858533`
+[92mINFO [0m:      Starting Flower Simulation
+[93mWARNING [0m:   Since flwr 1.32, default simulated SuperNodes changed from 10 to 2.
+[92mINFO [0m:      Federation `@none/default` (5 simulated SuperNodes)
+[92mINFO [0m:      To change federation size, use the following command:
+[92mINFO [0m:      	flwr federation simulation-config @none/default <superlink> --num-supernodes <N>
+/home/seniorfl/seniorproject-fl-venv/lib/python3.12/site-packages/ray/_private/worker.py:2051: FutureWarning: Tip: In future versions of Ray, Ray will no longer override accelerator visible devices env var if num_gpus=0 or num_gpus=None (default). To enable this behavior and turn off this error message, set RAY_ACCEL_ENV_VAR_OVERRIDE_ON_ZERO=0
+  warnings.warn(
+[93mWARNING [0m:   fraction_evaluate is set to 0.0. Federated evaluation will be skipped.
+[92mINFO [0m:      Starting ResearchFedAvg strategy:
+[92mINFO [0m:      	├── Number of rounds: 15
+[92mINFO [0m:      	├── ArrayRecord (0.04 MB)
+[92mINFO [0m:      	├── ConfigRecord (train): {'experiment-json': {"experiment_id": "original_flower_p5_e2_s42", "phase": 5, "mode": "flower_fedavg", "seed": 42, "partition": "original", "loss": "unweighted", "client_id": null, "features": ["log_data-ranges_avg", "log_data-ranges_max", "log_data-ranges_min", "log_data-ranges_std_deviation", "log_data-types_count", "log_interval-messages", "log_messages_count", "network_fragmentation-score", "network_fragmented-packets", "network_header-length_avg", "network_header-length_max", "network_header-length_min", "network_header-length_std_deviation", "network_interval-packets", "network_ip-flags_avg", "network_ip-flags_max", "network_ip-flags_min", "network_ip-flags_std_deviation", "network_ip-length_avg", "network_ip-length_max", "network_ip-length_min", "network_ip-length_std_deviation", "network_ips_all_count", "network_ips_dst_count", "network_ips_src_count", "network_macs_all_count", "network_macs_dst_count", "network_macs_src_count", "network_mss_avg", "network_mss_max", "network_mss_min", "network_mss_std_deviation", "network_packet-size_avg", "network_packet-size_max", "network_packet-size_min", "network_packet-size_std_deviation", "network_packets_all_count", "network_packets_dst_count", "network_packets_src_count", "network_payload-length_avg", "network_payload-length_max", "network_payload-length_min", "network_payload-length_std_deviation", "network_ports_all_count", "network_ports_dst_count", "network_ports_src_count", "network_protocols_all_count", "network_protocols_dst_count", "network_protocols_src_count", "network_tcp-flags-ack_count", "network_tcp-flags-fin_count", "network_tcp-flags-psh_count", "network_tcp-flags-rst_count", "network_tcp-flags-syn_count", "network_tcp-flags-urg_count", "network_tcp-flags_avg", "network_tcp-flags_max", "network_tcp-flags_min", "network_tcp-flags_std_deviation", "network_time-delta_avg", "network_time-delta_max", "network_time-delta_min", "network_time-delta_std_deviation", "network_ttl_avg", "network_ttl_max", "network_ttl_min", "network_ttl_std_deviation", "network_window-size_avg", "network_window-size_max", "network_window-size_min", "network_window-size_std_deviation"], "batch_size": 128, "learning_rate": 0.001, "epochs": 15, "rounds": 15, "local_epochs": 2, "num_clients": 5, "clients_per_round": 5, "root": "/mnt/d/Alperen E/Belgelerim/4. Year/G\u00fcz D\u00f6nemi/CS 401/SeniorProject", "class_counts": [12996, 60, 60, 156, 84, 12, 132, 72, 24, 312, 12, 168, 108, 168, 12, 12, 12, 12, 12, 12, 48, 132, 72, 144, 48, 108, 108, 144, 12, 48, 12, 12, 12, 12, 36, 60, 12, 36, 312, 12, 12, 48, 12, 48, 12, 12, 12, 12, 12, 6, 6, 18, 30, 6, 84, 180, 120, 12, 12, 6, 18, 12, 6, 144, 84, 98, 93, 690, 154, 426, 426, 288, 433, 425, 581, 549, 430, 549, 180, 28, 139, 53, 138, 30], "optimizer": "Adam", "optimizer_state": "persistent for centralized/local; reset per federated round", "checkpoint_policy": "final only; no validation selection", "train_threads": 1}}
+[92mINFO [0m:      	├── ConfigRecord (evaluate): (empty!)
+[92mINFO [0m:      	├──> Sampling:
+[92mINFO [0m:      	│	├──Fraction: train (1.00) | evaluate ( 0.00)
+[92mINFO [0m:      	│	├──Minimum nodes: train (5) | evaluate (0)
+[92mINFO [0m:      	│	└──Minimum available nodes: 5
+[92mINFO [0m:      	└──> Keys in records:
+[92mINFO [0m:      		├── Weighted by: 'num-examples'
+[92mINFO [0m:      		├── ArrayRecord key: 'arrays'
+[92mINFO [0m:      		└── ConfigRecord key: 'config'
+[92mINFO [0m:      
+[92mINFO [0m:      
+[92mINFO [0m:      [ROUND 1/15]
+[92mINFO [0m:      aggregate_train: Received 5 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'client-id': 2.8942984409799557, 'train_loss': 1.4397642503788317, 'optimizer_steps': 75.2318040089087, 'examples_seen': 9546.544855233853, 'training_seconds': 1.6576542380013137, 'rss_bytes': 545909657.3719376, 'serialized_array_bytes': 38674.0}
+[92mINFO [0m:      
+[92mINFO [0m:      [ROUND 2/15]
+[92mINFO [0m:      aggregate_train: Received 5 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'client-id': 2.8942984409799557, 'train_loss': 1.2159202313184205, 'optimizer_steps': 75.2318040089087, 'examples_seen': 9546.544855233853, 'training_seconds': 0.16281946350977639, 'rss_bytes': 546010661.9951893, 'serialized_array_bytes': 38674.0}
+[92mINFO [0m:      
+[92mINFO [0m:      [ROUND 3/15]
+[92mINFO [0m:      aggregate_train: Received 5 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'client-id': 2.8942984409799557, 'train_loss': 1.0708563646654243, 'optimizer_steps': 75.2318040089087, 'examples_seen': 9546.544855233853, 'training_seconds': 0.14986700142185655, 'rss_bytes': 548880997.9438752, 'serialized_array_bytes': 38674.0}
+[92mINFO [0m:      
+[92mINFO [0m:      [ROUND 4/15]
+[92mINFO [0m:      aggregate_train: Received 5 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'client-id': 2.8942984409799557, 'train_loss': 0.9429797434979398, 'optimizer_steps': 75.2318040089087, 'examples_seen': 9546.544855233853, 'training_seconds': 0.16053381730603833, 'rss_bytes': 546844593.364098, 'serialized_array_bytes': 38674.0}
+[92mINFO [0m:      
+[92mINFO [0m:      [ROUND 5/15]
+[92mINFO [0m:      aggregate_train: Received 5 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'client-id': 2.8942984409799557, 'train_loss': 0.859022941534928, 'optimizer_steps': 75.2318040089087, 'examples_seen': 9546.544855233853, 'training_seconds': 0.15788268857615811, 'rss_bytes': 549106778.7688196, 'serialized_array_bytes': 38674.0}
+[92mINFO [0m:      
+[92mINFO [0m:      [ROUND 6/15]
+[92mINFO [0m:      aggregate_train: Received 5 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'client-id': 2.8942984409799557, 'train_loss': 0.8289610838013928, 'optimizer_steps': 75.2318040089087, 'examples_seen': 9546.544855233853, 'training_seconds': 0.15557992054296066, 'rss_bytes': 550994370.2863252, 'serialized_array_bytes': 38674.0}
+[92mINFO [0m:      
+[92mINFO [0m:      [ROUND 7/15]
+[92mINFO [0m:      aggregate_train: Received 5 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'client-id': 2.8942984409799557, 'train_loss': 0.8101701640365915, 'optimizer_steps': 75.2318040089087, 'examples_seen': 9546.544855233853, 'training_seconds': 0.18438087111632923, 'rss_bytes': 551675687.614432, 'serialized_array_bytes': 38674.0}
+[92mINFO [0m:      
+[92mINFO [0m:      [ROUND 8/15]
+[92mINFO [0m:      aggregate_train: Received 5 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'client-id': 2.8942984409799557, 'train_loss': 0.7926578061544814, 'optimizer_steps': 75.2318040089087, 'examples_seen': 9546.544855233853, 'training_seconds': 0.1611532515627474, 'rss_bytes': 555135079.084187, 'serialized_array_bytes': 38674.0}
+[92mINFO [0m:      
+[92mINFO [0m:      [ROUND 9/15]
+[92mINFO [0m:      aggregate_train: Received 5 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'client-id': 2.8942984409799557, 'train_loss': 0.7765473810820643, 'optimizer_steps': 75.2318040089087, 'examples_seen': 9546.544855233853, 'training_seconds': 0.15726656034162126, 'rss_bytes': 550235557.7329175, 'serialized_array_bytes': 38674.0}
+[92mINFO [0m:      
+[92mINFO [0m:      [ROUND 10/15]
+[92mINFO [0m:      aggregate_train: Received 5 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'client-id': 2.8942984409799557, 'train_loss': 0.7630811719785554, 'optimizer_steps': 75.2318040089087, 'examples_seen': 9546.544855233853, 'training_seconds': 0.16850781472455134, 'rss_bytes': 553069857.2742984, 'serialized_array_bytes': 38674.0}
+[92mINFO [0m:      
+[92mINFO [0m:      [ROUND 11/15]
+[92mINFO [0m:      aggregate_train: Received 5 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'client-id': 2.8942984409799557, 'train_loss': 0.7577863006482942, 'optimizer_steps': 75.2318040089087, 'examples_seen': 9546.544855233853, 'training_seconds': 0.15256949457094618, 'rss_bytes': 551589335.3592873, 'serialized_array_bytes': 38674.0}
+[92mINFO [0m:      
+[92mINFO [0m:      [ROUND 12/15]
+[92mINFO [0m:      aggregate_train: Received 5 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'client-id': 2.8942984409799557, 'train_loss': 0.7466798802367298, 'optimizer_steps': 75.2318040089087, 'examples_seen': 9546.544855233853, 'training_seconds': 0.16274902812049216, 'rss_bytes': 552291231.2103341, 'serialized_array_bytes': 38674.0}
+[92mINFO [0m:      
+[92mINFO [0m:      [ROUND 13/15]
+[92mINFO [0m:      aggregate_train: Received 5 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'client-id': 2.8942984409799557, 'train_loss': 0.7383666633550733, 'optimizer_steps': 75.2318040089087, 'examples_seen': 9546.544855233853, 'training_seconds': 0.16294446538696322, 'rss_bytes': 551418935.1910914, 'serialized_array_bytes': 38674.0}
+[92mINFO [0m:      
+[92mINFO [0m:      [ROUND 14/15]
+[92mINFO [0m:      aggregate_train: Received 5 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'client-id': 2.8942984409799557, 'train_loss': 0.7322691133173644, 'optimizer_steps': 75.2318040089087, 'examples_seen': 9546.544855233853, 'training_seconds': 0.1451956613748469, 'rss_bytes': 550530914.3632963, 'serialized_array_bytes': 38674.0}
+[92mINFO [0m:      
+[92mINFO [0m:      [ROUND 15/15]
+[92mINFO [0m:      aggregate_train: Received 5 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'client-id': 2.8942984409799557, 'train_loss': 0.7299254530628434, 'optimizer_steps': 75.2318040089087, 'examples_seen': 9546.544855233853, 'training_seconds': 0.15517040866417076, 'rss_bytes': 553086934.5838753, 'serialized_array_bytes': 38674.0}
+[92mINFO [0m:      
+[92mINFO [0m:      Strategy execution finished in 7.85s
+[92mINFO [0m:      
+[92mINFO [0m:      Final results:
+[92mINFO [0m:      
+[92mINFO [0m:      	Global Arrays:
+[92mINFO [0m:      		ArrayRecord (0.037 MB)
+[92mINFO [0m:      	
+[92mINFO [0m:      	Aggregated ClientApp-side Train Metrics:
+[92mINFO [0m:      	{ 1: { 'client-id': '2.8943e+00',
+[92mINFO [0m:      	       'examples_seen': '9.5465e+03',
+[92mINFO [0m:      	       'optimizer_steps': '7.5232e+01',
+[92mINFO [0m:      	       'rss_bytes': '5.4591e+08',
+[92mINFO [0m:      	       'serialized_array_bytes': '3.8674e+04',
+[92mINFO [0m:      	       'train_loss': '1.4398e+00',
+[92mINFO [0m:      	       'training_seconds': '1.6577e+00'},
+[92mINFO [0m:      	  2: { 'client-id': '2.8943e+00',
+[92mINFO [0m:      	       'examples_seen': '9.5465e+03',
+[92mINFO [0m:      	       'optimizer_steps': '7.5232e+01',
+[92mINFO [0m:      	       'rss_bytes': '5.4601e+08',
+[92mINFO [0m:      	       'serialized_array_bytes': '3.8674e+04',
+[92mINFO [0m:      	       'train_loss': '1.2159e+00',
+[92mINFO [0m:      	       'training_seconds': '1.6282e-01'},
+[92mINFO [0m:      	  3: { 'client-id': '2.8943e+00',
+[92mINFO [0m:      	       'examples_seen': '9.5465e+03',
+[92mINFO [0m:      	       'optimizer_steps': '7.5232e+01',
+[92mINFO [0m:      	       'rss_bytes': '5.4888e+08',
+[92mINFO [0m:      	       'serialized_array_bytes': '3.8674e+04',
+[92mINFO [0m:      	       'train_loss': '1.0709e+00',
+[92mINFO [0m:      	       'training_seconds': '1.4987e-01'},
+[92mINFO [0m:      	  4: { 'client-id': '2.8943e+00',
+[92mINFO [0m:      	       'examples_seen': '9.5465e+03',
+[92mINFO [0m:      	       'optimizer_steps': '7.5232e+01',
+[92mINFO [0m:      	       'rss_bytes': '5.4684e+08',
+[92mINFO [0m:      	       'serialized_array_bytes': '3.8674e+04',
+[92mINFO [0m:      	       'train_loss': '9.4298e-01',
+[92mINFO [0m:      	       'training_seconds': '1.6053e-01'},
+[92mINFO [0m:      	  5: { 'client-id': '2.8943e+00',
+[92mINFO [0m:      	       'examples_seen': '9.5465e+03',
+[92mINFO [0m:      	       'optimizer_steps': '7.5232e+01',
+[92mINFO [0m:      	       'rss_bytes': '5.4911e+08',
+[92mINFO [0m:      	       'serialized_array_bytes': '3.8674e+04',
+[92mINFO [0m:      	       'train_loss': '8.5902e-01',
+[92mINFO [0m:      	       'training_seconds': '1.5788e-01'},
+[92mINFO [0m:      	  6: { 'client-id': '2.8943e+00',
+[92mINFO [0m:      	       'examples_seen': '9.5465e+03',
+[92mINFO [0m:      	       'optimizer_steps': '7.5232e+01',
+[92mINFO [0m:      	       'rss_bytes': '5.5099e+08',
+[92mINFO [0m:      	       'serialized_array_bytes': '3.8674e+04',
+[92mINFO [0m:      	       'train_loss': '8.2896e-01',
+[92mINFO [0m:      	       'training_seconds': '1.5558e-01'},
+[92mINFO [0m:      	  7: { 'client-id': '2.8943e+00',
+[92mINFO [0m:      	       'examples_seen': '9.5465e+03',
+[92mINFO [0m:      	       'optimizer_steps': '7.5232e+01',
+[92mINFO [0m:      	       'rss_bytes': '5.5168e+08',
+[92mINFO [0m:      	       'serialized_array_bytes': '3.8674e+04',
+[92mINFO [0m:      	       'train_loss': '8.1017e-01',
+[92mINFO [0m:      	       'training_seconds': '1.8438e-01'},
+[92mINFO [0m:      	  8: { 'client-id': '2.8943e+00',
+[92mINFO [0m:      	       'examples_seen': '9.5465e+03',
+[92mINFO [0m:      	       'optimizer_steps': '7.5232e+01',
+[92mINFO [0m:      	       'rss_bytes': '5.5514e+08',
+[92mINFO [0m:      	       'serialized_array_bytes': '3.8674e+04',
+[92mINFO [0m:      	       'train_loss': '7.9266e-01',
+[92mINFO [0m:      	       'training_seconds': '1.6115e-01'},
+[92mINFO [0m:      	  9: { 'client-id': '2.8943e+00',
+[92mINFO [0m:      	       'examples_seen': '9.5465e+03',
+[92mINFO [0m:      	       'optimizer_steps': '7.5232e+01',
+[92mINFO [0m:      	       'rss_bytes': '5.5024e+08',
+[92mINFO [0m:      	       'serialized_array_bytes': '3.8674e+04',
+[92mINFO [0m:      	       'train_loss': '7.7655e-01',
+[92mINFO [0m:      	       'training_seconds': '1.5727e-01'},
+[92mINFO [0m:      	  10: { 'client-id': '2.8943e+00',
+[92mINFO [0m:      	        'examples_seen': '9.5465e+03',
+[92mINFO [0m:      	        'optimizer_steps': '7.5232e+01',
+[92mINFO [0m:      	        'rss_bytes': '5.5307e+08',
+[92mINFO [0m:      	        'serialized_array_bytes': '3.8674e+04',
+[92mINFO [0m:      	        'train_loss': '7.6308e-01',
+[92mINFO [0m:      	        'training_seconds': '1.6851e-01'},
+[92mINFO [0m:      	  11: { 'client-id': '2.8943e+00',
+[92mINFO [0m:      	        'examples_seen': '9.5465e+03',
+[92mINFO [0m:      	        'optimizer_steps': '7.5232e+01',
+[92mINFO [0m:      	        'rss_bytes': '5.5159e+08',
+[92mINFO [0m:      	        'serialized_array_bytes': '3.8674e+04',
+[92mINFO [0m:      	        'train_loss': '7.5779e-01',
+[92mINFO [0m:      	        'training_seconds': '1.5257e-01'},
+[92mINFO [0m:      	  12: { 'client-id': '2.8943e+00',
+[92mINFO [0m:      	        'examples_seen': '9.5465e+03',
+[92mINFO [0m:      	        'optimizer_steps': '7.5232e+01',
+[92mINFO [0m:      	        'rss_bytes': '5.5229e+08',
+[92mINFO [0m:      	        'serialized_array_bytes': '3.8674e+04',
+[92mINFO [0m:      	        'train_loss': '7.4668e-01',
+[92mINFO [0m:      	        'training_seconds': '1.6275e-01'},
+[92mINFO [0m:      	  13: { 'client-id': '2.8943e+00',
+[92mINFO [0m:      	        'examples_seen': '9.5465e+03',
+[92mINFO [0m:      	        'optimizer_steps': '7.5232e+01',
+[92mINFO [0m:      	        'rss_bytes': '5.5142e+08',
+[92mINFO [0m:      	        'serialized_array_bytes': '3.8674e+04',
+[92mINFO [0m:      	        'train_loss': '7.3837e-01',
+[92mINFO [0m:      	        'training_seconds': '1.6294e-01'},
+[92mINFO [0m:      	  14: { 'client-id': '2.8943e+00',
+[92mINFO [0m:      	        'examples_seen': '9.5465e+03',
+[92mINFO [0m:      	        'optimizer_steps': '7.5232e+01',
+[92mINFO [0m:      	        'rss_bytes': '5.5053e+08',
+[92mINFO [0m:      	        'serialized_array_bytes': '3.8674e+04',
+[92mINFO [0m:      	        'train_loss': '7.3227e-01',
+[92mINFO [0m:      	        'training_seconds': '1.4520e-01'},
+[92mINFO [0m:      	  15: { 'client-id': '2.8943e+00',
+[92mINFO [0m:      	        'examples_seen': '9.5465e+03',
+[92mINFO [0m:      	        'optimizer_steps': '7.5232e+01',
+[92mINFO [0m:      	        'rss_bytes': '5.5309e+08',
+[92mINFO [0m:      	        'serialized_array_bytes': '3.8674e+04',
+[92mINFO [0m:      	        'train_loss': '7.2993e-01',
+[92mINFO [0m:      	        'training_seconds': '1.5517e-01'}}
+[92mINFO [0m:      	
+[92mINFO [0m:      	Aggregated ClientApp-side Evaluate Metrics:
+[92mINFO [0m:      	{}
+[92mINFO [0m:      	
+[92mINFO [0m:      	ServerApp-side Evaluate Metrics:
+[92mINFO [0m:      	{}
+[92mINFO [0m:      
+[92mINFO [0m:      

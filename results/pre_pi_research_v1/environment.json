@@ -1,0 +1,23 @@
+{
+  "python": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+  "executable": "/home/seniorfl/seniorproject-fl-venv/bin/python",
+  "platform": "Linux-5.15.167.4-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+  "machine": "x86_64",
+  "cpu_count": 12,
+  "packages": {
+    "flwr": "1.40.0",
+    "ray": "2.55.1",
+    "torch": "2.14.1+cpu",
+    "numpy": "2.5.4",
+    "pandas": "3.0.6",
+    "scikit-learn": "1.9.1",
+    "matplotlib": "3.11.2",
+    "streamlit": "1.66.1",
+    "scapy": "2.8.0",
+    "psutil": "7.2.2",
+    "pytest": "9.1.1"
+  },
+  "freeze_note": "Machine-specific evidence, not a portable ARM lockfile; no system packages installed.",
+  "reference_cpu_threads": 1,
+  "historical_reproduction_diagnostic_threads": 4
+}

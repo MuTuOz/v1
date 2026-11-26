@@ -1,0 +1,5 @@
+{
+  "four_thread_max_state_abs_difference": 0.0,
+  "four_thread_prediction_mismatches": 0,
+  "diagnostic_excluded_from_seed_summary": true
+}

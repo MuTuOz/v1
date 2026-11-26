@@ -1,0 +1,18 @@
+{
+  "centralized": {
+    "accuracy": 0.8590810977489979,
+    "macro_f1_observed": 0.6590124881282478,
+    "attack_detection_recall": 0.7722809667673716,
+    "attack_family_accuracy": 0.6620090634441088,
+    "benign_false_positive_rate": 0.0049504950495049506,
+    "attacks_predicted_as_benign": 603
+  },
+  "flower": {
+    "accuracy": 0.8018809744064138,
+    "macro_f1_observed": 0.4320930627833201,
+    "attack_detection_recall": 0.69297583081571,
+    "attack_family_accuracy": 0.5147280966767371,
+    "benign_false_positive_rate": 0.0,
+    "attacks_predicted_as_benign": 813
+  }
+}

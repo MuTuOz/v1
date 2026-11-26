@@ -1,0 +1,36 @@
+╭────────────────── Update available ───────────────────╮
+│ A newer Flower version is available: 1.40.0 -> 1.42.0 │
+│ Upgrade: python -m pip install -U flwr                │
+╰───────────────────────────────────────────────────────╯
+Flower App configuration warnings in '/mnt/d/Alperen E/Belgelerim/4. Year/Güz Dönemi/CS 401/SeniorProject/flower_subtype_app/pyproject.toml':
+- Recommended property "license" missing in [project]
+Starting local SuperLink on 127.0.0.1:39091...
+Using SuperLink: local-simulation (127.0.0.1:39091)
+⚠️ Warning: `options.` fields in the SuperLink connection configuration are deprecated. Use `--federation-config` with `flwr run` instead. Alternatively, permanently set your simulation configuration via `flwr federation simulation-config`.
+Successfully started run 9618040995654460941
+[92mINFO [0m:      Starting logstream for run_id `9618040995654460941`
+[92mINFO [0m:      Starting Flower Simulation
+[93mWARNING [0m:   Since flwr 1.32, default simulated SuperNodes changed from 10 to 2.
+[92mINFO [0m:      Federation `@none/default` (5 simulated SuperNodes)
+[92mINFO [0m:      To change federation size, use the following command:
+[92mINFO [0m:      	flwr federation simulation-config @none/default <superlink> --num-supernodes <N>
+Successfully installed seniorproject-fl-subtype to /home/seniorfl/.flwr/apps/seniorproject.seniorproject-fl-subtype.0.1.0.ce334c8e.
+[93mWARNING [0m:   Skipping `flwr` dependency from app requirements to avoid replacing the running Flower installation.
+[92mINFO [0m:      Created env for run in: /home/seniorfl/.flwr/runtime-envs/9618040995654460941
+[92mINFO [0m:      Installing application dependencies...
+[92mINFO [0m:      uv sync took 0.1 seconds.
+[91mERROR [0m:     Simulation raised an exception
+Traceback (most recent call last):
+  File "/home/seniorfl/seniorproject-fl-venv/lib/python3.12/site-packages/flwr/simulation/app.py", line 278, in run_simulation_process
+    runtime_env_dir = install_app_dependencies(
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/seniorfl/seniorproject-fl-venv/lib/python3.12/site-packages/flwr/supercore/superexec/dependency_installer.py", line 158, in install_app_dependencies
+    raise RuntimeDependencyInstallationError(f"uv sync failed: {sync_error}")
+flwr.supercore.superexec.dependency_installer.RuntimeDependencyInstallationError: uv sync failed: exit code 2: error: Could not acquire lock
+  cause: Could not create temporary file
+  cause: Read-only file system (os error 30) at path "/home/seniorfl/.cache/uv/.tmpBt4VAE"
+[91mERROR [0m:     Exit Code: 608
+
+Runtime installation of app dependencies failed. Check the logs for details.
+
+For more information, visit: <https://flower.ai/docs/framework/1.40/en/ref-exit-codes/608.html>

@@ -1,0 +1,56 @@
+{
+  "status": "passed",
+  "verified_utc": "2026-10-25T11:43:20.436391+00:00",
+  "scientific": {
+    "evaluated_model_records": 44,
+    "checkpoint_inference_matches": 44,
+    "validation_predictions_reproduced": 285384,
+    "matched_reference_arms": 7,
+    "predefined_seeds": [
+      42,
+      52,
+      62
+    ],
+    "fedavg_rounds_audited": 150,
+    "fedavg_client_updates_audited": 720,
+    "unseen_subset_rows_recomputed": 360,
+    "training_allocations_verified": [
+      "original",
+      "balanced",
+      "exclusive"
+    ],
+    "historical_reference_evaluations": 2,
+    "new_scientific_and_diagnostic_checkpoints": 42
+  },
+  "preservation": {
+    "historical_files_unchanged": 255,
+    "authorized_status_update": [
+      "PROJECT_STATUS.md"
+    ],
+    "status_before_archived": true,
+    "AGENTS_unchanged": true,
+    "protected_test_files_outside_read_scope": true,
+    "old_manifests_preserved": "Historical manifests retain their original PROJECT_STATUS hash; current mutable status is versioned separately."
+  },
+  "artifacts": {
+    "png_figures_verified": 11,
+    "svg_figures_verified": 11,
+    "json_files_parsed": 211,
+    "unit_tests": 33,
+    "dashboard_health": "passed",
+    "two_process_tls_smoke": "passed",
+    "checkpoint_continuation_tls_smoke": "passed",
+    "feature_parity_status": "PARTIAL"
+  },
+  "restrictions": {
+    "no_training_in_verifier": true,
+    "no_protected_test_access": true,
+    "no_external_network_activity": true
+  },
+  "report_correction": {
+    "revision": "03",
+    "numeric_metrics_predictions_unchanged": true,
+    "reason": "C4 attribution corrected in 02; manifest self-exclusion variable fix and regression test in 03",
+    "earlier_sealed_versions_preserved": true
+  }
+}

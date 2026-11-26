@@ -1,0 +1,31 @@
+{
+  "num-server-rounds": 15,
+  "local-epochs": 1,
+  "batch-size": 128,
+  "learning-rate": 0.001,
+  "seed": 42,
+  "project-root": "/mnt/d/Alperen E/Belgelerim/4. Year/Güz Dönemi/CS 401/SeniorProject",
+  "clients": 5,
+  "architecture": [
+    71,
+    64,
+    32,
+    84
+  ],
+  "parameters": 9460,
+  "optimizer": "Adam",
+  "optimizer_reset_each_round": true,
+  "loss": "CrossEntropyLoss",
+  "aggregation": "num-examples weighted FedAvg",
+  "fraction_train": 1.0,
+  "fraction_evaluate": 0.0,
+  "client_shuffle_seed": "42 + 100 * server_round + client_id (1..5)",
+  "server_threads": 1,
+  "client_threads": 1,
+  "device": "cpu",
+  "deterministic_torch_algorithms": true,
+  "validation_policy": "final round only; no model selection",
+  "baseline_epochs": 15,
+  "baseline_optimizer_state": "persistent across epochs",
+  "run_command": "/home/seniorfl/seniorproject-fl-venv/bin/python scripts/26_run_flower_subtype_val_v1.py --stage all"
+}

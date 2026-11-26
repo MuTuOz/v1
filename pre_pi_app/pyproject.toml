@@ -1,0 +1,19 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+[project]
+name = "seniorproject-pre-pi-research"
+version = "0.1.0"
+description = "Bounded immutable pre-Pi IIoT experiments"
+requires-python = ">=3.12"
+dependencies = ["flwr[simulation]==1.40.0", "torch", "numpy", "pandas", "scikit-learn", "psutil"]
+[tool.hatch.build.targets.wheel]
+packages = ["researchfl"]
+[tool.flwr.app]
+publisher = "seniorproject"
+[tool.flwr.app.components]
+serverapp = "researchfl.server_app:app"
+clientapp = "researchfl.client_app:app"
+[tool.flwr.app.config]
+project-root = "/mnt/d/Alperen E/Belgelerim/4. Year/Güz Dönemi/CS 401/SeniorProject"
+experiment-config = "results/pre_pi_research_v1/phase03/ref_flower_s42/config.json"

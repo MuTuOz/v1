@@ -1,0 +1,15 @@
+{
+  "status": "complete",
+  "rounds_completed": 15,
+  "client_updates": 75,
+  "training_wall_seconds": 12.15364475899969,
+  "model": "/mnt/d/Alperen E/Belgelerim/4. Year/G\u00fcz D\u00f6nemi/CS 401/SeniorProject/models/subtype_flower_val_v1.pt",
+  "config": {
+    "num-server-rounds": 15,
+    "local-epochs": 1,
+    "batch-size": 128,
+    "learning-rate": 0.001,
+    "seed": 42,
+    "project-root": "/mnt/d/Alperen E/Belgelerim/4. Year/G\u00fcz D\u00f6nemi/CS 401/SeniorProject"
+  }
+}

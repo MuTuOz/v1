@@ -1,0 +1,9 @@
+,benign,bruteforce,ddos,dos,malware,mitm,recon,web
+benign,3832,0,4,2,0,0,0,0
+bruteforce,99,0,19,2,0,0,0,0
+ddos,25,0,156,119,0,0,0,0
+dos,1,0,71,156,0,0,0,0
+malware,128,0,298,7,0,0,0,0
+mitm,95,0,95,71,0,0,0,0
+recon,380,0,926,0,0,0,0,0
+web,0,0,0,0,0,0,0,0

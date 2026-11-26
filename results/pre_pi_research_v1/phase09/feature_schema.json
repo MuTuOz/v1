@@ -1,0 +1,649 @@
+{
+  "window_seconds": 5,
+  "window_boundary": "[origin+k*5, origin+(k+1)*5)",
+  "origin_utc_seconds": 0,
+  "group": "IPv4 packets involving explicitly configured monitor address",
+  "normalization": "frozen signed_log1p_clip_1e8 only after semantic and missing-feature acceptance",
+  "features": [
+    {
+      "index": 0,
+      "name": "log_data-ranges_avg",
+      "dtype": "nullable float64 before baseline float32 preprocessing",
+      "definition": "UNAVAILABLE: exact source definition not recovered; no guessed value emitted.",
+      "implementation_status": "unavailable",
+      "dataset_semantic_parity": "not verified",
+      "source": "PCAP+explicit local logs; original dataset README gives window resolution but not complete formulas"
+    },
+    {
+      "index": 1,
+      "name": "log_data-ranges_max",
+      "dtype": "nullable float64 before baseline float32 preprocessing",
+      "definition": "UNAVAILABLE: exact source definition not recovered; no guessed value emitted.",
+      "implementation_status": "unavailable",
+      "dataset_semantic_parity": "not verified",
+      "source": "PCAP+explicit local logs; original dataset README gives window resolution but not complete formulas"
+    },
+    {
+      "index": 2,
+      "name": "log_data-ranges_min",
+      "dtype": "nullable float64 before baseline float32 preprocessing",
+      "definition": "UNAVAILABLE: exact source definition not recovered; no guessed value emitted.",
+      "implementation_status": "unavailable",
+      "dataset_semantic_parity": "not verified",
+      "source": "PCAP+explicit local logs; original dataset README gives window resolution but not complete formulas"
+    },
+    {
+      "index": 3,
+      "name": "log_data-ranges_std_deviation",
+      "dtype": "nullable float64 before baseline float32 preprocessing",
+      "definition": "UNAVAILABLE: exact source definition not recovered; no guessed value emitted.",
+      "implementation_status": "unavailable",
+      "dataset_semantic_parity": "not verified",
+      "source": "PCAP+explicit local logs; original dataset README gives window resolution but not complete formulas"
+    },
+    {
+      "index": 4,
+      "name": "log_data-types_count",
+      "dtype": "nullable float64 before baseline float32 preprocessing",
+      "definition": "Distinct explicit data_type values in supplied log events; undefined if fields absent.",
+      "implementation_status": "candidate",
+      "dataset_semantic_parity": "not verified",
+      "source": "PCAP+explicit local logs; original dataset README gives window resolution but not complete formulas"
+    },
+    {
+      "index": 5,
+      "name": "log_interval-messages",
+      "dtype": "nullable float64 before baseline float32 preprocessing",
+      "definition": "Mean interarrival seconds of supplied log events; singleton unavailable.",
+      "implementation_status": "candidate",
+      "dataset_semantic_parity": "not verified",
+      "source": "PCAP+explicit local logs; original dataset README gives window resolution but not complete formulas"
+    },
+    {
+      "index": 6,
+      "name": "log_messages_count",
+      "dtype": "nullable float64 before baseline float32 preprocessing",
+      "definition": "Count explicitly supplied monitor-matched log events in window; no log stream means unavailable, not zero.",
+      "implementation_status": "candidate",
+      "dataset_semantic_parity": "not verified",
+      "source": "PCAP+explicit local logs; original dataset README gives window resolution but not complete formulas"
+    },
+    {
+      "index": 7,
+      "name": "network_fragmentation-score",
+      "dtype": "nullable float64 before baseline float32 preprocessing",
+      "definition": "UNAVAILABLE: original score formula not recovered.",
+      "implementation_status": "unavailable",
+      "dataset_semantic_parity": "not verified",
+      "source": "PCAP+explicit local logs; original dataset README gives window resolution but not complete formulas"
+    },
+    {
+      "index": 8,
+      "name": "network_fragmented-packets",
+      "dtype": "nullable float64 before baseline float32 preprocessing",
+      "definition": "UNAVAILABLE: exact source definition not recovered; no guessed value emitted.",
+      "implementation_status": "unavailable",
+      "dataset_semantic_parity": "not verified",
+      "source": "PCAP+explicit local logs; original dataset README gives window resolution but not complete formulas"
+    },
+    {
+      "index": 9,
+      "name": "network_header-length_avg",
+      "dtype": "nullable float64 before baseline float32 preprocessing",
+      "definition": "UNAVAILABLE: exact source definition not recovered; no guessed value emitted.",
+      "implementation_status": "unavailable",
+      "dataset_semantic_parity": "not verified",
+      "source": "PCAP+explicit local logs; original dataset README gives window resolution but not complete formulas"
+    },
+    {
+      "index": 10,
+      "name": "network_header-length_max",
+      "dtype": "nullable float64 before baseline float32 preprocessing",
+      "definition": "UNAVAILABLE: exact source definition not recovered; no guessed value emitted.",
+      "implementation_status": "unavailable",
+      "dataset_semantic_parity": "not verified",
+      "source": "PCAP+explicit local logs; original dataset README gives window resolution but not complete formulas"
+    },
+    {
+      "index": 11,
+      "name": "network_header-length_min",
+      "dtype": "nullable float64 before baseline float32 preprocessing",
+      "definition": "UNAVAILABLE: exact source definition not recovered; no guessed value emitted.",
+      "implementation_status": "unavailable",
+      "dataset_semantic_parity": "not verified",
+      "source": "PCAP+explicit local logs; original dataset README gives window resolution but not complete formulas"
+    },
+    {
+      "index": 12,
+      "name": "network_header-length_std_deviation",
+      "dtype": "nullable float64 before baseline float32 preprocessing",
+      "definition": "UNAVAILABLE: exact source definition not recovered; no guessed value emitted.",
+      "implementation_status": "unavailable",
+      "dataset_semantic_parity": "not verified",
+      "source": "PCAP+explicit local logs; original dataset README gives window resolution but not complete formulas"
+    },
+    {
+      "index": 13,
+      "name": "network_interval-packets",
+      "dtype": "nullable float64 before baseline float32 preprocessing",
+      "definition": "Mean consecutive matching-IPv4-packet interarrival seconds within a half-open window; singleton unavailable.",
+      "implementation_status": "candidate",
+      "dataset_semantic_parity": "not verified",
+      "source": "PCAP+explicit local logs; original dataset README gives window resolution but not complete formulas"
+    },
+    {
+      "index": 14,
+      "name": "network_ip-flags_avg",
+      "dtype": "nullable float64 before baseline float32 preprocessing",
+      "definition": "Candidate arithmetic mean/min/max/population std (ddof=0) of wire frame bytes, IPv4 length bytes, TTL, integer flag bits, TCP window field, or transport-payload bytes as indicated; protocol-inapplicable observations excluded.",
+      "implementation_status": "candidate",
+      "dataset_semantic_parity": "not verified",
+      "source": "PCAP+explicit local logs; original dataset README gives window resolution but not complete formulas"
+    },
+    {
+      "index": 15,
+      "name": "network_ip-flags_max",
+      "dtype": "nullable float64 before baseline float32 preprocessing",
+      "definition": "Candidate arithmetic mean/min/max/population std (ddof=0) of wire frame bytes, IPv4 length bytes, TTL, integer flag bits, TCP window field, or transport-payload bytes as indicated; protocol-inapplicable observations excluded.",
+      "implementation_status": "candidate",
+      "dataset_semantic_parity": "not verified",
+      "source": "PCAP+explicit local logs; original dataset README gives window resolution but not complete formulas"
+    },
+    {
+      "index": 16,
+      "name": "network_ip-flags_min",
+      "dtype": "nullable float64 before baseline float32 preprocessing",
+      "definition": "Candidate arithmetic mean/min/max/population std (ddof=0) of wire frame bytes, IPv4 length bytes, TTL, integer flag bits, TCP window field, or transport-payload bytes as indicated; protocol-inapplicable observations excluded.",
+      "implementation_status": "candidate",
+      "dataset_semantic_parity": "not verified",
+      "source": "PCAP+explicit local logs; original dataset README gives window resolution but not complete formulas"
+    },
+    {
+      "index": 17,
+      "name": "network_ip-flags_std_deviation",
+      "dtype": "nullable float64 before baseline float32 preprocessing",
+      "definition": "Candidate arithmetic mean/min/max/population std (ddof=0) of wire frame bytes, IPv4 length bytes, TTL, integer flag bits, TCP window field, or transport-payload bytes as indicated; protocol-inapplicable observations excluded.",
+      "implementation_status": "candidate",
+      "dataset_semantic_parity": "not verified",
+      "source": "PCAP+explicit local logs; original dataset README gives window resolution but not complete formulas"
+    },
+    {
+      "index": 18,
+      "name": "network_ip-length_avg",
+      "dtype": "nullable float64 before baseline float32 preprocessing",
+      "definition": "Candidate arithmetic mean/min/max/population std (ddof=0) of wire frame bytes, IPv4 length bytes, TTL, integer flag bits, TCP window field, or transport-payload bytes as indicated; protocol-inapplicable observations excluded.",
+      "implementation_status": "candidate",
+      "dataset_semantic_parity": "not verified",
+      "source": "PCAP+explicit local logs; original dataset README gives window resolution but not complete formulas"
+    },
+    {
+      "index": 19,
+      "name": "network_ip-length_max",
+      "dtype": "nullable float64 before baseline float32 preprocessing",
+      "definition": "Candidate arithmetic mean/min/max/population std (ddof=0) of wire frame bytes, IPv4 length bytes, TTL, integer flag bits, TCP window field, or transport-payload bytes as indicated; protocol-inapplicable observations excluded.",
+      "implementation_status": "candidate",
+      "dataset_semantic_parity": "not verified",
+      "source": "PCAP+explicit local logs; original dataset README gives window resolution but not complete formulas"
+    },
+    {
+      "index": 20,
+      "name": "network_ip-length_min",
+      "dtype": "nullable float64 before baseline float32 preprocessing",
+      "definition": "Candidate arithmetic mean/min/max/population std (ddof=0) of wire frame bytes, IPv4 length bytes, TTL, integer flag bits, TCP window field, or transport-payload bytes as indicated; protocol-inapplicable observations excluded.",
+      "implementation_status": "candidate",
+      "dataset_semantic_parity": "not verified",
+      "source": "PCAP+explicit local logs; original dataset README gives window resolution but not complete formulas"
+    },
+    {
+      "index": 21,
+      "name": "network_ip-length_std_deviation",
+      "dtype": "nullable float64 before baseline float32 preprocessing",
+      "definition": "Candidate arithmetic mean/min/max/population std (ddof=0) of wire frame bytes, IPv4 length bytes, TTL, integer flag bits, TCP window field, or transport-payload bytes as indicated; protocol-inapplicable observations excluded.",
+      "implementation_status": "candidate",
+      "dataset_semantic_parity": "not verified",
+      "source": "PCAP+explicit local logs; original dataset README gives window resolution but not complete formulas"
+    },
+    {
+      "index": 22,
+      "name": "network_ips_all_count",
+      "dtype": "nullable float64 before baseline float32 preprocessing",
+      "definition": "Candidate count of ips; src/dst packet direction is relative to monitor IPv4 address for packet/protocol counts; address/port src/dst refers to packet header fields. Exact source semantics unverified.",
+      "implementation_status": "candidate",
+      "dataset_semantic_parity": "not verified",
+      "source": "PCAP+explicit local logs; original dataset README gives window resolution but not complete formulas"
+    },
+    {
+      "index": 23,
+      "name": "network_ips_dst_count",
+      "dtype": "nullable float64 before baseline float32 preprocessing",
+      "definition": "Candidate count of ips; src/dst packet direction is relative to monitor IPv4 address for packet/protocol counts; address/port src/dst refers to packet header fields. Exact source semantics unverified.",
+      "implementation_status": "candidate",
+      "dataset_semantic_parity": "not verified",
+      "source": "PCAP+explicit local logs; original dataset README gives window resolution but not complete formulas"
+    },
+    {
+      "index": 24,
+      "name": "network_ips_src_count",
+      "dtype": "nullable float64 before baseline float32 preprocessing",
+      "definition": "Candidate count of ips; src/dst packet direction is relative to monitor IPv4 address for packet/protocol counts; address/port src/dst refers to packet header fields. Exact source semantics unverified.",
+      "implementation_status": "candidate",
+      "dataset_semantic_parity": "not verified",
+      "source": "PCAP+explicit local logs; original dataset README gives window resolution but not complete formulas"
+    },
+    {
+      "index": 25,
+      "name": "network_macs_all_count",
+      "dtype": "nullable float64 before baseline float32 preprocessing",
+      "definition": "Candidate count of macs; src/dst packet direction is relative to monitor IPv4 address for packet/protocol counts; address/port src/dst refers to packet header fields. Exact source semantics unverified.",
+      "implementation_status": "candidate",
+      "dataset_semantic_parity": "not verified",
+      "source": "PCAP+explicit local logs; original dataset README gives window resolution but not complete formulas"
+    },
+    {
+      "index": 26,
+      "name": "network_macs_dst_count",
+      "dtype": "nullable float64 before baseline float32 preprocessing",
+      "definition": "Candidate count of macs; src/dst packet direction is relative to monitor IPv4 address for packet/protocol counts; address/port src/dst refers to packet header fields. Exact source semantics unverified.",
+      "implementation_status": "candidate",
+      "dataset_semantic_parity": "not verified",
+      "source": "PCAP+explicit local logs; original dataset README gives window resolution but not complete formulas"
+    },
+    {
+      "index": 27,
+      "name": "network_macs_src_count",
+      "dtype": "nullable float64 before baseline float32 preprocessing",
+      "definition": "Candidate count of macs; src/dst packet direction is relative to monitor IPv4 address for packet/protocol counts; address/port src/dst refers to packet header fields. Exact source semantics unverified.",
+      "implementation_status": "candidate",
+      "dataset_semantic_parity": "not verified",
+      "source": "PCAP+explicit local logs; original dataset README gives window resolution but not complete formulas"
+    },
+    {
+      "index": 28,
+      "name": "network_mss_avg",
+      "dtype": "nullable float64 before baseline float32 preprocessing",
+      "definition": "UNAVAILABLE: exact source definition not recovered; no guessed value emitted.",
+      "implementation_status": "unavailable",
+      "dataset_semantic_parity": "not verified",
+      "source": "PCAP+explicit local logs; original dataset README gives window resolution but not complete formulas"
+    },
+    {
+      "index": 29,
+      "name": "network_mss_max",
+      "dtype": "nullable float64 before baseline float32 preprocessing",
+      "definition": "UNAVAILABLE: exact source definition not recovered; no guessed value emitted.",
+      "implementation_status": "unavailable",
+      "dataset_semantic_parity": "not verified",
+      "source": "PCAP+explicit local logs; original dataset README gives window resolution but not complete formulas"
+    },
+    {
+      "index": 30,
+      "name": "network_mss_min",
+      "dtype": "nullable float64 before baseline float32 preprocessing",
+      "definition": "UNAVAILABLE: exact source definition not recovered; no guessed value emitted.",
+      "implementation_status": "unavailable",
+      "dataset_semantic_parity": "not verified",
+      "source": "PCAP+explicit local logs; original dataset README gives window resolution but not complete formulas"
+    },
+    {
+      "index": 31,
+      "name": "network_mss_std_deviation",
+      "dtype": "nullable float64 before baseline float32 preprocessing",
+      "definition": "UNAVAILABLE: exact source definition not recovered; no guessed value emitted.",
+      "implementation_status": "unavailable",
+      "dataset_semantic_parity": "not verified",
+      "source": "PCAP+explicit local logs; original dataset README gives window resolution but not complete formulas"
+    },
+    {
+      "index": 32,
+      "name": "network_packet-size_avg",
+      "dtype": "nullable float64 before baseline float32 preprocessing",
+      "definition": "Candidate arithmetic mean/min/max/population std (ddof=0) of wire frame bytes, IPv4 length bytes, TTL, integer flag bits, TCP window field, or transport-payload bytes as indicated; protocol-inapplicable observations excluded.",
+      "implementation_status": "candidate",
+      "dataset_semantic_parity": "not verified",
+      "source": "PCAP+explicit local logs; original dataset README gives window resolution but not complete formulas"
+    },
+    {
+      "index": 33,
+      "name": "network_packet-size_max",
+      "dtype": "nullable float64 before baseline float32 preprocessing",
+      "definition": "Candidate arithmetic mean/min/max/population std (ddof=0) of wire frame bytes, IPv4 length bytes, TTL, integer flag bits, TCP window field, or transport-payload bytes as indicated; protocol-inapplicable observations excluded.",
+      "implementation_status": "candidate",
+      "dataset_semantic_parity": "not verified",
+      "source": "PCAP+explicit local logs; original dataset README gives window resolution but not complete formulas"
+    },
+    {
+      "index": 34,
+      "name": "network_packet-size_min",
+      "dtype": "nullable float64 before baseline float32 preprocessing",
+      "definition": "Candidate arithmetic mean/min/max/population std (ddof=0) of wire frame bytes, IPv4 length bytes, TTL, integer flag bits, TCP window field, or transport-payload bytes as indicated; protocol-inapplicable observations excluded.",
+      "implementation_status": "candidate",
+      "dataset_semantic_parity": "not verified",
+      "source": "PCAP+explicit local logs; original dataset README gives window resolution but not complete formulas"
+    },
+    {
+      "index": 35,
+      "name": "network_packet-size_std_deviation",
+      "dtype": "nullable float64 before baseline float32 preprocessing",
+      "definition": "Candidate arithmetic mean/min/max/population std (ddof=0) of wire frame bytes, IPv4 length bytes, TTL, integer flag bits, TCP window field, or transport-payload bytes as indicated; protocol-inapplicable observations excluded.",
+      "implementation_status": "candidate",
+      "dataset_semantic_parity": "not verified",
+      "source": "PCAP+explicit local logs; original dataset README gives window resolution but not complete formulas"
+    },
+    {
+      "index": 36,
+      "name": "network_packets_all_count",
+      "dtype": "nullable float64 before baseline float32 preprocessing",
+      "definition": "Candidate count of packets; src/dst packet direction is relative to monitor IPv4 address for packet/protocol counts; address/port src/dst refers to packet header fields. Exact source semantics unverified.",
+      "implementation_status": "candidate",
+      "dataset_semantic_parity": "not verified",
+      "source": "PCAP+explicit local logs; original dataset README gives window resolution but not complete formulas"
+    },
+    {
+      "index": 37,
+      "name": "network_packets_dst_count",
+      "dtype": "nullable float64 before baseline float32 preprocessing",
+      "definition": "Candidate count of packets; src/dst packet direction is relative to monitor IPv4 address for packet/protocol counts; address/port src/dst refers to packet header fields. Exact source semantics unverified.",
+      "implementation_status": "candidate",
+      "dataset_semantic_parity": "not verified",
+      "source": "PCAP+explicit local logs; original dataset README gives window resolution but not complete formulas"
+    },
+    {
+      "index": 38,
+      "name": "network_packets_src_count",
+      "dtype": "nullable float64 before baseline float32 preprocessing",
+      "definition": "Candidate count of packets; src/dst packet direction is relative to monitor IPv4 address for packet/protocol counts; address/port src/dst refers to packet header fields. Exact source semantics unverified.",
+      "implementation_status": "candidate",
+      "dataset_semantic_parity": "not verified",
+      "source": "PCAP+explicit local logs; original dataset README gives window resolution but not complete formulas"
+    },
+    {
+      "index": 39,
+      "name": "network_payload-length_avg",
+      "dtype": "nullable float64 before baseline float32 preprocessing",
+      "definition": "Candidate arithmetic mean/min/max/population std (ddof=0) of wire frame bytes, IPv4 length bytes, TTL, integer flag bits, TCP window field, or transport-payload bytes as indicated; protocol-inapplicable observations excluded.",
+      "implementation_status": "candidate",
+      "dataset_semantic_parity": "not verified",
+      "source": "PCAP+explicit local logs; original dataset README gives window resolution but not complete formulas"
+    },
+    {
+      "index": 40,
+      "name": "network_payload-length_max",
+      "dtype": "nullable float64 before baseline float32 preprocessing",
+      "definition": "Candidate arithmetic mean/min/max/population std (ddof=0) of wire frame bytes, IPv4 length bytes, TTL, integer flag bits, TCP window field, or transport-payload bytes as indicated; protocol-inapplicable observations excluded.",
+      "implementation_status": "candidate",
+      "dataset_semantic_parity": "not verified",
+      "source": "PCAP+explicit local logs; original dataset README gives window resolution but not complete formulas"
+    },
+    {
+      "index": 41,
+      "name": "network_payload-length_min",
+      "dtype": "nullable float64 before baseline float32 preprocessing",
+      "definition": "Candidate arithmetic mean/min/max/population std (ddof=0) of wire frame bytes, IPv4 length bytes, TTL, integer flag bits, TCP window field, or transport-payload bytes as indicated; protocol-inapplicable observations excluded.",
+      "implementation_status": "candidate",
+      "dataset_semantic_parity": "not verified",
+      "source": "PCAP+explicit local logs; original dataset README gives window resolution but not complete formulas"
+    },
+    {
+      "index": 42,
+      "name": "network_payload-length_std_deviation",
+      "dtype": "nullable float64 before baseline float32 preprocessing",
+      "definition": "Candidate arithmetic mean/min/max/population std (ddof=0) of wire frame bytes, IPv4 length bytes, TTL, integer flag bits, TCP window field, or transport-payload bytes as indicated; protocol-inapplicable observations excluded.",
+      "implementation_status": "candidate",
+      "dataset_semantic_parity": "not verified",
+      "source": "PCAP+explicit local logs; original dataset README gives window resolution but not complete formulas"
+    },
+    {
+      "index": 43,
+      "name": "network_ports_all_count",
+      "dtype": "nullable float64 before baseline float32 preprocessing",
+      "definition": "Candidate count of ports; src/dst packet direction is relative to monitor IPv4 address for packet/protocol counts; address/port src/dst refers to packet header fields. Exact source semantics unverified.",
+      "implementation_status": "candidate",
+      "dataset_semantic_parity": "not verified",
+      "source": "PCAP+explicit local logs; original dataset README gives window resolution but not complete formulas"
+    },
+    {
+      "index": 44,
+      "name": "network_ports_dst_count",
+      "dtype": "nullable float64 before baseline float32 preprocessing",
+      "definition": "Candidate count of ports; src/dst packet direction is relative to monitor IPv4 address for packet/protocol counts; address/port src/dst refers to packet header fields. Exact source semantics unverified.",
+      "implementation_status": "candidate",
+      "dataset_semantic_parity": "not verified",
+      "source": "PCAP+explicit local logs; original dataset README gives window resolution but not complete formulas"
+    },
+    {
+      "index": 45,
+      "name": "network_ports_src_count",
+      "dtype": "nullable float64 before baseline float32 preprocessing",
+      "definition": "Candidate count of ports; src/dst packet direction is relative to monitor IPv4 address for packet/protocol counts; address/port src/dst refers to packet header fields. Exact source semantics unverified.",
+      "implementation_status": "candidate",
+      "dataset_semantic_parity": "not verified",
+      "source": "PCAP+explicit local logs; original dataset README gives window resolution but not complete formulas"
+    },
+    {
+      "index": 46,
+      "name": "network_protocols_all_count",
+      "dtype": "nullable float64 before baseline float32 preprocessing",
+      "definition": "Candidate count of protocols; src/dst packet direction is relative to monitor IPv4 address for packet/protocol counts; address/port src/dst refers to packet header fields. Exact source semantics unverified.",
+      "implementation_status": "candidate",
+      "dataset_semantic_parity": "not verified",
+      "source": "PCAP+explicit local logs; original dataset README gives window resolution but not complete formulas"
+    },
+    {
+      "index": 47,
+      "name": "network_protocols_dst_count",
+      "dtype": "nullable float64 before baseline float32 preprocessing",
+      "definition": "Candidate count of protocols; src/dst packet direction is relative to monitor IPv4 address for packet/protocol counts; address/port src/dst refers to packet header fields. Exact source semantics unverified.",
+      "implementation_status": "candidate",
+      "dataset_semantic_parity": "not verified",
+      "source": "PCAP+explicit local logs; original dataset README gives window resolution but not complete formulas"
+    },
+    {
+      "index": 48,
+      "name": "network_protocols_src_count",
+      "dtype": "nullable float64 before baseline float32 preprocessing",
+      "definition": "Candidate count of protocols; src/dst packet direction is relative to monitor IPv4 address for packet/protocol counts; address/port src/dst refers to packet header fields. Exact source semantics unverified.",
+      "implementation_status": "candidate",
+      "dataset_semantic_parity": "not verified",
+      "source": "PCAP+explicit local logs; original dataset README gives window resolution but not complete formulas"
+    },
+    {
+      "index": 49,
+      "name": "network_tcp-flags-ack_count",
+      "dtype": "nullable float64 before baseline float32 preprocessing",
+      "definition": "Count matching packets whose named TCP flag bit is set; non-TCP contributes no flag count.",
+      "implementation_status": "candidate",
+      "dataset_semantic_parity": "not verified",
+      "source": "PCAP+explicit local logs; original dataset README gives window resolution but not complete formulas"
+    },
+    {
+      "index": 50,
+      "name": "network_tcp-flags-fin_count",
+      "dtype": "nullable float64 before baseline float32 preprocessing",
+      "definition": "Count matching packets whose named TCP flag bit is set; non-TCP contributes no flag count.",
+      "implementation_status": "candidate",
+      "dataset_semantic_parity": "not verified",
+      "source": "PCAP+explicit local logs; original dataset README gives window resolution but not complete formulas"
+    },
+    {
+      "index": 51,
+      "name": "network_tcp-flags-psh_count",
+      "dtype": "nullable float64 before baseline float32 preprocessing",
+      "definition": "Count matching packets whose named TCP flag bit is set; non-TCP contributes no flag count.",
+      "implementation_status": "candidate",
+      "dataset_semantic_parity": "not verified",
+      "source": "PCAP+explicit local logs; original dataset README gives window resolution but not complete formulas"
+    },
+    {
+      "index": 52,
+      "name": "network_tcp-flags-rst_count",
+      "dtype": "nullable float64 before baseline float32 preprocessing",
+      "definition": "Count matching packets whose named TCP flag bit is set; non-TCP contributes no flag count.",
+      "implementation_status": "candidate",
+      "dataset_semantic_parity": "not verified",
+      "source": "PCAP+explicit local logs; original dataset README gives window resolution but not complete formulas"
+    },
+    {
+      "index": 53,
+      "name": "network_tcp-flags-syn_count",
+      "dtype": "nullable float64 before baseline float32 preprocessing",
+      "definition": "Count matching packets whose named TCP flag bit is set; non-TCP contributes no flag count.",
+      "implementation_status": "candidate",
+      "dataset_semantic_parity": "not verified",
+      "source": "PCAP+explicit local logs; original dataset README gives window resolution but not complete formulas"
+    },
+    {
+      "index": 54,
+      "name": "network_tcp-flags-urg_count",
+      "dtype": "nullable float64 before baseline float32 preprocessing",
+      "definition": "Count matching packets whose named TCP flag bit is set; non-TCP contributes no flag count.",
+      "implementation_status": "candidate",
+      "dataset_semantic_parity": "not verified",
+      "source": "PCAP+explicit local logs; original dataset README gives window resolution but not complete formulas"
+    },
+    {
+      "index": 55,
+      "name": "network_tcp-flags_avg",
+      "dtype": "nullable float64 before baseline float32 preprocessing",
+      "definition": "Candidate arithmetic mean/min/max/population std (ddof=0) of wire frame bytes, IPv4 length bytes, TTL, integer flag bits, TCP window field, or transport-payload bytes as indicated; protocol-inapplicable observations excluded.",
+      "implementation_status": "candidate",
+      "dataset_semantic_parity": "not verified",
+      "source": "PCAP+explicit local logs; original dataset README gives window resolution but not complete formulas"
+    },
+    {
+      "index": 56,
+      "name": "network_tcp-flags_max",
+      "dtype": "nullable float64 before baseline float32 preprocessing",
+      "definition": "Candidate arithmetic mean/min/max/population std (ddof=0) of wire frame bytes, IPv4 length bytes, TTL, integer flag bits, TCP window field, or transport-payload bytes as indicated; protocol-inapplicable observations excluded.",
+      "implementation_status": "candidate",
+      "dataset_semantic_parity": "not verified",
+      "source": "PCAP+explicit local logs; original dataset README gives window resolution but not complete formulas"
+    },
+    {
+      "index": 57,
+      "name": "network_tcp-flags_min",
+      "dtype": "nullable float64 before baseline float32 preprocessing",
+      "definition": "Candidate arithmetic mean/min/max/population std (ddof=0) of wire frame bytes, IPv4 length bytes, TTL, integer flag bits, TCP window field, or transport-payload bytes as indicated; protocol-inapplicable observations excluded.",
+      "implementation_status": "candidate",
+      "dataset_semantic_parity": "not verified",
+      "source": "PCAP+explicit local logs; original dataset README gives window resolution but not complete formulas"
+    },
+    {
+      "index": 58,
+      "name": "network_tcp-flags_std_deviation",
+      "dtype": "nullable float64 before baseline float32 preprocessing",
+      "definition": "Candidate arithmetic mean/min/max/population std (ddof=0) of wire frame bytes, IPv4 length bytes, TTL, integer flag bits, TCP window field, or transport-payload bytes as indicated; protocol-inapplicable observations excluded.",
+      "implementation_status": "candidate",
+      "dataset_semantic_parity": "not verified",
+      "source": "PCAP+explicit local logs; original dataset README gives window resolution but not complete formulas"
+    },
+    {
+      "index": 59,
+      "name": "network_time-delta_avg",
+      "dtype": "nullable float64 before baseline float32 preprocessing",
+      "definition": "UNAVAILABLE: exact source definition not recovered; no guessed value emitted.",
+      "implementation_status": "unavailable",
+      "dataset_semantic_parity": "not verified",
+      "source": "PCAP+explicit local logs; original dataset README gives window resolution but not complete formulas"
+    },
+    {
+      "index": 60,
+      "name": "network_time-delta_max",
+      "dtype": "nullable float64 before baseline float32 preprocessing",
+      "definition": "UNAVAILABLE: exact source definition not recovered; no guessed value emitted.",
+      "implementation_status": "unavailable",
+      "dataset_semantic_parity": "not verified",
+      "source": "PCAP+explicit local logs; original dataset README gives window resolution but not complete formulas"
+    },
+    {
+      "index": 61,
+      "name": "network_time-delta_min",
+      "dtype": "nullable float64 before baseline float32 preprocessing",
+      "definition": "UNAVAILABLE: exact source definition not recovered; no guessed value emitted.",
+      "implementation_status": "unavailable",
+      "dataset_semantic_parity": "not verified",
+      "source": "PCAP+explicit local logs; original dataset README gives window resolution but not complete formulas"
+    },
+    {
+      "index": 62,
+      "name": "network_time-delta_std_deviation",
+      "dtype": "nullable float64 before baseline float32 preprocessing",
+      "definition": "UNAVAILABLE: exact source definition not recovered; no guessed value emitted.",
+      "implementation_status": "unavailable",
+      "dataset_semantic_parity": "not verified",
+      "source": "PCAP+explicit local logs; original dataset README gives window resolution but not complete formulas"
+    },
+    {
+      "index": 63,
+      "name": "network_ttl_avg",
+      "dtype": "nullable float64 before baseline float32 preprocessing",
+      "definition": "Candidate arithmetic mean/min/max/population std (ddof=0) of wire frame bytes, IPv4 length bytes, TTL, integer flag bits, TCP window field, or transport-payload bytes as indicated; protocol-inapplicable observations excluded.",
+      "implementation_status": "candidate",
+      "dataset_semantic_parity": "not verified",
+      "source": "PCAP+explicit local logs; original dataset README gives window resolution but not complete formulas"
+    },
+    {
+      "index": 64,
+      "name": "network_ttl_max",
+      "dtype": "nullable float64 before baseline float32 preprocessing",
+      "definition": "Candidate arithmetic mean/min/max/population std (ddof=0) of wire frame bytes, IPv4 length bytes, TTL, integer flag bits, TCP window field, or transport-payload bytes as indicated; protocol-inapplicable observations excluded.",
+      "implementation_status": "candidate",
+      "dataset_semantic_parity": "not verified",
+      "source": "PCAP+explicit local logs; original dataset README gives window resolution but not complete formulas"
+    },
+    {
+      "index": 65,
+      "name": "network_ttl_min",
+      "dtype": "nullable float64 before baseline float32 preprocessing",
+      "definition": "Candidate arithmetic mean/min/max/population std (ddof=0) of wire frame bytes, IPv4 length bytes, TTL, integer flag bits, TCP window field, or transport-payload bytes as indicated; protocol-inapplicable observations excluded.",
+      "implementation_status": "candidate",
+      "dataset_semantic_parity": "not verified",
+      "source": "PCAP+explicit local logs; original dataset README gives window resolution but not complete formulas"
+    },
+    {
+      "index": 66,
+      "name": "network_ttl_std_deviation",
+      "dtype": "nullable float64 before baseline float32 preprocessing",
+      "definition": "Candidate arithmetic mean/min/max/population std (ddof=0) of wire frame bytes, IPv4 length bytes, TTL, integer flag bits, TCP window field, or transport-payload bytes as indicated; protocol-inapplicable observations excluded.",
+      "implementation_status": "candidate",
+      "dataset_semantic_parity": "not verified",
+      "source": "PCAP+explicit local logs; original dataset README gives window resolution but not complete formulas"
+    },
+    {
+      "index": 67,
+      "name": "network_window-size_avg",
+      "dtype": "nullable float64 before baseline float32 preprocessing",
+      "definition": "Candidate arithmetic mean/min/max/population std (ddof=0) of wire frame bytes, IPv4 length bytes, TTL, integer flag bits, TCP window field, or transport-payload bytes as indicated; protocol-inapplicable observations excluded.",
+      "implementation_status": "candidate",
+      "dataset_semantic_parity": "not verified",
+      "source": "PCAP+explicit local logs; original dataset README gives window resolution but not complete formulas"
+    },
+    {
+      "index": 68,
+      "name": "network_window-size_max",
+      "dtype": "nullable float64 before baseline float32 preprocessing",
+      "definition": "Candidate arithmetic mean/min/max/population std (ddof=0) of wire frame bytes, IPv4 length bytes, TTL, integer flag bits, TCP window field, or transport-payload bytes as indicated; protocol-inapplicable observations excluded.",
+      "implementation_status": "candidate",
+      "dataset_semantic_parity": "not verified",
+      "source": "PCAP+explicit local logs; original dataset README gives window resolution but not complete formulas"
+    },
+    {
+      "index": 69,
+      "name": "network_window-size_min",
+      "dtype": "nullable float64 before baseline float32 preprocessing",
+      "definition": "Candidate arithmetic mean/min/max/population std (ddof=0) of wire frame bytes, IPv4 length bytes, TTL, integer flag bits, TCP window field, or transport-payload bytes as indicated; protocol-inapplicable observations excluded.",
+      "implementation_status": "candidate",
+      "dataset_semantic_parity": "not verified",
+      "source": "PCAP+explicit local logs; original dataset README gives window resolution but not complete formulas"
+    },
+    {
+      "index": 70,
+      "name": "network_window-size_std_deviation",
+      "dtype": "nullable float64 before baseline float32 preprocessing",
+      "definition": "Candidate arithmetic mean/min/max/population std (ddof=0) of wire frame bytes, IPv4 length bytes, TTL, integer flag bits, TCP window field, or transport-payload bytes as indicated; protocol-inapplicable observations excluded.",
+      "implementation_status": "candidate",
+      "dataset_semantic_parity": "not verified",
+      "source": "PCAP+explicit local logs; original dataset README gives window resolution but not complete formulas"
+    }
+  ],
+  "live_parity_verified": false
+}

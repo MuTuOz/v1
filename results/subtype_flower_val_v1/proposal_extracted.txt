@@ -1,0 +1,12 @@
+FACULTY OF ENGINEERING
+DEPARTMENT OF COMPUTER SCIENCE
+CS 401 / CS 402
+2026 Fall / Spring
+SENIOR PROJECT PROPOSAL
+Hierarchical Evaluation of Cyber Event Classification in Industrial IoT Networks
+By
+Alp Eren ERDURMurat Tuna ÖZEN
+Supervised By
+Dr. İsmail ARI
+Description:
+This project is about IIOT (Industrial IOT) Network clients which observe different types of attacks developing a common attack classification model through Federated Learning and the evaluation of errors of the model. The main research question is whether collaborative learning improves a client’s ability to detect attacks which are absent from that client’s own training data, but it is in the other clients’ training data. We are going to use DataSense CIC IIoT 2025 dataset as initial data source and find out the relationship between attack families and subtypes after we examine its files and labels. Training and test datas will be separated in order to reduce the risk of closely related records from the same event which appears in both sets. Then, the training data will be distributed among simulated clients with different attack class distributions. We will compare the models trained only on local data, a federated model and centralized model trained on all available training data by using the same split test records. We will examine the results by using per class precision, recall and F1 scores, the false alarm rate, flat confusion matrix and hierarchical confusion matrix by especially focusing on distinguishing cases where an attack is misclassified as normal traffic and where the wrong sub-type is selected within the correct family will be identified. We plan to use python, scikit-learn, PyTorch and Flower for implementation. For presenting the experimental results, we plan to use a Streamlit-based dashboard. For CS401, we plan to complete the literature and data set review, data preparation, baseline models, hierarchical evaluation and initial federated learning experiments under different client distributins and participation conditions, hierarchical evaluation, and the dashboard. Our planned outcomes are repeatable experiment framework, comparative evaluation report and client data distributions and model predictions. In addition, depending on hardware availability and model compatibility, we plan to measure inference performance on a Raspberry Pi during the CS401 course.

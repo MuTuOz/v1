@@ -1,0 +1,21 @@
+{
+  "evaluated_model_records": 44,
+  "checkpoint_inference_matches": 44,
+  "validation_predictions_reproduced": 285384,
+  "matched_reference_arms": 7,
+  "predefined_seeds": [
+    42,
+    52,
+    62
+  ],
+  "fedavg_rounds_audited": 150,
+  "fedavg_client_updates_audited": 720,
+  "unseen_subset_rows_recomputed": 360,
+  "training_allocations_verified": [
+    "original",
+    "balanced",
+    "exclusive"
+  ],
+  "historical_reference_evaluations": 2,
+  "new_scientific_and_diagnostic_checkpoints": 42
+}

@@ -1,0 +1,11 @@
+{
+  "status": "passed",
+  "tests_run": 31,
+  "wall_seconds_reported": 7.253,
+  "failures": [],
+  "errors": [],
+  "skipped": [],
+  "evidence": "logs/full_unit_tests.log",
+  "command": "/home/seniorfl/seniorproject-fl-venv/bin/python -m unittest discover -s tests -v",
+  "recorded_utc": "2026-10-25T11:00:48.310917+00:00"
+}

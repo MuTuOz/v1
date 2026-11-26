@@ -1,0 +1,35 @@
+{
+  "retrieved_utc": "2026-10-25T10:46:41.944959+00:00",
+  "records": [
+    {
+      "file": "dataset_official.html",
+      "url": "https://www.unb.ca/cic/datasets/iiot-dataset-2025.html",
+      "sha256": "e4f4c110e2f52a8384e94323d6842a799d08591a1360bafdf2368b7138edd3a6",
+      "status": "downloaded"
+    },
+    {
+      "file": "fedavg_pmlr.html",
+      "url": "https://proceedings.mlr.press/v54/mcmahan17a.html",
+      "sha256": "1297343d64424a8234d881d2afff34fe4b080bd44a8fc38945497d8fbb208caa",
+      "status": "downloaded"
+    },
+    {
+      "file": "effective_number_cvf.html",
+      "url": "https://openaccess.thecvf.com/content_CVPR_2019/html/Cui_Class-Balanced_Loss_Based_on_Effective_Number_of_Samples_CVPR_2019_paper.html",
+      "sha256": "d4f142dd64d95a58d1f9b547857de4d4b040d61bf57af66fbe5766db29ec278e",
+      "status": "downloaded"
+    },
+    {
+      "file": "flower_tls.html",
+      "url": "https://flower.ai/docs/framework/how-to-enable-tls-connections.html",
+      "sha256": "a5df72d4b209c3483aa737a2e0fff7f2cc872b7476b22e94e3ac1de2a935ceee",
+      "status": "downloaded"
+    },
+    {
+      "file": "dataset_paper.html",
+      "url": "https://www.mdpi.com/2079-9292/14/20/4095",
+      "status": "unavailable",
+      "reason": "HTTP Error 403: Forbidden"
+    }
+  ]
+}

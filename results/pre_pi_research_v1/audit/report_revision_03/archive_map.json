@@ -1,0 +1,36 @@
+{
+  "revision": "03",
+  "reason": "Fix manifest verifier path shadowing during its self-exclusion check; add regression test. No training/data/metric changes.",
+  "files": [
+    {
+      "original_path": "scripts/33_verify_pre_pi.py",
+      "archived_path": "results/pre_pi_research_v1/audit/report_revision_03/original_files/scripts/33_verify_pre_pi.py",
+      "sha256": "c09d7bafa8e731ec9c2f5fa39cc513bd686b12c6a1cbb9158028f2c7fb6d8e02"
+    },
+    {
+      "original_path": "scripts/32_summarize_pre_pi.py",
+      "archived_path": "results/pre_pi_research_v1/audit/report_revision_03/original_files/scripts/32_summarize_pre_pi.py",
+      "sha256": "20262df5088784ce05f9a165b59b039a53a67c9f438dbf4695fe97f3db5aee0f"
+    },
+    {
+      "original_path": "PROJECT_STATUS.md",
+      "archived_path": "results/pre_pi_research_v1/audit/report_revision_03/original_files/PROJECT_STATUS.md",
+      "sha256": "2e183601185b61d38e926ef25a9924165cebf9084e0bac5164c90d92f4f48aae"
+    },
+    {
+      "original_path": "results/pre_pi_research_v1/MASTER_REPORT.md",
+      "archived_path": "results/pre_pi_research_v1/audit/report_revision_03/original_files/results/pre_pi_research_v1/MASTER_REPORT.md",
+      "sha256": "a4b6173889c183265c73c68e612d1fb504d2b905968eca42dad7e76dddc66382"
+    },
+    {
+      "original_path": "results/pre_pi_research_v1/REPRODUCTION.md",
+      "archived_path": "results/pre_pi_research_v1/audit/report_revision_03/original_files/results/pre_pi_research_v1/REPRODUCTION.md",
+      "sha256": "dd8c172747a6efa1a4445e2d806155ff41ee6186bba2d79e9c6b0d27376c30ed"
+    },
+    {
+      "original_path": "results/pre_pi_research_v1/FAILURES_AND_RESOLUTIONS.md",
+      "archived_path": "results/pre_pi_research_v1/audit/report_revision_03/original_files/results/pre_pi_research_v1/FAILURES_AND_RESOLUTIONS.md",
+      "sha256": "bbee9cc48ba1ced811ed367fb53e2c1eef738f473c62a8c20f2fa05494b4945c"
+    }
+  ]
+}

@@ -1,0 +1,5 @@
+{
+  "status": "complete",
+  "source_checkpoint": "models/subtype_centralized_val_v1.pt",
+  "checkpoint_sha256": "c49c621221bb5acf67d9d8af4418b985b4383e6543e83dbf980623d524c5b75f"
+}

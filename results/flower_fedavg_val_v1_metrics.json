@@ -1,0 +1,22 @@
+{
+  "experiment": "flower_fedavg_val_v1",
+  "training_records": 22450,
+  "validation_records": 6486,
+  "validation_accuracy": 0.8018809744064138,
+  "validation_macro_f1_observed": 0.4320930627833201,
+  "validation_macro_f1_all_8": 0.3780814299354051,
+  "observed_families": [
+    "benign",
+    "bruteforce",
+    "ddos",
+    "dos",
+    "malware",
+    "mitm",
+    "recon"
+  ],
+  "rounds": 15,
+  "clients": 5,
+  "model_parameters": 6952,
+  "seed": 42,
+  "note": "Validation V1 uses attack episode candidates and a benign temporal holdout. The web family is absent from validation."
+}

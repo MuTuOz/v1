@@ -1,0 +1,24 @@
+{
+  "server_command": [
+    "/home/seniorfl/seniorproject-fl-venv/bin/flower-superlink",
+    "--insecure",
+    "--simulation",
+    "--disable-runtime-dependency-installation",
+    "--host",
+    "127.0.0.1",
+    "--port",
+    "39102"
+  ],
+  "command": [
+    "/home/seniorfl/seniorproject-fl-venv/bin/flwr",
+    "run",
+    "/mnt/d/Alperen E/Belgelerim/4. Year/Güz Dönemi/CS 401/SeniorProject/pre_pi_app",
+    "pre-pi",
+    "--run-config",
+    "/mnt/d/Alperen E/Belgelerim/4. Year/Güz Dönemi/CS 401/SeniorProject/results/pre_pi_research_v1/phase03/ref_flower_s52/run_config.toml",
+    "--stream"
+  ],
+  "cwd": "/mnt/d/Alperen E/Belgelerim/4. Year/Güz Dönemi/CS 401/SeniorProject",
+  "flower_home": "/home/seniorfl/.flwr/pre_pi_research_v1",
+  "loopback_only": true
+}
