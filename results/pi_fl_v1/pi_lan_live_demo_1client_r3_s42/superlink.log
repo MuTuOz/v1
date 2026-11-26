@@ -1,0 +1,19 @@
+[93mWARNING [0m:   SuperNode authentication is disabled. The SuperLink will accept connections from any SuperNode.
+[92mINFO [0m:      Starting Flower SuperLink
+[92mINFO [0m:      Starting the SuperLink Runtime HTTP API on 0.0.0.0:9092.
+[92mINFO [0m:      Starting the SuperLink Control HTTP API on 0.0.0.0:9092.
+[92mINFO [0m:      Starting the SuperLink Fleet HTTP API on 0.0.0.0:9092.
+2026-11-26T14:22:27.460Z INFO [uvicorn.error] Started server process [415]
+2026-11-26T14:22:27.461Z INFO [uvicorn.error] Waiting for application startup.
+[92mINFO [0m:      FastAPI lifespan: startup
+[92mINFO [0m:      SuperLinkLifespan: start
+2026-11-26T14:22:27.463Z INFO [uvicorn.error] Application startup complete.
+2026-11-26T14:22:27.475Z INFO [uvicorn.error] Uvicorn running on https://0.0.0.0:9092 (Press CTRL+C to quit)
+╭────────────────── Update available ───────────────────╮
+│ A newer Flower version is available: 1.40.0 -> 1.45.0 │
+│ Upgrade: python -m pip install -U flwr                │
+╰───────────────────────────────────────────────────────╯
+[92mINFO [0m:      Starting Flower SuperExec
+2026-11-26T14:22:34.168Z INFO [uvicorn.access] 10.96.27.10:42270 - "POST /v1/fleet/register-node HTTP/1.1" 200
+[92mINFO [0m:      [Fleet.ActivateNode] Activated node_id=4488337023150692187
+2026-11-26T14:22:34.188Z INFO [uvicorn.access] 10.96.27.10:42270 - "POST /v1/fleet/activate-node HTTP/1.1" 200
