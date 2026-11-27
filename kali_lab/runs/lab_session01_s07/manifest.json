@@ -1,0 +1,51 @@
+{
+  "experiment_id": "lab_session01",
+  "session_id": "s07",
+  "client_id": null,
+  "attacker_role": "this Kali host",
+  "attacker_device_os": "Linux-7.1.5+kali-amd64-x86_64-with-glibc2.42",
+  "target_role": "10.96.27.10",
+  "capture_role": null,
+  "extra_attacker_hosts": [],
+  "allowed_subnet": "10.96.27.0/24",
+  "created_utc": "2026-11-27T17:51:43.655451+00:00",
+  "dry_run": false,
+  "label_evidence": "ORCHESTRATION-ONLY; attach target-side evidence with attach_target_evidence.py before treating any row here as ground truth",
+  "network_snapshot_at_start": {
+    "ip_addr": "1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000\n    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00\n    inet 127.0.0.1/8 scope host lo\n       valid_lft forever preferred_lft forever\n    inet6 ::1/128 scope host noprefixroute \n       valid_lft forever preferred_lft forever\n2: eth0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc fq_codel state UP group default qlen 1000\n    link/ether 00:0c:29:2a:69:3b brd ff:ff:ff:ff:ff:ff\n    inet 10.96.27.3/24 brd 10.96.27.255 scope global dynamic noprefixroute eth0\n       valid_lft 3107sec preferred_lft 3107sec\n    inet6 fe80::21cd:c5de:d239:965d/64 scope link noprefixroute \n       valid_lft forever preferred_lft forever\n3: tailscale0: <POINTOPOINT,MULTICAST,NOARP,UP,LOWER_UP> mtu 1280 qdisc fq_codel state UNKNOWN group default qlen 500\n    link/none \n    inet 100.108.20.108/32 scope global tailscale0\n       valid_lft forever preferred_lft forever\n    inet6 fd7a:115c:a1e0::b501:14d3/128 scope global \n       valid_lft forever preferred_lft forever\n    inet6 fe80::1299:9fc3:9734:d11f/64 scope link stable-privacy proto kernel_ll \n       valid_lft forever preferred_lft forever\n",
+    "ip_route": "default via 10.96.27.102 dev eth0 proto dhcp src 10.96.27.3 metric 100 \n10.96.27.0/24 dev eth0 proto kernel scope link src 10.96.27.3 metric 100 \n"
+  },
+  "runs": [
+    {
+      "run_id": "dos_syn-flood-port-22_000",
+      "scenario_id": "dos_syn-flood-port-22",
+      "intended_family": "dos",
+      "effective_family": "dos",
+      "intended_subtype": "syn-flood-port-22",
+      "tool": "hping3",
+      "attack_enterprise_id": "T1498.001",
+      "attack_enterprise_name": "Network Denial of Service: Direct Network Flood",
+      "attack_ics_id": "T0814",
+      "attack_ics_name": "Denial of Service",
+      "atomic_red_team_status": "confirmed_procedure_example_on_mitre_page",
+      "command": "hping3 -S -p 22 --flood -V 10.96.27.10",
+      "executed": true,
+      "start_utc": "2026-11-27T17:51:43.655603+00:00",
+      "end_utc": "2026-11-27T17:51:55.849109+00:00",
+      "duration_s": 10,
+      "returncode": 124,
+      "wall_seconds": 12.193422032999479,
+      "remote_attacker_count": 0,
+      "log_file": "dos_syn-flood-port-22_000.log",
+      "pcap_file": null,
+      "pcap_sha256": null,
+      "ambiguity_flag": false,
+      "actual_effect": "Flood s\u0131ras\u0131nda aktif SSH ba\u011flant\u0131s\u0131 (port 22) koptu. Nedensellik kontrol testiyle do\u011fruland\u0131: ayn\u0131 a\u011f/hotspot \u00fczerinden, sald\u0131r\u0131 OLMADAN 20 saniyelik bir SSH ba\u011flant\u0131s\u0131 sorunsuz tamamland\u0131 (kendili\u011finden kopma yok) \u2014 bu da kesintinin Wi-Fi/hotspot karars\u0131zl\u0131\u011f\u0131ndan de\u011fil, do\u011frudan hping3 SYN flood'undan kaynakland\u0131\u011f\u0131n\u0131 g\u00f6steriyor. CPU taraf\u0131nda vmstat %99-100 idle kald\u0131 (us/sy art\u0131\u015f\u0131 yok), yani etki CPU zorlanmas\u0131ndan de\u011fil ba\u011flant\u0131/soket katman\u0131ndan kaynaklan\u0131yor olabilir. Kar\u015f\u0131la\u015ft\u0131rma: ayn\u0131 Pi'ye kapal\u0131 port 80'e yap\u0131lan flood'da hi\u00e7bir etki g\u00f6zlenmemi\u015fti.",
+      "target_evidence_files": [
+        "vmstat_flood_port22_final.txt"
+      ],
+      "confirmed_family": "dos",
+      "evidence_attached_utc": "2026-11-27T18:04:50.621436+00:00"
+    }
+  ]
+}
