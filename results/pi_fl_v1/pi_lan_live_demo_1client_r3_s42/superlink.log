@@ -17,3 +17,7 @@
 2026-11-26T14:22:34.168Z INFO [uvicorn.access] 10.96.27.10:42270 - "POST /v1/fleet/register-node HTTP/1.1" 200
 [92mINFO [0m:      [Fleet.ActivateNode] Activated node_id=4488337023150692187
 2026-11-26T14:22:34.188Z INFO [uvicorn.access] 10.96.27.10:42270 - "POST /v1/fleet/activate-node HTTP/1.1" 200
+[92mINFO [0m:      [Fleet.DeactivateNode] Deactivated node_id=4488337023150692187
+2026-11-26T14:30:34.251Z INFO [uvicorn.access] 10.96.27.10:42270 - "POST /v1/fleet/deactivate-node HTTP/1.1" 200
+2026-11-26T14:30:34.278Z INFO [uvicorn.access] 10.96.27.10:42270 - "POST /v1/fleet/unregister-node HTTP/1.1" 200
+[92mINFO [0m:      SuperExec terminated gracefully.
