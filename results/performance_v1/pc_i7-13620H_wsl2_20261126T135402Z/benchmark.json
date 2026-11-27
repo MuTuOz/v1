@@ -1,0 +1,174 @@
+{
+  "experiment_id": "performance_v1",
+  "device_label": "pc_i7-13620H_wsl2",
+  "utc": "20261126T135402Z",
+  "device": {
+    "platform": "Linux-6.6.87.2-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+    "machine": "x86_64",
+    "python": "3.12.3",
+    "cpu_count": 16,
+    "pi_model": null,
+    "cpu_model": "13th Gen Intel(R) Core(TM) i7-13620H",
+    "mem_total_mb": 15800.18359375,
+    "cpu_temp_c_start": null
+  },
+  "input_csv": "/mnt/c/Users/murat/OneDrive/Desktop/Ders/CS401/SeniorProject/SeniorProject/without_data/v1/results/pre_pi_research_v1/audit/allocations/balanced/client_1_train.csv",
+  "input_sha256": "6c43b9c55599ad9d12a3f09d954d715a5c9ee9baa74f9e1ccca630e87842a76e",
+  "rows_loaded": 2000,
+  "command": "/home/mozen/seniorproject-fl-venv/bin/python scripts/35_performance_benchmark.py --device-label pc_i7-13620H_wsl2",
+  "script_sha256": "cd17e9d83f6dd775d31249aba16d94fffec7044ab2b24525681bf3ec91db3b4e",
+  "scope": "single-device inference/memory measurement; not wire-level, not energy, not accuracy",
+  "mlp": [
+    {
+      "checkpoint": "models/subtype_flower_val_v1.pt",
+      "checkpoint_bytes": 49557,
+      "checkpoint_sha256": "928229a3102cb5c76edab1a28191ecfd3c6a052d6a24bfd4140365ef8a4cd6e7",
+      "parameters": 9460,
+      "float32_weight_bytes": 37840,
+      "torch": "2.15.0+cpu",
+      "threads": 1,
+      "rss_before_load_mb": 255.96875,
+      "rss_after_load_mb": 258.59375,
+      "single_record_model_only": {
+        "reps": 2000,
+        "warmup": 200,
+        "mean_ms": 0.014930659,
+        "median_ms": 0.013513,
+        "p95_ms": 0.015468,
+        "p99_ms": 0.035395,
+        "min_ms": 0.012498,
+        "max_ms": 0.358568
+      },
+      "single_record_preprocess_plus_model": {
+        "reps": 2000,
+        "warmup": 200,
+        "mean_ms": 0.0280594815,
+        "median_ms": 0.025,
+        "p95_ms": 0.037961,
+        "p99_ms": 0.089036,
+        "min_ms": 0.023296,
+        "max_ms": 0.366182
+      },
+      "batch128_model_only": {
+        "reps": 200,
+        "warmup": 200,
+        "mean_ms": 0.042845364999999996,
+        "median_ms": 0.037282,
+        "p95_ms": 0.054953,
+        "p99_ms": 0.07385,
+        "min_ms": 0.035402,
+        "max_ms": 0.474651,
+        "rows": 128,
+        "throughput_rows_per_s": 3433292.20535379
+      },
+      "all_rows_model_only": {
+        "reps": 5,
+        "warmup": 1,
+        "mean_ms": 0.4171572,
+        "median_ms": 0.414234,
+        "p95_ms": 0.451842,
+        "p99_ms": 0.451842,
+        "min_ms": 0.381818,
+        "max_ms": 0.451842,
+        "rows": 2000,
+        "throughput_rows_per_s": 4828188.898062448
+      },
+      "rss_after_inference_mb": 267.96875
+    },
+    {
+      "checkpoint": "models/subtype_centralized_val_v1.pt",
+      "checkpoint_bytes": 45845,
+      "checkpoint_sha256": "c49c621221bb5acf67d9d8af4418b985b4383e6543e83dbf980623d524c5b75f",
+      "parameters": 9460,
+      "float32_weight_bytes": 37840,
+      "torch": "2.15.0+cpu",
+      "threads": 1,
+      "rss_before_load_mb": 267.96875,
+      "rss_after_load_mb": 267.96875,
+      "single_record_model_only": {
+        "reps": 2000,
+        "warmup": 200,
+        "mean_ms": 0.0133841565,
+        "median_ms": 0.013047,
+        "p95_ms": 0.013909,
+        "p99_ms": 0.026405,
+        "min_ms": 0.012516,
+        "max_ms": 0.064408
+      },
+      "single_record_preprocess_plus_model": {
+        "reps": 2000,
+        "warmup": 200,
+        "mean_ms": 0.0251700525,
+        "median_ms": 0.024255,
+        "p95_ms": 0.029247,
+        "p99_ms": 0.042866,
+        "min_ms": 0.02354,
+        "max_ms": 0.072229
+      },
+      "batch128_model_only": {
+        "reps": 200,
+        "warmup": 200,
+        "mean_ms": 0.034872395,
+        "median_ms": 0.034249,
+        "p95_ms": 0.03651,
+        "p99_ms": 0.049878,
+        "min_ms": 0.033812,
+        "max_ms": 0.053153,
+        "rows": 128,
+        "throughput_rows_per_s": 3737335.3966539167
+      },
+      "all_rows_model_only": {
+        "reps": 5,
+        "warmup": 1,
+        "mean_ms": 0.3702864,
+        "median_ms": 0.357589,
+        "p95_ms": 0.398374,
+        "p99_ms": 0.398374,
+        "min_ms": 0.351644,
+        "max_ms": 0.398374,
+        "rows": 2000,
+        "throughput_rows_per_s": 5593013.20790069
+      },
+      "rss_after_inference_mb": 269.09375
+    }
+  ],
+  "onnx_rf": {
+    "model": "models/family_rf_5sec.onnx",
+    "bytes": 5968368,
+    "sha256": "9a9c470042081591e1bcb6e21212ce567a09b099a9f04cfaf1d713ab8698cc9e",
+    "onnxruntime": "1.32.0",
+    "inputs": 71,
+    "rss_before_load_mb": 283.21875,
+    "rss_after_load_mb": 351.96484375,
+    "note": "family RF on raw features as exported by scripts/07_export_onnx.py; input semantics not re-verified here",
+    "single_record": {
+      "reps": 2000,
+      "warmup": 200,
+      "mean_ms": 0.0069701405,
+      "median_ms": 0.006789,
+      "p95_ms": 0.007189,
+      "p99_ms": 0.011063,
+      "min_ms": 0.006507,
+      "max_ms": 0.02982
+    },
+    "batch128": {
+      "reps": 200,
+      "warmup": 200,
+      "mean_ms": 0.46768550500000006,
+      "median_ms": 0.447903,
+      "p95_ms": 0.702203,
+      "p99_ms": 0.744311,
+      "min_ms": 0.424127,
+      "max_ms": 0.776099,
+      "rows": 128,
+      "throughput_rows_per_s": 285776.16135636513
+    }
+  },
+  "centralized_raw_upload_reference": {
+    "rows": 22450,
+    "features": 71,
+    "float32_feature_bytes": 6375800,
+    "note": "bytes to ship the 22,450 training feature vectors once as float32 (no labels/headers/compression)"
+  },
+  "runtime_seconds": 2.558049201965332
+}

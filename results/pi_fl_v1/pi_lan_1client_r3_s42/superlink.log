@@ -1,0 +1,82 @@
+[93mWARNING [0m:   SuperNode authentication is disabled. The SuperLink will accept connections from any SuperNode.
+[92mINFO [0m:      Starting Flower SuperLink
+[92mINFO [0m:      Starting the SuperLink Runtime HTTP API on 0.0.0.0:9092.
+[92mINFO [0m:      Starting the SuperLink Control HTTP API on 0.0.0.0:9092.
+[92mINFO [0m:      Starting the SuperLink Fleet HTTP API on 0.0.0.0:9092.
+2026-11-26T13:51:45.303Z INFO [uvicorn.error] Started server process [445]
+2026-11-26T13:51:45.304Z INFO [uvicorn.error] Waiting for application startup.
+[92mINFO [0m:      FastAPI lifespan: startup
+[92mINFO [0m:      SuperLinkLifespan: start
+2026-11-26T13:51:45.306Z INFO [uvicorn.error] Application startup complete.
+2026-11-26T13:51:45.311Z INFO [uvicorn.error] Uvicorn running on https://0.0.0.0:9092 (Press CTRL+C to quit)
+╭────────────────── Update available ───────────────────╮
+│ A newer Flower version is available: 1.40.0 -> 1.45.0 │
+│ Upgrade: python -m pip install -U flwr                │
+╰───────────────────────────────────────────────────────╯
+[92mINFO [0m:      Starting Flower SuperExec
+2026-11-26T14:06:35.001Z INFO [uvicorn.access] 10.96.27.10:34666 - "POST /v1/fleet/register-node HTTP/1.1" 200
+[92mINFO [0m:      [Fleet.ActivateNode] Activated node_id=12690235725469664462
+2026-11-26T14:06:35.058Z INFO [uvicorn.access] 10.96.27.10:34666 - "POST /v1/fleet/activate-node HTTP/1.1" 200
+[92mINFO [0m:      ControlServicer.StartRun
+[92mINFO [0m:      Created run 289950092896000020 in federation @none/default
+2026-11-26T14:06:56.357Z INFO [uvicorn.access] 127.0.0.1:47246 - "POST /v1/control/start-run HTTP/1.1" 200
+[92mINFO [0m:      ControlServicer.StreamLogs
+2026-11-26T14:06:56.374Z INFO [uvicorn.access] 127.0.0.1:47246 - "POST /v1/control/stream-logs HTTP/1.1" 200
+[92mINFO [0m:      Started task 5320259890136181684 of run 289950092896000020
+2026-11-26T14:06:58.088Z INFO [uvicorn.access] 127.0.0.1:47258 - "POST /v1/runtime/pull-task-input HTTP/1.1" 200
+[92mINFO [0m:      [Fleet.GetRun] Requesting `Run` for run_id=289950092896000020
+2026-11-26T14:07:02.528Z INFO [uvicorn.access] 10.96.27.10:34666 - "POST /v1/fleet/get-run HTTP/1.1" 200
+[92mINFO [0m:      [Fleet.GetFab] Requesting FAB for fab_hash=13fd3825f3f442ff204daab981078abbde8fbc75507ca5bf4b4372c5075ef783
+2026-11-26T14:07:02.618Z INFO [uvicorn.access] 10.96.27.10:34666 - "POST /v1/fleet/get-fab HTTP/1.1" 200
+[92mINFO [0m:      [Fleet.PushMessages] Push replies from node_id=12690235725469664462
+[92mINFO [0m:      [Fleet.PushMessages] Push replies from node_id=12690235725469664462
+[92mINFO [0m:      [Fleet.PushMessages] Push replies from node_id=12690235725469664462
+[92mINFO [0m:      [Fleet.PushMessages] Push replies from node_id=12690235725469664462
+[92mINFO [0m:      Finished task 5320259890136181684 of run 289950092896000020
+[92mINFO [0m:      All logs for run ID `289950092896000020` returned
+2026-11-26T14:07:39.526Z INFO [uvicorn.access] 127.0.0.1:47260 - "POST /v1/runtime/push-task-output HTTP/1.1" 200
+[92mINFO [0m:      [Fleet.DeactivateNode] Deactivated node_id=12690235725469664462
+2026-11-26T14:07:51.600Z INFO [uvicorn.access] 10.96.27.10:45582 - "POST /v1/fleet/deactivate-node HTTP/1.1" 200
+2026-11-26T14:07:51.617Z INFO [uvicorn.access] 10.96.27.10:45582 - "POST /v1/fleet/unregister-node HTTP/1.1" 200
+2026-11-26T14:07:56.066Z INFO [uvicorn.error] Shutting down
+2026-11-26T14:07:56.167Z INFO [uvicorn.error] Waiting for connections to close. (CTRL+C to force quit)
+2026-11-26T14:08:10.831Z INFO [uvicorn.error] Finished server process [445]
+[92mINFO [0m:      SuperLinkLifespan: stop
+[92mINFO [0m:      SuperExec terminated gracefully.
+[92mINFO [0m:      FastAPI lifespan: shutdown
+2026-11-26T14:08:11.000Z ERROR [uvicorn.error] Traceback (most recent call last):
+  File "/usr/lib/python3.12/asyncio/runners.py", line 194, in run
+    return runner.run(main)
+           ^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "uvloop/loop.pyx", line 1509, in uvloop.loop.Loop.run_until_complete
+  File "uvloop/loop.pyx", line 1502, in uvloop.loop.Loop.run_until_complete
+  File "uvloop/loop.pyx", line 1371, in uvloop.loop.Loop.run_forever
+  File "uvloop/loop.pyx", line 551, in uvloop.loop.Loop._run
+  File "uvloop/loop.pyx", line 471, in uvloop.loop.Loop._on_idle
+  File "uvloop/cbhandles.pyx", line 86, in uvloop.loop.Handle._run
+  File "uvloop/cbhandles.pyx", line 66, in uvloop.loop.Handle._run
+  File "/home/mozen/seniorproject-fl-venv/lib/python3.12/site-packages/uvicorn/server.py", line 78, in serve
+    with self.capture_signals():
+  File "/usr/lib/python3.12/contextlib.py", line 144, in __exit__
+    next(self.gen)
+  File "/home/mozen/seniorproject-fl-venv/lib/python3.12/site-packages/uvicorn/server.py", line 339, in capture_signals
+    signal.raise_signal(captured_signal)
+  File "/usr/lib/python3.12/asyncio/runners.py", line 157, in _on_sigint
+    raise KeyboardInterrupt()
+KeyboardInterrupt
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/mozen/seniorproject-fl-venv/lib/python3.12/site-packages/starlette/routing.py", line 645, in lifespan
+    await receive()
+  File "/home/mozen/seniorproject-fl-venv/lib/python3.12/site-packages/uvicorn/lifespan/on.py", line 137, in receive
+    return await self.receive_queue.get()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/asyncio/queues.py", line 158, in get
+    await getter
+asyncio.exceptions.CancelledError
+

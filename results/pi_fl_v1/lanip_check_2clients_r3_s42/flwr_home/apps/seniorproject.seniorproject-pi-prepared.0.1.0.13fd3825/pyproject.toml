@@ -1,0 +1,33 @@
+[build-system]
+requires = [
+    "hatchling",
+]
+build-backend = "hatchling.build"
+
+[project]
+name = "seniorproject-pi-prepared"
+version = "0.1.0"
+requires-python = ">=3.12"
+dependencies = [
+    "flwr==1.40.0",
+    "torch",
+    "numpy",
+    "pandas",
+    "psutil",
+]
+
+[tool.hatch.build.targets.wheel]
+packages = [
+    "pifl",
+]
+
+[tool.flwr.app]
+publisher = "seniorproject"
+
+[tool.flwr.app.components]
+serverapp = "pifl.server_app:app"
+clientapp = "pifl.client_app:app"
+
+[tool.flwr.app.config]
+project-root = "<PROJECT_ROOT>"
+experiment-config = "<EXPERIMENT_CONFIG_RELATIVE_TO_PROJECT>"

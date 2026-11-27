@@ -1,0 +1,2 @@
+pc_eth2_before rx=0 tx=0 utc=2026-11-26T14:06:54.322006198Z
+pc_eth2_after rx=0 tx=0 utc=2026-11-26T14:07:39.698348746Z

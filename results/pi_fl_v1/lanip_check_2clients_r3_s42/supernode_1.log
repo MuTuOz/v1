@@ -1,0 +1,57 @@
+[92mINFO [0m:      Starting Flower SuperNode
+INFO:     Started server process [12476]
+INFO:     Waiting for application startup.
+[92mINFO [0m:      FastAPI lifespan: startup
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://127.0.0.1:9094 (Press CTRL+C to quit)
+[92mINFO [0m:      SuperNode ID: 18236283636894134116
+[92mINFO [0m:      Starting Flower SuperExec
+[92mINFO [0m:      
+[92mINFO [0m:      [RUN 1346392589641128232]
+[92mINFO [0m:      Receiving: query.identity message (ID: 134a992c76e8ea5aba154573e73db3331c0017b9431957cd07ba67d5a5aca613)
+[92mINFO [0m:      Received successfully
+[92mINFO [0m:      Start `flwr-clientapp` process
+[92mINFO [0m:      
+[92mINFO [0m:      
+[92mINFO [0m:      [RUN 1346392589641128232]
+[92mINFO [0m:      Sending: query.identity message (ID: c25a0046241e6d127bb1e507f2e0a9716a8198d8d668fcef4ad7ccd6dac098d2)
+[92mINFO [0m:      Sent successfully
+[92mINFO [0m:      
+[92mINFO [0m:      [RUN 1346392589641128232]
+[92mINFO [0m:      Receiving: train message (ID: 61200bfea7c3db00485ed8c7f06d63ecc8f8fa754f3398c40cb89abee930a34b)
+[92mINFO [0m:      Received successfully
+[92mINFO [0m:      Start `flwr-clientapp` process
+[92mINFO [0m:      
+[92mINFO [0m:      
+[92mINFO [0m:      [RUN 1346392589641128232]
+[92mINFO [0m:      Sending: train message (ID: 86c984344c74c2115a73355479c31b1cc5c0c50008cbc88ebad7aa71724410da)
+[92mINFO [0m:      Sent successfully
+[92mINFO [0m:      
+[92mINFO [0m:      [RUN 1346392589641128232]
+[92mINFO [0m:      Receiving: train message (ID: 40b850ce99aa1ab205cc71b0122c9cbc547a4c1265e1dae5e45b38a9cb551c7a)
+[92mINFO [0m:      Received successfully
+[92mINFO [0m:      Start `flwr-clientapp` process
+[92mINFO [0m:      
+[92mINFO [0m:      
+[92mINFO [0m:      [RUN 1346392589641128232]
+[92mINFO [0m:      Sending: train message (ID: c303e0bf0f19ae233ef91529b6f1be5b3243c1fa525e76617c46d31660e318c3)
+[92mINFO [0m:      Sent successfully
+[92mINFO [0m:      
+[92mINFO [0m:      [RUN 1346392589641128232]
+[92mINFO [0m:      Receiving: train message (ID: c8b640442425fc74d1be5e7806d88a280961b4931a32497af25a4a4475c28cb7)
+[92mINFO [0m:      Received successfully
+[92mINFO [0m:      Start `flwr-clientapp` process
+[92mINFO [0m:      
+[92mINFO [0m:      
+[92mINFO [0m:      [RUN 1346392589641128232]
+[92mINFO [0m:      Sending: train message (ID: 34874a4f57854d95433fc7703dcbbbb9f45765979395caedcb94051891a16b75)
+[92mINFO [0m:      Sent successfully
+[92mINFO [0m:      SuperNode terminated gracefully.
+INFO:     Shutting down
+[93mWARNING [0m:   Connection attempt failed, retrying in 0.44 seconds
+INFO:     Waiting for application shutdown.
+[92mINFO [0m:      FastAPI lifespan: shutdown
+INFO:     Application shutdown complete.
+INFO:     Finished server process [12476]
+[93mWARNING [0m:   Connection attempt failed, retrying in 1.66 seconds
+[92mINFO [0m:      SuperExec terminated gracefully.

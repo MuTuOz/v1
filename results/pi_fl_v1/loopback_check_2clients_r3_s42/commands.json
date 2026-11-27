@@ -1,0 +1,57 @@
+{
+  "commands": [
+    [
+      "/tmp/claude-0/-home-user-v1/659ca8f4-af06-5924-90a1-67fc2d4e71c0/scratchpad/venv/bin/flower-superlink",
+      "--host",
+      "127.0.0.1",
+      "--port",
+      "9092",
+      "--ssl-ca-certfile",
+      "/root/.seniorfl_pki/loopback_test/ca.pem",
+      "--ssl-certfile",
+      "/root/.seniorfl_pki/loopback_test/server.pem",
+      "--ssl-keyfile",
+      "/root/.seniorfl_pki/loopback_test/server.key",
+      "--disable-runtime-dependency-installation",
+      "--database",
+      "/home/user/v1/results/pi_fl_v1/loopback_check_2clients_r3_s42/superlink_state.db"
+    ],
+    [
+      "/tmp/claude-0/-home-user-v1/659ca8f4-af06-5924-90a1-67fc2d4e71c0/scratchpad/venv/bin/flower-supernode",
+      "--superlink",
+      "127.0.0.1:9092",
+      "--root-certificates",
+      "/root/.seniorfl_pki/loopback_test/ca.pem",
+      "--host",
+      "127.0.0.1",
+      "--port",
+      "9094",
+      "--node-config",
+      "client-id=1 data-path=\"/home/user/v1/results/pre_pi_research_v1/audit/allocations/balanced/client_1_train.csv\" log-dir=\"/home/user/v1/results/pi_fl_v1/loopback_check_2clients_r3_s42/device_1\""
+    ],
+    [
+      "/tmp/claude-0/-home-user-v1/659ca8f4-af06-5924-90a1-67fc2d4e71c0/scratchpad/venv/bin/flower-supernode",
+      "--superlink",
+      "127.0.0.1:9092",
+      "--root-certificates",
+      "/root/.seniorfl_pki/loopback_test/ca.pem",
+      "--host",
+      "127.0.0.1",
+      "--port",
+      "9095",
+      "--node-config",
+      "client-id=2 data-path=\"/home/user/v1/results/pre_pi_research_v1/audit/allocations/balanced/client_2_train.csv\" log-dir=\"/home/user/v1/results/pi_fl_v1/loopback_check_2clients_r3_s42/device_2\""
+    ],
+    [
+      "/tmp/claude-0/-home-user-v1/659ca8f4-af06-5924-90a1-67fc2d4e71c0/scratchpad/venv/bin/flwr",
+      "run",
+      "/home/user/v1/hardware_deployment/app",
+      "pilab",
+      "--run-config",
+      "/home/user/v1/results/pi_fl_v1/loopback_check_2clients_r3_s42/run_config.toml",
+      "--stream"
+    ]
+  ],
+  "flwr_run_wall_seconds": 38.98961099799999,
+  "scope": "loopback on one machine; NOT a Raspberry Pi run"
+}

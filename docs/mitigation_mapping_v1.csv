@@ -1,0 +1,51 @@
+technique,family,mitigation_action,mitigation_scope,example_response
+benign,benign,none,none,no action
+bruteforce_dictionary-ssh,bruteforce,credential_protection,not_applicable,"account lockout / fail2ban / disable telnet, key-based SSH"
+bruteforce_dictionary-telnet,bruteforce,credential_protection,not_applicable,"account lockout / fail2ban / disable telnet, key-based SSH"
+ddos_ack-frag-flood,ddos,tcp_state_protection,distributed_sources,SYN cookies / stateful firewall / per-source TCP rate limit
+ddos_connect-flood,ddos,tcp_state_protection,distributed_sources,SYN cookies / stateful firewall / per-source TCP rate limit
+ddos_http-flood,ddos,l7_connection_protection,distributed_sources,"HTTP/RTSP request+connection rate limits, idle/header timeouts"
+ddos_icmp-flood,ddos,icmp_rate_limit,distributed_sources,ICMP rate limit or drop echo / fragment reassembly limits
+ddos_icmp-frag-flood,ddos,icmp_rate_limit,distributed_sources,ICMP rate limit or drop echo / fragment reassembly limits
+ddos_mqtt-publish-flood,ddos,mqtt_broker_throttling,distributed_sources,"MQTT broker auth, per-client publish quotas"
+ddos_push-ack-flood,ddos,tcp_state_protection,distributed_sources,SYN cookies / stateful firewall / per-source TCP rate limit
+ddos_rst-fin-flood,ddos,tcp_state_protection,distributed_sources,SYN cookies / stateful firewall / per-source TCP rate limit
+ddos_slowloris,ddos,l7_connection_protection,distributed_sources,"HTTP/RTSP request+connection rate limits, idle/header timeouts"
+ddos_syn-flood,ddos,tcp_state_protection,distributed_sources,SYN cookies / stateful firewall / per-source TCP rate limit
+ddos_synonymousip-flood,ddos,tcp_state_protection,distributed_sources,SYN cookies / stateful firewall / per-source TCP rate limit
+ddos_tcp-flood,ddos,tcp_state_protection,distributed_sources,SYN cookies / stateful firewall / per-source TCP rate limit
+ddos_udp-flood,ddos,udp_rate_limit,distributed_sources,UDP rate limit / drop unused UDP ports / fragment reassembly limits
+ddos_udp-frag-flood,ddos,udp_rate_limit,distributed_sources,UDP rate limit / drop unused UDP ports / fragment reassembly limits
+dos_ack-frag-flood,dos,tcp_state_protection,single_source,SYN cookies / stateful firewall / per-source TCP rate limit
+dos_connect-flood,dos,tcp_state_protection,single_source,SYN cookies / stateful firewall / per-source TCP rate limit
+dos_http-flood,dos,l7_connection_protection,single_source,"HTTP/RTSP request+connection rate limits, idle/header timeouts"
+dos_icmp-flood,dos,icmp_rate_limit,single_source,ICMP rate limit or drop echo / fragment reassembly limits
+dos_icmp-frag-flood,dos,icmp_rate_limit,single_source,ICMP rate limit or drop echo / fragment reassembly limits
+dos_mqtt-publish-flood,dos,mqtt_broker_throttling,single_source,"MQTT broker auth, per-client publish quotas"
+dos_push-ack-flood,dos,tcp_state_protection,single_source,SYN cookies / stateful firewall / per-source TCP rate limit
+dos_rst-fin-flood,dos,tcp_state_protection,single_source,SYN cookies / stateful firewall / per-source TCP rate limit
+dos_slowloris,dos,l7_connection_protection,single_source,"HTTP/RTSP request+connection rate limits, idle/header timeouts"
+dos_syn-flood,dos,tcp_state_protection,single_source,SYN cookies / stateful firewall / per-source TCP rate limit
+dos_synonymousip-flood,dos,tcp_state_protection,single_source,SYN cookies / stateful firewall / per-source TCP rate limit
+dos_tcp-flood,dos,tcp_state_protection,single_source,SYN cookies / stateful firewall / per-source TCP rate limit
+dos_udp-flood,dos,udp_rate_limit,single_source,UDP rate limit / drop unused UDP ports / fragment reassembly limits
+dos_udp-frag-flood,dos,udp_rate_limit,single_source,UDP rate limit / drop unused UDP ports / fragment reassembly limits
+malware_mirai-syn-flood,malware,quarantine_compromised_device,internal_compromised_source,"isolate the infected internal IoT device, then filter its flood"
+malware_mirai-udp-flood,malware,quarantine_compromised_device,internal_compromised_source,"isolate the infected internal IoT device, then filter its flood"
+mitm_arp-spoofing,mitm,arp_inspection,not_applicable,dynamic ARP inspection / static ARP entries
+mitm_impersonation,mitm,device_authentication,not_applicable,mutual authentication of devices/brokers
+mitm_ip-spoofing,mitm,ingress_antispoofing,not_applicable,ingress filtering / uRPF anti-spoofing
+recon_host-disc-arp-ping,recon,scanner_block_and_monitor,not_applicable,"block/rate-limit scanning source, raise monitoring level"
+recon_host-disc-tcp-ack-ping,recon,scanner_block_and_monitor,not_applicable,"block/rate-limit scanning source, raise monitoring level"
+recon_host-disc-tcp-syn-ping,recon,scanner_block_and_monitor,not_applicable,"block/rate-limit scanning source, raise monitoring level"
+recon_host-disc-tcp-syn-stealth,recon,scanner_block_and_monitor,not_applicable,"block/rate-limit scanning source, raise monitoring level"
+recon_host-disc-udp-ping,recon,scanner_block_and_monitor,not_applicable,"block/rate-limit scanning source, raise monitoring level"
+recon_os-scan,recon,scanner_block_and_monitor,not_applicable,"block/rate-limit scanning source, raise monitoring level"
+recon_ping-sweep,recon,scanner_block_and_monitor,not_applicable,"block/rate-limit scanning source, raise monitoring level"
+recon_port-scan,recon,scanner_block_and_monitor,not_applicable,"block/rate-limit scanning source, raise monitoring level"
+recon_vuln-scan,recon,scanner_block_and_monitor,not_applicable,"block/rate-limit scanning source, raise monitoring level"
+web_backdoor-upload,web,waf_input_filtering,not_applicable,WAF rules / input validation / patch web app
+web_command-injection,web,waf_input_filtering,not_applicable,WAF rules / input validation / patch web app
+web_sql-injection,web,waf_input_filtering,not_applicable,WAF rules / input validation / patch web app
+web_sql-injection-blind,web,waf_input_filtering,not_applicable,WAF rules / input validation / patch web app
+web_xss,web,waf_input_filtering,not_applicable,WAF rules / input validation / patch web app

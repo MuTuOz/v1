@@ -1,0 +1,38 @@
+{
+  "experiment_id": "pi_lan_2clients_r5_s42",
+  "rounds": 5,
+  "num_clients": 2,
+  "server_round_seconds_coarse": [
+    10.221,
+    9.445,
+    6.668,
+    9.456,
+    9.767
+  ],
+  "server_round_seconds_coarse_median_rounds_2_to_N": 9.45063591003418,
+  "pi_client2_interval_seconds_median_rounds_2_to_N": 9.034101605415344,
+  "pi_client2_training_seconds_median": 1.5178629820002243,
+  "pc_client1_training_seconds_median": 0.7249638209998466,
+  "flower_run_table": [
+    {
+      "run_id": -6409202646021130515,
+      "bytes_sent": 471492,
+      "bytes_recv": 428554,
+      "clientapp_runtime": 27.547903537750244
+    }
+  ],
+  "flower_run_table_note": "SuperLink 1.40 run-level bytes_sent/bytes_recv (all nodes in the run); not split per node",
+  "pi_wlan0_counters": {
+    "rx_bytes_delta": 360338,
+    "tx_bytes_delta": 491344,
+    "window": "read via SSH immediately before and after `flwr run` on the PC",
+    "note": "all wlan0 traffic in the window (SSH, polling/heartbeats, FAB download, TLS); upper bound"
+  },
+  "pc_interface_counters": "not measured: WSL2 mirrored-mode eth2 counters read 0/0 (pc_netbytes.txt); Windows-side counters not captured",
+  "timing_caveats": [
+    "server times are log-chunk flush timestamps (coarse)",
+    "round 1 includes ClientApp/FAB start-up",
+    "client intervals include ClientApp process start each round (Flower subprocess isolation), CSV load, training, 10 inference batches, transport and polling delay"
+  ],
+  "source": "scripts/37_pi_fl_round_timing.py v2"
+}
