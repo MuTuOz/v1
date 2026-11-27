@@ -1,5 +1,8 @@
 # Kali lab attack automation
 
+**Need to set up Kali itself first (VMware or an alternative)?** See
+[`kali_vm_kurulum_tr.md`](kali_vm_kurulum_tr.md) (Turkish).
+
 Automates the scenarios in `../docs/kali_lab_deployment_plan.md` against **your
 own isolated Pi/target**, mapped to the project's taxonomy
 (`../results/attack_taxonomy_5sec.csv`). Runs on the Kali box, not on the Pi
