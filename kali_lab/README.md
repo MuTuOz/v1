@@ -58,6 +58,24 @@ sudo apt update && sudo apt install -y nmap hping3 hydra ettercap-text-only \
   SSH already set up) to actually run from multiple sources; without it the
   scenario is automatically downgraded to a logged `dos_*` run.
 
+## `--port` only applies to a few scenarios — it does not retarget a named one
+
+A scenario id like `dos_syn-flood-port-80` has its port **hard-coded in the
+command template**, to keep the scenario id and the traffic it actually
+produces always matching (so a result never gets silently mislabeled). The
+global `--port` flag only takes effect for the handful of scenarios whose
+`cmd` in `scenarios.json` contains the `{port}` placeholder (currently
+`dos_udp-flood`, `dos_udp-frag-flood`, `dos_connect-flood`,
+`dos_http-flood-port-80`, `dos_mqtt-publish-flood` and the matching
+`ddos_*` ones). **To attack a different fixed port, use (or add) a scenario
+id for that exact port** instead of passing `--port` to a `-port-N` scenario
+id — e.g. `dos_syn-flood-port-22` for SSH, which exists in `scenarios.json`
+precisely because this came up in testing: passing `--port 22` to
+`dos_syn-flood-port-80` silently kept flooding port 80, since that
+template has no `{port}` in it at all. If you need a fixed-port variant
+that isn't in the catalogue yet, add it as a new entry (same pattern as
+`dos_syn-flood-port-22`) rather than trying to repurpose an existing one.
+
 ## Run it
 
 ```bash

