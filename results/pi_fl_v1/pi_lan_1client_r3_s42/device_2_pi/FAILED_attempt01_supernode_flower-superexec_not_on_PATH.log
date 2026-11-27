@@ -1,0 +1,38 @@
+╭────────────────── Update available ───────────────────╮
+│ A newer Flower version is available: 1.40.0 -> 1.45.0 │
+│ Upgrade: python -m pip install -U flwr                │
+╰───────────────────────────────────────────────────────╯
+[92mINFO [0m:      Starting Flower SuperNode
+INFO:     Started server process [3007]
+INFO:     Waiting for application startup.
+[92mINFO [0m:      FastAPI lifespan: startup
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://127.0.0.1:9094 (Press CTRL+C to quit)
+Traceback (most recent call last):
+  File "/home/iari/seniorfl-venv/bin/flower-supernode", line 6, in <module>
+    sys.exit(flower_supernode())
+             ^^^^^^^^^^^^^^^^^^
+  File "/home/iari/seniorfl-venv/lib/python3.11/site-packages/flwr/supernode/cli/flower_supernode.py", line 199, in flower_supernode
+    start_client_internal(
+  File "/home/iari/seniorfl-venv/lib/python3.11/site-packages/flwr/supernode/start_client_internal.py", line 222, in start_client_internal
+    subprocess.Popen(command)
+  File "/usr/lib/python3.11/subprocess.py", line 1024, in __init__
+    self._execute_child(args, executable, preexec_fn, close_fds,
+  File "/usr/lib/python3.11/subprocess.py", line 1901, in _execute_child
+    raise child_exception_type(errno_num, err_msg, err_filename)
+FileNotFoundError: [Errno 2] No such file or directory: 'flower-superexec'
+[92mINFO [0m:      SuperNode terminated gracefully.
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+[92mINFO [0m:      FastAPI lifespan: shutdown
+INFO:     Application shutdown complete.
+INFO:     Finished server process [3007]
+Exception ignored in: <module 'threading' from '/usr/lib/python3.11/threading.py'>
+Traceback (most recent call last):
+  File "/usr/lib/python3.11/threading.py", line 1583, in _shutdown
+    lock.acquire()
+  File "/home/iari/seniorfl-venv/lib/python3.11/site-packages/flwr/supercore/exit/signal_handler.py", line 103, in graceful_exit_handler
+    flwr_exit(
+  File "/home/iari/seniorfl-venv/lib/python3.11/site-packages/flwr/supercore/exit/exit.py", line 124, in flwr_exit
+    sys.exit(sys_exit_code)
+SystemExit: 0

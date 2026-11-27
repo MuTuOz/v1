@@ -1,0 +1,5 @@
+[superlink]
+default = "pilab"
+[superlink.pilab]
+address = "127.0.0.1:9092"
+root-certificates = "/home/mozen/.seniorfl_pki/pi_fl_v1/ca.pem"

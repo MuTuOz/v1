@@ -1,0 +1,4 @@
+# started 2026-11-26T14:08:31Z
+Raspberry Pi 5 Model B Rev 1.0
+Linux raspberrypi 6.12.96+rpt-rpi-2712 #1 SMP PREEMPT Debian 1:6.12.96-1+rpt1 (2026-07-24) aarch64 GNU/Linux
+wlan0            UP             10.96.27.10/24 fe80::719:3a1b:aee0:bab5/64 

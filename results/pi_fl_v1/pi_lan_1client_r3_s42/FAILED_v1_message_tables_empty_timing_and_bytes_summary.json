@@ -1,0 +1,26 @@
+{
+  "experiment_id": "pi_lan_1client_r3_s42",
+  "rounds": 0,
+  "train_replies": 0,
+  "round_seconds": [],
+  "round_seconds_median": NaN,
+  "round_seconds_first_round_note": "round 1 includes ClientApp/FAB start-up on each node",
+  "client_rtt_seconds_median_by_client": {},
+  "flower_run_table": [
+    {
+      "run_id": 289950092896000020,
+      "bytes_sent": 143022,
+      "bytes_recv": 129039,
+      "clientapp_runtime": 11.368650197982788
+    }
+  ],
+  "flower_run_table_note": "bytes_sent/bytes_recv as counted by SuperLink 1.40 for the run; semantics per Flower source",
+  "pi_wlan0_counters": {
+    "rx_bytes_delta": 237562,
+    "tx_bytes_delta": 303656,
+    "window": "read via SSH immediately before and after `flwr run` on the PC",
+    "note": "includes all wlan0 traffic in the window (SSH, polling, FAB download, TLS); upper bound"
+  },
+  "pc_interface_counters": "not measured: WSL2 mirrored-mode eth2 counters read 0/0; Windows-side counters not captured",
+  "source": "scripts/37_pi_fl_round_timing.py (reads a temporary copy of superlink_state.db)"
+}

@@ -5,9 +5,11 @@ Hocanın sorusu: *"Pi ile çalışıyor mu? PC server, Pi client olacak şekilde
 **Durum (2026-11-26):** Yazılım yolu, Pi'nin kullanacağı komutların aynısıyla tek bir x86 makinede
 doğrulandı (TLS, sunucu `0.0.0.0:9092`, istemciler loopback olmayan IP üzerinden, sertifika SAN = IP;
 3 tur, 6 güncelleme, FedAvg ağırlıkları kontrol edildi — bkz. `results/pi_fl_v1/lanip_check_2clients_r3_s42/`).
-**Gerçek Raspberry Pi üzerinde henüz çalıştırılmadı.** Pi'de çalıştığını iddia edebilmek için aşağıdaki
-adımları laboratuvarda yapıp `verify` çıktısını ve Pi'nin kendi log JSON'larını (platform = `aarch64`)
-saklamak gerekir.
+**Güncelleme (2026-11-26, aynı gün): gerçek bir Raspberry Pi 5 üzerinde çalıştırıldı ve doğrulandı** —
+PC (WSL2, mirrored ağ) SuperLink, Pi 5 SuperNode; 1 istemcili 3 tur ve PC+Pi 2 istemcili 5 tur, ikisinde de
+`verify` geçti ve Pi'nin kendi JSON'ları `aarch64` gösteriyor. Kanıt ve sınırlamalar:
+[`results/pi_fl_v1/PHYSICAL_PI_RUNS_2026-11-26.md`](../results/pi_fl_v1/PHYSICAL_PI_RUNS_2026-11-26.md).
+Bu sırada bulunan ek tuzaklar aşağıdaki "Sık hatalar" tablosunun sonuna eklendi.
 
 Yardımcı betik: [`scripts/36_pc_pi_federation.py`](../scripts/36_pc_pi_federation.py). Uygulama kodu:
 `hardware_deployment/app` (sunucu FAB'ı SuperNode'lara kendisi gönderir; Pi'ye proje klonlamak gerekmez,
@@ -88,3 +90,7 @@ Son komut PC ve her istemci için çalıştırılacak tam komutları ve `flwr` p
 | `Client schema fingerprint mismatch` | istemcideki uygulama farklı sürüm; aynı FAB'ı kullanın (Flower kendi dağıtır) |
 | `Training size changed within run` | çalıştırma sırasında CSV değişti |
 | Pi'de torch import hatası | 32-bit OS veya uyumsuz Python; 64-bit OS + `pip install torch` |
+| Pi'de `pip install torch` GB'larca `nvidia-*` indiriyor | aarch64 PyPI wheel'i CUDA bağımlılıkları çekiyor; `pip install --index-url https://download.pytorch.org/whl/cpu torch` kullanın |
+| SuperNode: `FileNotFoundError: 'flower-superexec'` | venv `bin` PATH'te değil; `export PATH=~/seniorfl-venv/bin:$PATH` sonra başlatın |
+| SuperNode: `Runtime HTTP API failed to start` | önceki SuperNode süreci 9094'ü tutuyor; `pgrep -af flower-supernode` ile bulup kapatın |
+| Pi'den 9092'ye `bash -c "</dev/tcp/<PC_IP>/9092"` başarısız (WSL2 mirrored) | Windows Firewall **ve** Hyper-V firewall gelen kuralı gerekir (`New-NetFirewallRule` + `New-NetFirewallHyperVRule -VMCreatorId '{40E0AC32-46A5-438A-A0B2-2B479E8F2E90}'`, yalnızca lab alt ağı; yönetici) |

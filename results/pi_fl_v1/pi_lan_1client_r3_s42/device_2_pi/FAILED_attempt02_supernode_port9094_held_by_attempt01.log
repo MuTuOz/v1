@@ -1,0 +1,19 @@
+[92mINFO [0m:      Starting Flower SuperNode
+INFO:     Started server process [3031]
+INFO:     Waiting for application startup.
+[92mINFO [0m:      FastAPI lifespan: startup
+INFO:     Application startup complete.
+ERROR:    [Errno 98] error while attempting to bind on address ('127.0.0.1', 9094): address already in use
+INFO:     Waiting for application shutdown.
+[92mINFO [0m:      FastAPI lifespan: shutdown
+INFO:     Application shutdown complete.
+Traceback (most recent call last):
+  File "/home/iari/seniorfl-venv/bin/flower-supernode", line 6, in <module>
+    sys.exit(flower_supernode())
+             ^^^^^^^^^^^^^^^^^^
+  File "/home/iari/seniorfl-venv/lib/python3.11/site-packages/flwr/supernode/cli/flower_supernode.py", line 182, in flower_supernode
+    http_server, http_thread = _start_supernode_http_api(config, state_factory)
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/iari/seniorfl-venv/lib/python3.11/site-packages/flwr/supernode/cli/flower_supernode.py", line 248, in _start_supernode_http_api
+    raise RuntimeError("SuperNode Runtime HTTP API failed to start.")
+RuntimeError: SuperNode Runtime HTTP API failed to start.
