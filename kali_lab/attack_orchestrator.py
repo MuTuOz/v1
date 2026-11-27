@@ -190,12 +190,18 @@ def main() -> int:
         label2, cmd = build_cmd(entry, a, sid)
         run_id = f"{sid}_{i:03d}"
         print(f"\n[{run_id}] label2={label2} label3={entry['label3']} tool={entry.get('tool')}")
+        print(f"  ATT&CK enterprise: {entry.get('attack_enterprise_id')} {entry.get('attack_enterprise_name')}")
+        print(f"  ATT&CK ICS: {entry.get('attack_ics_id')} {entry.get('attack_ics_name')}")
+        print(f"  Atomic Red Team: {entry.get('atomic_red_team_status')}")
         print(f"  $ {cmd}")
         if entry.get("notes"):
             print(f"  note: {entry['notes']}")
         if a.dry_run:
             manifest["runs"].append({"run_id": run_id, "scenario_id": sid, "intended_family": entry["label2"],
                                      "effective_family": label2, "intended_subtype": entry["label3"],
+                                     "attack_enterprise_id": entry.get("attack_enterprise_id"),
+                                     "attack_ics_id": entry.get("attack_ics_id"),
+                                     "atomic_red_team_status": entry.get("atomic_red_team_status"),
                                      "command": cmd, "executed": False})
             continue
 
@@ -223,6 +229,10 @@ def main() -> int:
         manifest["runs"].append({
             "run_id": run_id, "scenario_id": sid, "intended_family": entry["label2"],
             "effective_family": label2, "intended_subtype": entry["label3"], "tool": entry.get("tool"),
+            "attack_enterprise_id": entry.get("attack_enterprise_id"),
+            "attack_enterprise_name": entry.get("attack_enterprise_name"),
+            "attack_ics_id": entry.get("attack_ics_id"), "attack_ics_name": entry.get("attack_ics_name"),
+            "atomic_red_team_status": entry.get("atomic_red_team_status"),
             "command": cmd, "executed": True, "start_utc": start_t, "end_utc": end_t,
             "duration_s": a.duration, "returncode": result["returncode"], "wall_seconds": result["wall_seconds"],
             "remote_attacker_count": len(remote_procs), "log_file": str(log_path.relative_to(out)),
