@@ -1,5 +1,8 @@
 # Kali lab attack automation
 
+**Need to set up Kali itself first (VMware or an alternative)?** See
+[`kali_vm_kurulum_tr.md`](kali_vm_kurulum_tr.md) (Turkish).
+
 Automates the scenarios in `../docs/kali_lab_deployment_plan.md` against **your
 own isolated Pi/target**, mapped to the project's taxonomy
 (`../results/attack_taxonomy_5sec.csv`). Runs on the Kali box, not on the Pi
@@ -17,6 +20,14 @@ verified until you run it and attach target-side evidence.
 | `attack_orchestrator.py` | runs a chosen list of scenarios back-to-back with cooldowns, writes `manifest.json` |
 | `attach_target_evidence.py` | merges what you observed on the **target** into that manifest — required before any row counts as ground truth |
 | `make_synthetic_wordlists.py` | synthetic (not leaked) user/password list for `bruteforce_*` |
+| `mitre_attack_mapping.csv` | MITRE ATT&CK Enterprise + ATT&CK for ICS technique id per scenario, with sourced notes |
+| `ATOMIC_RED_TEAM_NOTES.md` | what's confirmed vs. not for each technique/Atomic Red Team test, and how to pull the live repo for exact current commands |
+
+Every scenario in `scenarios.json` carries `attack_enterprise_id`, `attack_ics_id` and
+`atomic_red_team_status`; the orchestrator prints and logs them for every run. **Read
+`ATOMIC_RED_TEAM_NOTES.md` before citing a specific Atomic Red Team test number in your report** —
+several techniques here (e.g. ARP spoofing, the hydra dictionary scenarios) have no confirmed
+public Atomic Red Team test behind them; they are mapped to the MITRE ATT&CK technique itself.
 
 ## Install (on the Kali box)
 
